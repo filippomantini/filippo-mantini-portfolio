@@ -178,7 +178,7 @@ a{color:inherit;text-decoration:none}
   position:relative;
   z-index:6;
   display:grid;
-  grid-template-columns:auto auto auto auto 1fr;
+  grid-template-columns:auto auto auto 1fr;
   align-items:center;
   gap:96px;
   padding:20px 34px;
@@ -218,14 +218,22 @@ a{color:inherit;text-decoration:none}
 }
 @media (max-width:900px){
   .utility-bar{
-    grid-template-columns:1fr 1fr;
-    gap:14px 30px;
+    grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
+    gap:14px 20px;
     padding:15px 16px;
   }
   .utility-status{
-    justify-self:start;
-    grid-column:1 / -1;
-    margin-top:2px;
+    justify-self:end;
+    grid-column:auto;
+    margin-top:0;
+    gap:8px;
+    font-size:10px;
+    line-height:1.15;
+  }
+  .utility-dot{
+    width:6px;
+    height:6px;
+    flex:0 0 6px;
   }
 }
 
@@ -480,7 +488,6 @@ body.fx .cursor{opacity:1}
     <a class="utility-link" href="https://www.instagram.com/filippomantini/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
     <a class="utility-link" href="https://www.behance.net/filippomantini" target="_blank" rel="noopener noreferrer">Behance ↗</a>
     <a class="utility-link" href="mailto:info@filippomantini.com">Email ↗</a>
-    <a class="utility-link" href="#contact">Contact</a>
     <div class="utility-status"><span class="utility-dot"></span><span>Available for selected projects</span></div>
   </section>
 
