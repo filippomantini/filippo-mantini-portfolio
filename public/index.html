@@ -74,6 +74,7 @@ a{color:inherit;text-decoration:none}
   letter-spacing:-.035em;
   text-transform:uppercase;
   white-space:nowrap;
+  font-size:13px;
 }
 .topbar nav{display:flex;gap:18px}
 
@@ -179,21 +180,21 @@ a{color:inherit;text-decoration:none}
   display:grid;
   grid-template-columns:auto auto auto auto 1fr;
   align-items:center;
-  gap:34px;
-  padding:14px 22px;
+  gap:56px;
+  padding:20px 30px;
   background:
     linear-gradient(rgba(10,10,9,.96),rgba(10,10,9,.96)),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
   color:var(--paper-2);
   border-bottom:1px solid rgba(255,255,255,.12);
-  font:11px/1 "IBM Plex Mono",monospace;
+  font:15px/1 "IBM Plex Mono",monospace;
   text-transform:uppercase;
   letter-spacing:.01em;
 }
 .utility-link{
   display:inline-flex;
   align-items:center;
-  min-height:22px;
+  min-height:30px;
   transition:transform .2s ease,font-style .2s ease,color .2s ease;
 }
 .utility-link:hover{
@@ -205,7 +206,7 @@ a{color:inherit;text-decoration:none}
   justify-self:end;
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:12px;
   color:#d7d2ca;
   white-space:nowrap;
 }
@@ -218,8 +219,8 @@ a{color:inherit;text-decoration:none}
 @media (max-width:900px){
   .utility-bar{
     grid-template-columns:1fr 1fr;
-    gap:10px 18px;
-    padding:12px 16px;
+    gap:12px 22px;
+    padding:15px 16px;
   }
   .utility-status{
     justify-self:start;
