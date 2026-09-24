@@ -113,8 +113,8 @@ a{color:inherit;text-decoration:none}
   white-space:nowrap;
 }
 .w-confusion{font-size:clamp(58px,8.6vw,128px);top:170px;left:5vw}
-.w-method{font-size:clamp(50px,7.2vw,108px);top:330px;right:5vw}
-.w-creative{font-size:clamp(44px,6.3vw,94px);top:505px;left:15vw;color:var(--orange)}
+.w-method{font-size:clamp(50px,7.2vw,108px);top:310px;right:5vw}
+.w-creative{font-size:clamp(44px,6.3vw,94px);top:535px;left:15vw;color:var(--orange)}
 .w-together{font-size:clamp(54px,7.8vw,118px);top:690px;right:8vw}
 
 .micro-columns{
@@ -157,11 +157,15 @@ a{color:inherit;text-decoration:none}
 .hero-intro strong{
   display:block;
   font-weight:600;
-  margin-bottom:12px;
+  margin-bottom:1px;
+}
+.hero-intro .waiting{
+  display:block;
+  margin-top:0;
 }
 .hero-intro .mono{
   display:block;
-  margin-top:24px;
+  margin-top:16px;
   font:10px/1.55 "IBM Plex Mono",monospace;
   letter-spacing:0;
   text-transform:uppercase;
@@ -274,44 +278,18 @@ footer h2{
 footer h2 span{color:var(--orange)}
 footer .bottom{display:flex;justify-content:space-between;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#a6a19a}
 
-/* VEIL — performance liquid membrane
-   No full-screen backdrop blur or SVG displacement: these were the main source of lag. */
-.veil{
+/* LIQUID VEIL — canvas based for a genuinely organic reveal */
+.liquid-veil{
   position:fixed;
-  left:0;top:0;
+  inset:0;
   z-index:100;
+  width:100%;
+  height:100%;
   pointer-events:none;
-  width:920px;
-  height:700px;
   opacity:0;
-  background:transparent;
-  border-radius:52% 48% 55% 45% / 46% 54% 44% 56%;
-  box-shadow:
-    0 0 120px 72px rgba(239,237,231,.32),
-    0 0 220px 110px rgba(239,237,231,.16),
-    0 0 0 300vmax rgba(239,237,231,.80);
-  transform:translate3d(-1200px,-1200px,0);
-  transform-origin:center;
-  will-change:transform,border-radius;
-  animation:liquidMorph 7s ease-in-out infinite alternate;
+  transition:opacity .18s ease;
 }
-.veil::after{
-  content:"";
-  position:absolute;
-  inset:-58px;
-  border-radius:inherit;
-  box-shadow:
-    inset 0 0 70px rgba(255,255,255,.18),
-    0 0 90px rgba(239,237,231,.12);
-  opacity:.42;
-}
-body.fx .veil{opacity:1}
-@keyframes liquidMorph{
-  0%{border-radius:52% 48% 55% 45% / 46% 54% 44% 56%}
-  33%{border-radius:46% 54% 42% 58% / 57% 43% 59% 41%}
-  66%{border-radius:57% 43% 51% 49% / 42% 58% 47% 53%}
-  100%{border-radius:48% 52% 60% 40% / 54% 46% 41% 59%}
-}
+body.fx .liquid-veil{opacity:1}
 
 .cursor{
   position:fixed;left:0;top:0;z-index:150;
@@ -325,7 +303,7 @@ body.fx .cursor{opacity:1}
 
 @media (max-width: 900px){
   body{cursor:auto}
-  .veil,.cursor{display:none!important}
+  .liquid-veil,.cursor{display:none!important}
   .topbar{grid-template-columns:1fr auto}
   .topbar .status{display:none}
   .hero{min-height:820px}
@@ -360,7 +338,7 @@ body.fx .cursor{opacity:1}
   </div>
 </div>
 
-<div class="veil" id="veil"></div>
+<canvas class="liquid-veil" id="liquidVeil" aria-hidden="true"></canvas>
 <div class="cursor" id="cursor"></div>
 
 <header class="topbar">
@@ -390,8 +368,8 @@ body.fx .cursor{opacity:1}
     <div class="hero-word w-together">LET'S WORK TOGETHER.</div>
 
     <div class="hero-intro">
-      <strong>I'M FILIPPO MANTINI.</strong><br>
-      I'VE BEEN WAITING FOR YOU HERE.
+      <strong>I'M FILIPPO MANTINI.</strong>
+      <span class="waiting">I'VE BEEN WAITING FOR YOU HERE.</span>
       <span class="mono">I build identities, images, experiences and digital systems from fragments, rules and mistakes.</span>
     </div>
   </section>
@@ -462,19 +440,20 @@ body.fx .cursor{opacity:1}
 
 <footer>
   <h2>LET'S BUILD<br>SOMETHING<br><span>TOGETHER.</span></h2>
-  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.7</span></div>
+  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.8</span></div>
 </footer>
 
 <script>
 (() => {
   const splash = document.getElementById('splash');
   const cursor = document.getElementById('cursor');
-  const veil = document.getElementById('veil');
+  const canvas = document.getElementById('liquidVeil');
+  const ctx = canvas.getContext('2d', { alpha:true });
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   setTimeout(() => splash.classList.add('out'), reduced ? 250 : 1050);
 
-  // Occasional micro-glitch: transform/opacity only, avoiding expensive blur filters.
+  // Subtle text glitch, transform-only for performance.
   const micro = [...document.querySelectorAll('.micro-columns p')];
   if (!reduced) {
     const glitchOne = () => {
@@ -494,41 +473,100 @@ body.fx .cursor{opacity:1}
   const canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches && window.innerWidth > 900;
   if (!canHover) return;
 
-  let targetX=innerWidth*.5, targetY=innerHeight*.5;
-  let blobX=targetX, blobY=targetY;
-  let vx=0, vy=0;
-  let prevX=targetX, prevY=targetY;
-  let speed=0, angle=0;
-  let running=true;
-
   document.body.classList.add('fx');
+
+  let dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+  let w = innerWidth, h = innerHeight;
+
+  const resize = () => {
+    w = innerWidth; h = innerHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+    canvas.width = Math.round(w*dpr);
+    canvas.height = Math.round(h*dpr);
+    canvas.style.width = w+'px';
+    canvas.style.height = h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  };
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  let tx=w*.5, ty=h*.5;
+  let x=tx, y=ty, vx=0, vy=0;
+  let prevX=tx, prevY=ty;
+  let speed=0, angle=0, t=0;
+  let running=true;
 
   window.addEventListener('mousemove', e=>{
     const dx=e.clientX-prevX, dy=e.clientY-prevY;
-    speed=Math.min(1,Math.hypot(dx,dy)/50);
+    speed=Math.min(1.15,Math.hypot(dx,dy)/48);
     angle=Math.atan2(dy,dx)*180/Math.PI;
-    targetX=e.clientX; targetY=e.clientY;
-    prevX=targetX; prevY=targetY;
+    tx=e.clientX; ty=e.clientY;
+    prevX=tx; prevY=ty;
 
-    const sx=1+speed*.55;
-    const sy=1-speed*.14;
-    cursor.style.transform=`translate3d(${targetX-8}px,${targetY-5.5}px,0) rotate(${angle}deg) scale(${sx},${sy})`;
+    const sx=1+speed*.62;
+    const sy=1-speed*.15;
+    cursor.style.transform=`translate3d(${tx-8}px,${ty-5.5}px,0) rotate(${angle}deg) scale(${sx},${sy})`;
   },{passive:true});
+
+  const punch = (cx,cy,rx,ry,alpha=1) => {
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.scale(rx,ry);
+    const g=ctx.createRadialGradient(0,0,0,0,0,1);
+    g.addColorStop(0,'rgba(0,0,0,'+alpha+')');
+    g.addColorStop(.58,'rgba(0,0,0,'+alpha+')');
+    g.addColorStop(.80,'rgba(0,0,0,'+(alpha*.55)+')');
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g;
+    ctx.beginPath();
+    ctx.arc(0,0,1,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  };
+
+  const draw = () => {
+    ctx.clearRect(0,0,w,h);
+
+    // Soft off-white membrane.
+    ctx.globalCompositeOperation='source-over';
+    ctx.fillStyle='rgba(239,237,231,.80)';
+    ctx.fillRect(0,0,w,h);
+
+    // A few overlapping "metaball-like" holes create an irregular liquid opening.
+    ctx.globalCompositeOperation='destination-out';
+
+    const vel=Math.min(1.2,Math.hypot(vx,vy)/26);
+    const dir=Math.atan2(vy,vx);
+    const driftX=Math.cos(dir), driftY=Math.sin(dir);
+
+    const baseX=x + Math.sin(t*.9)*7;
+    const baseY=y + Math.cos(t*.8)*6;
+
+    punch(baseX,baseY,360+vel*75,285-vel*18,1);
+    punch(baseX-driftX*(120+vel*75)+Math.sin(t*1.3)*18,
+          baseY-driftY*(90+vel*55)+Math.cos(t*1.1)*12,
+          255+vel*42,215,0.92);
+    punch(baseX+driftY*105+Math.sin(t*.7)*15,
+          baseY-driftX*85+Math.cos(t*.6)*15,
+          215,180+vel*20,0.86);
+    punch(baseX-driftY*125+Math.cos(t*.75)*12,
+          baseY+driftX*95+Math.sin(t*.65)*14,
+          190+vel*28,160,0.78);
+
+    ctx.globalCompositeOperation='source-over';
+  };
 
   const animate=()=>{
     if(!running) return;
-    // Damped spring gives the reveal mass without repainting full-screen filters.
-    vx=(vx+(targetX-blobX)*.035)*.80;
-    vy=(vy+(targetY-blobY)*.035)*.80;
-    blobX+=vx; blobY+=vy;
 
-    const v=Math.min(1,Math.hypot(vx,vy)/26);
-    const rotate=Math.atan2(vy,vx)*180/Math.PI;
-    const sx=1+v*.20;
-    const sy=1-v*.08;
+    // viscous spring motion
+    vx=(vx+(tx-x)*.038)*.81;
+    vy=(vy+(ty-y)*.038)*.81;
+    x+=vx; y+=vy;
+    t+=.018;
 
-    veil.style.transform=`translate3d(${blobX-460}px,${blobY-350}px,0) rotate(${rotate*.08}deg) scale(${sx},${sy})`;
-    speed*=.90;
+    draw();
+    speed*=.91;
     requestAnimationFrame(animate);
   };
   requestAnimationFrame(animate);
