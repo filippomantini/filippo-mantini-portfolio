@@ -177,7 +177,7 @@ a{color:inherit;text-decoration:none}
   position:relative;
   z-index:6;
   display:grid;
-  grid-template-columns:auto auto auto 1fr;
+  grid-template-columns:auto auto auto auto 1fr;
   align-items:center;
   gap:34px;
   padding:14px 22px;
@@ -317,7 +317,8 @@ footer h2{
   line-height:.78;letter-spacing:-.075em;font-weight:500;
 }
 footer h2 span{color:var(--orange)}
-footer .bottom{display:flex;justify-content:space-between;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#a6a19a}
+footer .bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#a6a19a}
+footer .bottom a{color:var(--paper-2)}
 
 /* LIQUID VEIL — canvas based for a genuinely organic reveal */
 .liquid-veil{
@@ -417,7 +418,8 @@ body.fx .cursor{opacity:1}
   <section class="utility-bar" aria-label="External links and availability">
     <a class="utility-link" href="https://www.instagram.com/filippomantini/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
     <a class="utility-link" href="https://www.behance.net/filippomantini" target="_blank" rel="noopener noreferrer">Behance ↗</a>
-    <a class="utility-link" href="#about">Contact</a>
+    <a class="utility-link" href="mailto:info@filippomantini.com">Email ↗</a>
+    <a class="utility-link" href="#contact">Contact</a>
     <div class="utility-status"><span class="utility-dot"></span><span>Available for selected projects</span></div>
   </section>
 
@@ -478,9 +480,9 @@ body.fx .cursor{opacity:1}
   </section>
 </main>
 
-<footer>
+<footer id="contact">
   <h2>LET'S BUILD<br>SOMETHING<br><span>TOGETHER.</span></h2>
-  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.9</span></div>
+  <div class="bottom"><span>Filippo Mantini © 2026</span><a href="mailto:info@filippomantini.com">info@filippomantini.com ↗</a><span>Portfolio v0.9</span></div>
 </footer>
 
 <script>
