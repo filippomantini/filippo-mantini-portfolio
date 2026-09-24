@@ -93,6 +93,12 @@ a{color:inherit;text-decoration:none}
   text-transform:uppercase;color:var(--muted);
   max-width:220px;
 }
+.note-a{
+  font-size:12px;
+  line-height:1.32;
+  max-width:280px;
+  letter-spacing:-.01em;
+}
 .note-a{top:55px;left:22px}
 .note-b{top:62px;right:22px;text-align:right}
 .note-c{bottom:34px;left:22px;max-width:330px}
@@ -141,18 +147,25 @@ a{color:inherit;text-decoration:none}
 }
 .hero-intro{
   position:absolute;z-index:3;
-  left:50%;top:50%;transform:translate(-50%,-45%);
-  width:min(740px,72vw);
+  left:50%;top:50%;transform:translate(-50%,-43%);
+  width:min(780px,74vw);
   text-align:center;
   font-size:clamp(18px,2.1vw,30px);
-  line-height:1.05;letter-spacing:-.035em;
+  line-height:1.08;letter-spacing:-.035em;
   mix-blend-mode:multiply;
 }
-.hero-intro strong{font-weight:600}
+.hero-intro strong{
+  display:block;
+  font-weight:600;
+  margin-bottom:12px;
+}
 .hero-intro .mono{
-  display:block;margin-top:16px;
-  font:10px/1.5 "IBM Plex Mono",monospace;
-  letter-spacing:0;text-transform:uppercase;color:var(--muted)
+  display:block;
+  margin-top:24px;
+  font:10px/1.55 "IBM Plex Mono",monospace;
+  letter-spacing:0;
+  text-transform:uppercase;
+  color:var(--muted)
 }
 
 /* MARQUEE */
@@ -274,8 +287,9 @@ footer .bottom{display:flex;justify-content:space-between;font:10px/1 "IBM Plex 
   background:transparent;
   border-radius:52% 48% 55% 45% / 46% 54% 44% 56%;
   box-shadow:
-    0 0 62px 26px rgba(239,237,231,.48),
-    0 0 0 300vmax rgba(239,237,231,.83);
+    0 0 120px 72px rgba(239,237,231,.32),
+    0 0 220px 110px rgba(239,237,231,.16),
+    0 0 0 300vmax rgba(239,237,231,.80);
   transform:translate3d(-1200px,-1200px,0);
   transform-origin:center;
   will-change:transform,border-radius;
@@ -283,10 +297,13 @@ footer .bottom{display:flex;justify-content:space-between;font:10px/1 "IBM Plex 
 }
 .veil::after{
   content:"";
-  position:absolute;inset:-22px;
+  position:absolute;
+  inset:-58px;
   border-radius:inherit;
-  box-shadow:inset 0 0 34px rgba(255,255,255,.28);
-  opacity:.5;
+  box-shadow:
+    inset 0 0 70px rgba(255,255,255,.18),
+    0 0 90px rgba(239,237,231,.12);
+  opacity:.42;
 }
 body.fx .veil{opacity:1}
 @keyframes liquidMorph{
@@ -445,7 +462,7 @@ body.fx .cursor{opacity:1}
 
 <footer>
   <h2>LET'S BUILD<br>SOMETHING<br><span>TOGETHER.</span></h2>
-  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio / Live prototype</span></div>
+  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.7</span></div>
 </footer>
 
 <script>
