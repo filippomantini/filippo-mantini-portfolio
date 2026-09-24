@@ -269,44 +269,65 @@ a{color:inherit;text-decoration:none}
 
 /* PHOTO */
 .photo{
-  padding:28px 14px 90px;
+  padding:34px 0 96px;
   border-bottom:1px solid var(--line)
 }
 .photo-top{
   display:flex;
   justify-content:space-between;
-  margin-bottom:24px;
-  padding-bottom:22px;
-  border-bottom:1px solid var(--line);
+  margin:0 16px 18px;
+  padding-bottom:18px;
   font:10px/1 "IBM Plex Mono",monospace;
   text-transform:uppercase;
   color:var(--muted)
 }
-.photo-list{border-top:0}
+.photo-list{
+  border-top:1px solid var(--line)
+}
 .photo-row{
-  display:grid;
-  grid-template-columns:1fr auto;
+  position:relative;
+  display:flex;
   align-items:center;
-  min-height:132px;
-  padding:0 6px;
+  justify-content:center;
+  min-height:118px;
+  overflow:hidden;
   border-bottom:1px solid var(--line);
-  transition:color .18s ease, transform .18s ease, opacity .18s ease;
+  color:var(--ink);
+  transition:color .18s ease;
 }
 .photo-row .label{
-  font-size:clamp(72px,10.8vw,168px);
+  position:relative;
+  z-index:1;
+  display:block;
+  font-size:clamp(66px,9.3vw,144px);
   line-height:.76;
-  letter-spacing:-.075em;
-  font-weight:500;
+  letter-spacing:-.07em;
+  font-weight:400;
+  text-align:center;
+  transform:translateY(-8%);
+  transition:transform .22s ease,color .18s ease;
 }
 .photo-row .count{
+  position:absolute;
+  right:18px;
+  bottom:12px;
+  z-index:3;
   font:10px/1 "IBM Plex Mono",monospace;
-  align-self:end;
-  margin-bottom:16px;
   color:var(--muted)
 }
-.photo-row:hover{
+
+/* thin line sits visually above the type, so the word appears to emerge from under it */
+.photo-row::before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:-1px;
+  height:1px;
+  background:var(--line);
+  z-index:2;
+}
+.photo-row:hover .label{
+  transform:translateY(-3%) skewX(-4deg);
   color:var(--orange);
-  transform:translateX(5px)
 }
 
 /* ARCHIVE */
@@ -388,8 +409,12 @@ body.fx .cursor{opacity:1}
   .project-visual{min-height:340px}
   .project-bottom{grid-template-columns:1fr;gap:10px}
   .photo,.archive,.about{padding-left:14px;padding-right:14px}
-  .photo-row{min-height:96px}
-  .photo-row .label{font-size:clamp(52px,16vw,92px)}
+  .photo-row{min-height:88px}
+  .photo-row .label{
+    font-size:clamp(48px,14vw,84px);
+    font-weight:400;
+    transform:translateY(-6%);
+  }
   .archive-row{grid-template-columns:48px 1fr}.archive-row .type{display:none}
   .about-grid{grid-template-columns:1fr}
   footer{padding:24px 16px}
