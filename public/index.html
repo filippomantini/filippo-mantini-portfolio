@@ -172,20 +172,61 @@ a{color:inherit;text-decoration:none}
   color:var(--muted)
 }
 
-/* MARQUEE */
-.marquee{
-  overflow:hidden;border-bottom:1px solid var(--line);
-  background:var(--orange);color:var(--paper-2)
-}
-.marquee-track{
-  display:flex;width:max-content;
-  animation:marquee 22s linear infinite;
-  padding:10px 0;
+/* UTILITY BAR */
+.utility-bar{
+  position:relative;
+  z-index:6;
+  display:grid;
+  grid-template-columns:auto auto auto 1fr;
+  align-items:center;
+  gap:34px;
+  padding:14px 22px;
+  background:
+    linear-gradient(rgba(10,10,9,.96),rgba(10,10,9,.96)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  color:var(--paper-2);
+  border-bottom:1px solid rgba(255,255,255,.12);
   font:11px/1 "IBM Plex Mono",monospace;
   text-transform:uppercase;
+  letter-spacing:.01em;
 }
-.marquee-track span{padding-right:42px}
-@keyframes marquee{to{transform:translateX(-50%)}}
+.utility-link{
+  display:inline-flex;
+  align-items:center;
+  min-height:22px;
+  transition:transform .2s ease,font-style .2s ease,color .2s ease;
+}
+.utility-link:hover{
+  transform:skewX(-9deg) translateX(2px);
+  font-style:italic;
+  color:var(--paper);
+}
+.utility-status{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#d7d2ca;
+  white-space:nowrap;
+}
+.utility-dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 2px rgba(166,83,42,.18);
+}
+@media (max-width:900px){
+  .utility-bar{
+    grid-template-columns:1fr 1fr;
+    gap:10px 18px;
+    padding:12px 16px;
+  }
+  .utility-status{
+    justify-self:start;
+    grid-column:1 / -1;
+    margin-top:2px;
+  }
+}
 
 /* WORK */
 .section-label{
@@ -325,7 +366,6 @@ body.fx .cursor{opacity:1}
 }
 
 @media (prefers-reduced-motion: reduce){
-  .marquee-track{animation:none}
   .splash{transition:none}
 }
 </style>
@@ -374,14 +414,14 @@ body.fx .cursor{opacity:1}
     </div>
   </section>
 
-  <section class="marquee" aria-label="Disciplines">
-    <div class="marquee-track">
-      <span>Brand Identity</span><span>Art Direction</span><span>Photography</span><span>Moving Image</span><span>Digital Products</span><span>Experiments</span>
-      <span>Brand Identity</span><span>Art Direction</span><span>Photography</span><span>Moving Image</span><span>Digital Products</span><span>Experiments</span>
-    </div>
+  <section class="utility-bar" aria-label="External links and availability">
+    <a class="utility-link" href="https://www.instagram.com/filippomantini/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    <a class="utility-link" href="https://www.behance.net/filippomantini" target="_blank" rel="noopener noreferrer">Behance ↗</a>
+    <a class="utility-link" href="#about">Contact</a>
+    <div class="utility-status"><span class="utility-dot"></span><span>Available for selected projects</span></div>
   </section>
 
-  <section id="work">
+<section id="work">
     <div class="section-label"><span>Selected work</span><span>FM—001 / FM—004</span></div>
 
     <article class="project">
@@ -440,7 +480,7 @@ body.fx .cursor{opacity:1}
 
 <footer>
   <h2>LET'S BUILD<br>SOMETHING<br><span>TOGETHER.</span></h2>
-  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.8</span></div>
+  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.9</span></div>
 </footer>
 
 <script>
