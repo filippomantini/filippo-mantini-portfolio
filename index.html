@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Filippo Mantini — Portfolio v0.6</title>
+<meta name="description" content="Filippo Mantini — Graphic design, art direction, digital, photography and moving image." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ece9e3;
+  --paper-2:#f4f1ea;
+  --ink:#11110f;
+  --orange:#a6532a;
+  --muted:#77716a;
+  --line:rgba(17,17,15,.18);
+  --mx:50vw; --my:50vh;
+  --x2:50vw; --y2:50vh;
+  --x3:50vw; --y3:50vh;
+  --x4:50vw; --y4:50vh;
+  --stretch:1;
+  --angle:0deg;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Inter Tight",Arial,sans-serif;
+  overflow-x:hidden;
+}
+body.fx{cursor:none}
+a{color:inherit;text-decoration:none}
+
+/* SPLASH */
+.splash{
+  position:fixed; inset:0; z-index:5000;
+  display:grid; place-items:center;
+  background:var(--paper);
+  transition:opacity .55s ease, visibility .55s ease;
+}
+.splash.out{opacity:0;visibility:hidden}
+.splash-inner{text-align:center;padding:28px}
+.splash h1{
+  margin:0;
+  font-size:clamp(48px,8.5vw,126px);
+  line-height:.83;
+  letter-spacing:-.067em;
+  font-weight:600;
+}
+.splash h1 span{color:var(--orange)}
+.splash small{
+  display:block;margin-top:24px;
+  font:10px/1.4 "IBM Plex Mono",monospace;
+  letter-spacing:.02em;text-transform:uppercase;
+}
+
+/* NAV */
+.topbar{
+  position:relative;z-index:5;
+  display:grid;grid-template-columns:1fr auto auto;
+  align-items:center;gap:26px;
+  padding:17px 22px;
+  border-bottom:1px solid var(--line);
+  font:10px/1 "IBM Plex Mono",monospace;
+  text-transform:uppercase;
+}
+.topbar .name{
+  font-family:"Inter Tight",sans-serif;
+  font-size:20px;line-height:1;font-weight:600;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.topbar nav{display:flex;gap:18px}
+
+/* HERO — CONTROLLED CONFUSION */
+.hero{
+  position:relative;
+  min-height:940px;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  background:
+    linear-gradient(to right, transparent 0 24.9%, rgba(17,17,15,.045) 25%, transparent 25.1% 49.9%, rgba(17,17,15,.045) 50%, transparent 50.1% 74.9%, rgba(17,17,15,.045) 75%, transparent 75.1%),
+    var(--paper);
+}
+.hero-note{
+  position:absolute;z-index:2;
+  font:10px/1.35 "IBM Plex Mono",monospace;
+  text-transform:uppercase;color:var(--muted);
+  max-width:220px;
+}
+.note-a{top:55px;left:22px}
+.note-b{top:62px;right:22px;text-align:right}
+.note-c{bottom:34px;left:22px;max-width:330px}
+.note-d{bottom:34px;right:22px;text-align:right}
+
+.hero-word{
+  position:absolute;
+  z-index:2;
+  font-weight:500;
+  letter-spacing:-.075em;
+  line-height:.76;
+  white-space:nowrap;
+}
+.w-confusion{font-size:clamp(58px,8.6vw,128px);top:170px;left:5vw}
+.w-method{font-size:clamp(50px,7.2vw,108px);top:330px;right:5vw}
+.w-creative{font-size:clamp(44px,6.3vw,94px);top:505px;left:15vw;color:var(--orange)}
+.w-together{font-size:clamp(54px,7.8vw,118px);top:690px;right:8vw}
+
+.micro-columns{
+  position:absolute;inset:155px 22px 110px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:28px;
+  z-index:1;opacity:.78;
+}
+.micro-columns p{
+  margin:0;
+  font:11px/1.28 "IBM Plex Mono",monospace;
+  color:#4f4c47;
+  text-align:justify;
+  will-change:transform,filter,opacity;
+  animation:microDrift 11s ease-in-out infinite alternate;
+}
+.micro-columns p:nth-child(2){animation-duration:13s;animation-delay:-2s}
+.micro-columns p:nth-child(3){animation-duration:9s;animation-delay:-5s}
+.micro-columns p:nth-child(4){animation-duration:15s;animation-delay:-4s}
+.micro-columns p:nth-child(5){animation-duration:12s;animation-delay:-7s}
+@keyframes microDrift{
+  0%{transform:translate3d(0,0,0)}
+  35%{transform:translate3d(3px,-2px,0)}
+  68%{transform:translate3d(-2px,3px,0)}
+  100%{transform:translate3d(2px,1px,0)}
+}
+.micro-columns p.glitch{
+  transform:translate3d(var(--gx,5px),var(--gy,-2px),0) skewX(var(--gs,-1deg));
+  filter:blur(.45px) contrast(1.25);
+  opacity:.58;
+  letter-spacing:.03em;
+}
+.hero-intro{
+  position:absolute;z-index:3;
+  left:50%;top:50%;transform:translate(-50%,-45%);
+  width:min(740px,72vw);
+  text-align:center;
+  font-size:clamp(18px,2.1vw,30px);
+  line-height:1.05;letter-spacing:-.035em;
+  mix-blend-mode:multiply;
+}
+.hero-intro strong{font-weight:600}
+.hero-intro .mono{
+  display:block;margin-top:16px;
+  font:10px/1.5 "IBM Plex Mono",monospace;
+  letter-spacing:0;text-transform:uppercase;color:var(--muted)
+}
+
+/* MARQUEE */
+.marquee{
+  overflow:hidden;border-bottom:1px solid var(--line);
+  background:var(--orange);color:var(--paper-2)
+}
+.marquee-track{
+  display:flex;width:max-content;
+  animation:marquee 22s linear infinite;
+  padding:10px 0;
+  font:11px/1 "IBM Plex Mono",monospace;
+  text-transform:uppercase;
+}
+.marquee-track span{padding-right:42px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* WORK */
+.section-label{
+  display:flex;justify-content:space-between;gap:20px;
+  padding:17px 22px;border-bottom:1px solid var(--line);
+  font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;
+}
+.project{
+  padding:22px;
+  border-bottom:1px solid var(--line);
+}
+.project-head{
+  display:grid;grid-template-columns:82px 1fr auto;
+  align-items:end;gap:18px;margin-bottom:16px;
+}
+.project-index,.project-meta{font:10px/1.3 "IBM Plex Mono",monospace;text-transform:uppercase}
+.project-title{
+  font-size:clamp(52px,8vw,120px);
+  line-height:.82;letter-spacing:-.067em;font-weight:500;
+}
+.project-visual{
+  min-height:560px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.project-visual.dark{background:#121210;color:var(--paper-2)}
+.project-visual.orange{background:var(--orange);color:var(--paper-2)}
+.project-visual.light{background:#d8d3c9}
+.project-visual span{
+  font-size:clamp(60px,11vw,170px);
+  line-height:.8;letter-spacing:-.075em;font-weight:600;text-align:center
+}
+.project-bottom{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  padding-top:15px;
+}
+.project-bottom p{margin:0;font-size:14px;line-height:1.35}
+.project-bottom .muted{color:var(--muted)}
+
+/* PHOTO */
+.photo{padding:92px 22px 120px;border-bottom:1px solid var(--line)}
+.photo-top{display:flex;justify-content:space-between;margin-bottom:30px;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+.photo-list{border-top:1px solid var(--line)}
+.photo-row{
+  display:grid;grid-template-columns:1fr auto;align-items:end;
+  padding:8px 0 3px;border-bottom:1px solid var(--line);
+  transition:color .2s ease, padding-left .25s ease;
+}
+.photo-row .label{
+  font-size:clamp(64px,9.5vw,145px);
+  line-height:.84;letter-spacing:-.07em;font-weight:500;
+}
+.photo-row .count{font:10px/1 "IBM Plex Mono",monospace;margin-bottom:10px}
+.photo-row:hover{color:var(--orange);padding-left:12px}
+
+/* ARCHIVE */
+.archive{padding:72px 22px 100px;border-bottom:1px solid var(--line)}
+.archive h2{
+  font-size:clamp(54px,8vw,118px);line-height:.85;letter-spacing:-.065em;
+  margin:0 0 34px;font-weight:500;
+}
+.archive-row{
+  display:grid;grid-template-columns:72px 1fr auto;gap:20px;
+  padding:14px 0;border-top:1px solid var(--line);
+  align-items:center;
+}
+.archive-row:last-child{border-bottom:1px solid var(--line)}
+.archive-row .n,.archive-row .type{font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+.archive-row .t{font-size:30px;letter-spacing:-.03em}
+
+/* ABOUT */
+.about{padding:92px 22px 120px;border-bottom:1px solid var(--line)}
+.about h2{
+  margin:0 0 42px;
+  font-size:clamp(66px,10vw,155px);
+  line-height:.8;letter-spacing:-.072em;font-weight:500;
+}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.about-grid p{margin:0;max-width:620px;font-size:19px;line-height:1.35}
+
+/* FOOTER */
+footer{
+  min-height:620px;background:#11110f;color:var(--paper-2);
+  padding:30px 22px;display:flex;flex-direction:column;justify-content:space-between;
+}
+footer h2{
+  margin:0;font-size:clamp(72px,11.5vw,175px);
+  line-height:.78;letter-spacing:-.075em;font-weight:500;
+}
+footer h2 span{color:var(--orange)}
+footer .bottom{display:flex;justify-content:space-between;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#a6a19a}
+
+/* VEIL — liquid membrane, enabled only after JS confirms pointer support */
+.veil{
+  position:fixed;inset:-28px;z-index:100;pointer-events:none;
+  opacity:0;
+  background:
+    linear-gradient(rgba(239,237,231,.79),rgba(239,237,231,.79)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  backdrop-filter:blur(9px) saturate(.76);
+  -webkit-backdrop-filter:blur(9px) saturate(.76);
+  transition:opacity .18s ease;
+  will-change:filter,-webkit-mask-image,mask-image;
+  transform:translateZ(0);
+}
+body.fx .veil{
+  opacity:1;
+  /* One generous opening, deformed by the animated SVG displacement filter.
+     Its center follows a spring rather than the mouse directly, so it feels viscous. */
+  -webkit-mask-image:radial-gradient(ellipse var(--liquid-rx,560px) var(--liquid-ry,440px) at var(--mx) var(--my),transparent 0 58%,rgba(0,0,0,.18) 67%,#000 79%);
+  mask-image:radial-gradient(ellipse var(--liquid-rx,560px) var(--liquid-ry,440px) at var(--mx) var(--my),transparent 0 58%,rgba(0,0,0,.18) 67%,#000 79%);
+  filter:url(#liquid-warp);
+}
+
+.cursor{
+  position:fixed;left:0;top:0;z-index:150;
+  width:14px;height:10px;background:#080808;border-radius:999px;
+  pointer-events:none;opacity:0;
+  transform:translate(-50%,-50%);
+  transform-origin:center;
+  will-change:transform,left,top;
+}
+body.fx .cursor{opacity:1}
+.fx-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+
+@media (max-width: 900px){
+  body{cursor:auto}
+  .veil,.cursor{display:none!important}
+  .topbar{grid-template-columns:1fr auto}
+  .topbar .status{display:none}
+  .hero{min-height:820px}
+  .micro-columns{grid-template-columns:repeat(2,1fr);gap:16px;inset:165px 16px 130px;opacity:.5}
+  .micro-columns p:nth-child(n+3){display:none}
+  .w-confusion{top:175px;left:15px}
+  .w-method{top:330px;right:15px}
+  .w-creative{top:475px;left:15px}
+  .w-together{top:625px;right:15px}
+  .hero-intro{width:88vw}
+  .project{padding:16px}
+  .project-head{grid-template-columns:50px 1fr}.project-meta{display:none}
+  .project-visual{min-height:340px}
+  .project-bottom{grid-template-columns:1fr;gap:10px}
+  .photo,.archive,.about{padding-left:16px;padding-right:16px}
+  .archive-row{grid-template-columns:48px 1fr}.archive-row .type{display:none}
+  .about-grid{grid-template-columns:1fr}
+  footer{padding:24px 16px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{animation:none}
+  .splash{transition:none}
+}
+</style>
+</head>
+<body>
+<svg class="fx-defs" aria-hidden="true">
+  <defs>
+    <filter id="liquid-warp" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.010" numOctaves="2" seed="12" result="noise">
+        <animate attributeName="baseFrequency" dur="8s" values="0.006 0.010;0.011 0.006;0.007 0.013;0.006 0.010" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+<div class="splash" id="splash">
+  <div class="splash-inner">
+    <h1>LET'S BUILD<br><span>SOMETHING TOGETHER.</span></h1>
+    <small>Filippo Mantini / Portfolio 2026</small>
+  </div>
+</div>
+
+<div class="veil" id="veil"></div>
+<div class="cursor" id="cursor"></div>
+
+<header class="topbar">
+  <a class="name" href="#top">FILIPPO MANTINI</a>
+  <nav><a href="#work">Work</a><a href="#photo">Photo</a><a href="#about">About</a></nav>
+  <div class="status">Independent / Italy / 2026</div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-note note-a">Graphic design / art direction / digital / image</div>
+    <div class="hero-note note-b">Part archive / part process / part invitation</div>
+    <div class="hero-note note-c">Ideas rarely arrive in order. Design begins when fragments start becoming relationships.</div>
+    <div class="hero-note note-d">Scroll to enter the work ↓</div>
+
+    <div class="micro-columns" aria-hidden="true">
+      <p>Fragments move before they become systems. Images collide with words, references overlap, mistakes produce direction. The work begins before the structure is visible.</p>
+      <p>Identity is not a logo placed on top of things. It is rhythm, repetition, behavior, typography, material and the decisions that connect one output to another.</p>
+      <p>Some projects begin with a brief. Others begin with a room, a sound, a photograph, a garment, a problem or a piece of code that needs to become understandable.</p>
+      <p>The process can be ordered later. In the beginning, disorder can be useful. Confusion becomes a field where unexpected connections can exist long enough to become ideas.</p>
+      <p>Commercial work and experimentation belong to the same practice. One tests clarity. The other tests possibility. Both are ways of building visual culture.</p>
+    </div>
+
+    <div class="hero-word w-confusion">CONFUSION</div>
+    <div class="hero-word w-method">CAN BE A CREATIVE METHOD</div>
+    <div class="hero-word w-creative">DISORDER → CONNECTION → IDEA</div>
+    <div class="hero-word w-together">LET'S WORK TOGETHER.</div>
+
+    <div class="hero-intro">
+      <strong>I'M FILIPPO MANTINI.</strong><br>
+      I'VE BEEN WAITING FOR YOU HERE.
+      <span class="mono">I build identities, images, experiences and digital systems from fragments, rules and mistakes.</span>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="Disciplines">
+    <div class="marquee-track">
+      <span>Brand Identity</span><span>Art Direction</span><span>Photography</span><span>Moving Image</span><span>Digital Products</span><span>Experiments</span>
+      <span>Brand Identity</span><span>Art Direction</span><span>Photography</span><span>Moving Image</span><span>Digital Products</span><span>Experiments</span>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-label"><span>Selected work</span><span>FM—001 / FM—004</span></div>
+
+    <article class="project">
+      <div class="project-head"><span class="project-index">FM—001</span><div class="project-title">COLLAPSE</div><span class="project-meta">2023—ONGOING</span></div>
+      <div class="project-visual dark"><span>COLLAPSE</span></div>
+      <div class="project-bottom"><p>Brand Identity / Fashion / Creative Direction / Community</p><p class="muted">An evolving fashion and cultural project built through identity, campaigns, events, photography, moving image and community.</p></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><span class="project-index">FM—002</span><div class="project-title">VIBRAZIONI</div><span class="project-meta">2026</span></div>
+      <div class="project-visual light"><span>SOUND → MARK</span></div>
+      <div class="project-bottom"><p>Experimental / Installation / Visual Research</p><p class="muted">A sound-printing device translating frequency into physical marks through vibration, guitar strings and ink.</p></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><span class="project-index">FM—003</span><div class="project-title">AXION CONTROLLERS</div><span class="project-meta">2025—2026</span></div>
+      <div class="project-visual orange"><span>AXION</span></div>
+      <div class="project-bottom"><p>Identity / Digital / Web</p><p class="muted">Visual identity and digital presence for a custom gaming controller brand.</p></div>
+    </article>
+
+    <article class="project">
+      <div class="project-head"><span class="project-index">FM—004</span><div class="project-title">REBUILD YOURSELF</div><span class="project-meta">30.08.2025</span></div>
+      <div class="project-visual dark"><span>REBUILD<br>YOURSELF</span></div>
+      <div class="project-bottom"><p>Exhibition / Event / Art Direction</p><p class="muted">A multidisciplinary exhibition and private event bringing together contemporary art, fashion and music.</p></div>
+    </article>
+  </section>
+
+  <section class="photo" id="photo">
+    <div class="photo-top"><span>Photography</span><span>Selected categories</span></div>
+    <div class="photo-list">
+      <a class="photo-row" href="#"><span class="label">Événement</span><span class="count">01</span></a>
+      <a class="photo-row" href="#"><span class="label">Street photo</span><span class="count">02</span></a>
+      <a class="photo-row" href="#"><span class="label">Fashion</span><span class="count">03</span></a>
+      <a class="photo-row" href="#"><span class="label">Personal</span><span class="count">04</span></a>
+    </div>
+  </section>
+
+  <section class="archive">
+    <h2>OTHER THINGS<br>I'VE BUILT.</h2>
+    <div class="archive-row"><span class="n">05</span><span class="t">Città di Castello</span><span class="type">Identity</span></div>
+    <div class="archive-row"><span class="n">06</span><span class="t">Bunch of Flowers</span><span class="type">Experimental</span></div>
+    <div class="archive-row"><span class="n">07</span><span class="t">No Font</span><span class="type">Typography</span></div>
+    <div class="archive-row"><span class="n">08</span><span class="t">Inside You</span><span class="type">Visual project</span></div>
+    <div class="archive-row"><span class="n">09</span><span class="t">Global Services</span><span class="type">Identity</span></div>
+    <div class="archive-row"><span class="n">10</span><span class="t">Bar La Piazzetta</span><span class="type">Event identity</span></div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>DESIGN AS<br>A PROCESS<br>OF BUILDING.</h2>
+    <div class="about-grid">
+      <p>Filippo Mantini is a multidisciplinary graphic designer working across identity, art direction, digital experiences, photography and moving image.</p>
+      <p>Trained in Graphic Design at NID Perugia, his practice moves between commercial work and experimental projects, building coherent visual worlds rather than isolated outputs.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <h2>LET'S BUILD<br>SOMETHING<br><span>TOGETHER.</span></h2>
+  <div class="bottom"><span>Filippo Mantini © 2026</span><span>Portfolio v0.6</span></div>
+</footer>
+
+<script>
+(() => {
+  const splash = document.getElementById('splash');
+  const cursor = document.getElementById('cursor');
+  const root = document.documentElement;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(() => splash.classList.add('out'), reduced ? 350 : 1350);
+
+  // Small, occasional text glitches: motion is part of the composition, not a constant effect.
+  const micro = [...document.querySelectorAll('.micro-columns p')];
+  if (!reduced) {
+    const glitchOne = () => {
+      const el = micro[Math.floor(Math.random()*micro.length)];
+      if (el) {
+        el.style.setProperty('--gx', ((Math.random()-.5)*12).toFixed(1)+'px');
+        el.style.setProperty('--gy', ((Math.random()-.5)*6).toFixed(1)+'px');
+        el.style.setProperty('--gs', ((Math.random()-.5)*2).toFixed(2)+'deg');
+        el.classList.add('glitch');
+        setTimeout(()=>el.classList.remove('glitch'), 70 + Math.random()*90);
+      }
+      setTimeout(glitchOne, 700 + Math.random()*1800);
+    };
+    setTimeout(glitchOne, 700);
+  }
+
+  const canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches && window.innerWidth > 900;
+  if (!canHover) return;
+
+  let targetX=innerWidth*.5, targetY=innerHeight*.5;
+  let blobX=targetX, blobY=targetY;
+  let blobVX=0, blobVY=0;
+  let prevX=targetX, prevY=targetY;
+  let pointerSpeed=0, pointerAngle=0;
+  let t=0;
+  const set=(k,v)=>root.style.setProperty(k,v);
+
+  set('--mx',blobX+'px'); set('--my',blobY+'px');
+  set('--liquid-rx','580px'); set('--liquid-ry','455px');
+  document.body.classList.add('fx');
+
+  window.addEventListener('mousemove', e=>{
+    const dx=e.clientX-prevX, dy=e.clientY-prevY;
+    pointerSpeed=Math.min(1.25,Math.hypot(dx,dy)/42);
+    pointerAngle=Math.atan2(dy,dx)*180/Math.PI;
+    targetX=e.clientX; targetY=e.clientY; prevX=targetX; prevY=targetY;
+    cursor.style.left=targetX+'px'; cursor.style.top=targetY+'px';
+    cursor.style.transform=`translate(-50%,-50%) rotate(${pointerAngle}deg) scale(${1+pointerSpeed*.70},${1-pointerSpeed*.16})`;
+  },{passive:true});
+
+  const animate=()=>{
+    // damped spring = heavier, liquid-like reveal movement
+    const spring=.045, damping=.82;
+    blobVX=(blobVX+(targetX-blobX)*spring)*damping;
+    blobVY=(blobVY+(targetY-blobY)*spring)*damping;
+    blobX+=blobVX; blobY+=blobVY;
+    t+=.016;
+
+    // slight autonomous breathing so the membrane stays alive when the pointer pauses
+    const breatheX=Math.sin(t*1.35)*7 + Math.sin(t*.57)*4;
+    const breatheY=Math.cos(t*1.12)*6 + Math.cos(t*.43)*3;
+    set('--mx',(blobX+breatheX)+'px');
+    set('--my',(blobY+breatheY)+'px');
+
+    const velocity=Math.min(1.2,Math.hypot(blobVX,blobVY)/28);
+    const rx=580 + velocity*125 + Math.sin(t*1.1)*13;
+    const ry=455 - velocity*34 + Math.cos(t*.92)*11;
+    set('--liquid-rx',rx.toFixed(1)+'px');
+    set('--liquid-ry',Math.max(390,ry).toFixed(1)+'px');
+    pointerSpeed*=.92;
+    requestAnimationFrame(animate);
+  };
+  requestAnimationFrame(animate);
+
+  window.addEventListener('mouseleave',()=>cursor.style.opacity='0');
+  window.addEventListener('mouseenter',()=>cursor.style.opacity='1');
+})();
+</script>
+</body>
+</html>
