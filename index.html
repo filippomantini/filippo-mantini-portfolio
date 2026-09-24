@@ -394,10 +394,34 @@ body.fx .cursor{opacity:1}
   .hero{min-height:820px}
   .micro-columns{grid-template-columns:repeat(2,1fr);gap:16px;inset:165px 16px 130px;opacity:.5}
   .micro-columns p:nth-child(n+3){display:none}
-  .w-confusion{top:175px;left:15px}
-  .w-method{top:330px;right:15px}
-  .w-creative{top:475px;left:15px}
-  .w-together{top:625px;right:15px}
+  .hero-word{
+    max-width:calc(100vw - 30px);
+    white-space:nowrap;
+  }
+  .w-confusion{
+    top:175px;
+    left:15px;
+    right:auto;
+    font-size:clamp(52px,16vw,68px);
+  }
+  .w-method{
+    top:330px;
+    left:15px;
+    right:auto;
+    font-size:clamp(26px,8vw,34px);
+  }
+  .w-creative{
+    top:475px;
+    left:15px;
+    right:auto;
+    font-size:clamp(24px,7.2vw,31px);
+  }
+  .w-together{
+    top:625px;
+    left:15px;
+    right:auto;
+    font-size:clamp(31px,9vw,39px);
+  }
   .hero-intro{width:88vw}
   .project{padding:16px}
   .project-head{grid-template-columns:50px 1fr}.project-meta{display:none}
