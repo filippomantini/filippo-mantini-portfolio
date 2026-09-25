@@ -121,7 +121,7 @@ h1{
 </section>
 
 <div class="visual project-video" aria-label="Città di Castello visual identity animation">
-  <video autoplay muted loop playsinline preload="metadata">
+  <video autoplay muted loop playsinline preload="metadata" oncanplay="this.nextElementSibling.style.display='none'">
     <source src="/assets/citta-di-castello-process.mov" type="video/quicktime">
   </video>
   <span class="video-fallback">CITTÀ DI<br>CASTELLO</span>
