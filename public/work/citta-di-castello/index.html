@@ -36,6 +36,21 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter Tight",Arial,sans-serif}
 a{color:inherit;text-decoration:none}
+@media (hover:hover) and (pointer:fine){
+  html,body,a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"]){cursor:none!important}
+}
+.site-cursor{
+  position:fixed;left:0;top:0;z-index:9999;
+  width:16px;height:11px;border-radius:999px;
+  background:#080808;pointer-events:none;opacity:0;
+  transform:translate3d(-100px,-100px,0);
+  transform-origin:center;
+  will-change:transform;
+  transition:background-color .14s ease;
+}
+.site-cursor.is-visible{opacity:1}
+.site-cursor.is-interactive{background:var(--orange)}
+@media(max-width:800px){.site-cursor{display:none!important}}
 .topbar{
   height:54px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:26px;
   padding:0 22px;border-bottom:1px solid var(--line);font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase
@@ -81,6 +96,7 @@ h1{
 </style>
 </head>
 <body>
+<div class="site-cursor" id="siteCursor" aria-hidden="true"></div>
 <header class="topbar">
   <a class="name" href="/">FILIPPO MANTINI</a>
   <nav><a href="/#work">Work</a><a href="/#photo">Photo</a><a href="/#about">About</a></nav>
@@ -144,5 +160,30 @@ h1{
   <span>Filippo Mantini © 2026</span>
   <a href="mailto:info@filippomantini.com">info@filippomantini.com ↗</a>
 </footer>
+<script>
+(() => {
+  const cursor=document.getElementById('siteCursor');
+  const canHover=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(!canHover) return;
+  cursor.classList.add('is-visible');
+  let interactive=false, px=innerWidth/2, py=innerHeight/2;
+  const selector='a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])';
+
+  document.addEventListener('pointerover',e=>{
+    interactive=!!e.target.closest?.(selector);
+    cursor.classList.toggle('is-interactive',interactive);
+  },{passive:true});
+  document.addEventListener('pointerout',e=>{
+    const next=e.relatedTarget;
+    interactive=!!next?.closest?.(selector);
+    cursor.classList.toggle('is-interactive',interactive);
+  },{passive:true});
+  window.addEventListener('mousemove',e=>{
+    px=e.clientX; py=e.clientY;
+    const sc=interactive?1.18:1;
+    cursor.style.transform=`translate3d(${px-8}px,${py-5.5}px,0) scale(${sc})`;
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
