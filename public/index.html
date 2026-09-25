@@ -387,11 +387,18 @@ a{color:inherit;text-decoration:none}
   overflow:hidden;
   background:#11110f;
 }
-.about-media video{
+.about-media video,
+.about-illustration img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
+}
+.about-illustration{
+  background:var(--paper-2);
+}
+.about-illustration img{
+  object-fit:contain;
 }
 .about-media .video-placeholder{
   position:absolute;
@@ -571,7 +578,7 @@ body.fx .cursor{opacity:1}
   </section>
 
 <section id="work">
-    <div class="section-label"><span>Selected work</span><span>FM—001 / FM—005</span></div>
+    <div class="section-label"><span>Selected work</span><span>FM—001 / FM—006</span></div>
 
     <article class="project">
       <div class="project-head"><span class="project-index">FM—001</span><div class="project-title">COLLAPSE</div><span class="project-meta">2023—ONGOING</span></div>
@@ -602,16 +609,22 @@ body.fx .cursor{opacity:1}
       <div class="project-visual dark"><span>REBUILD<br>YOURSELF</span></div>
       <div class="project-bottom"><p>Exhibition / Event / Art Direction</p><p class="muted">A multidisciplinary exhibition and private event bringing together contemporary art, fashion and music.</p></div>
     </article>
+
+    <article class="project">
+      <div class="project-head"><span class="project-index">FM—006</span><div class="project-title">INSURANCE BROKER LALLI</div><span class="project-meta">PROJECT</span></div>
+      <div class="project-visual light"><span>INSURANCE<br>BROKER LALLI</span></div>
+      <div class="project-bottom"><p>Selected Project</p><p class="muted">Insurance Broker Lalli.</p></div>
+    </article>
   </section>
 
 
 
   <section class="archive">
     <h2>OTHER THINGS<br>I'VE BUILT.</h2>
-    <div class="archive-row"><span class="n">06</span><span class="t">No Font</span><span class="type">Typography</span></div>
-    <div class="archive-row"><span class="n">07</span><span class="t">Inside You</span><span class="type">Visual project</span></div>
-    <div class="archive-row"><span class="n">08</span><span class="t">Global Services</span><span class="type">Identity</span></div>
-    <div class="archive-row"><span class="n">09</span><span class="t">Bar La Piazzetta</span><span class="type">Event identity</span></div>
+    <div class="archive-row"><span class="n">07</span><span class="t">No Font</span><span class="type">Typography</span></div>
+    <div class="archive-row"><span class="n">08</span><span class="t">Inside You</span><span class="type">Visual project</span></div>
+    <div class="archive-row"><span class="n">09</span><span class="t">Global Services</span><span class="type">Identity</span></div>
+    <div class="archive-row"><span class="n">10</span><span class="t">Bar La Piazzetta</span><span class="type">Event identity</span></div>
   </section>
 
   <section class="photo" id="photo">
@@ -627,11 +640,8 @@ body.fx .cursor{opacity:1}
     <div class="about-grid">
       <p>Filippo Mantini is a multidisciplinary graphic designer working across identity, art direction, digital experiences, photography and moving image.</p>
 
-      <div class="about-media">
-        <video autoplay muted loop playsinline preload="metadata" aria-label="NID Perugia graphic design animation">
-          <source src="/assets/nid-animation.mp4" type="video/mp4">
-        </video>
-        <div class="video-placeholder"><span>NID Perugia</span><span>Graphic Design</span></div>
+      <div class="about-media about-illustration">
+        <img src="/assets/filippo-mantini-illustration.jpg" alt="Illustration by Filippo Mantini" loading="lazy" onerror="this.style.display='none'">
       </div>
 
       <p>Trained in Graphic Design at NID Perugia, his practice moves between commercial work and experimental projects, building coherent visual worlds rather than isolated outputs.</p>
