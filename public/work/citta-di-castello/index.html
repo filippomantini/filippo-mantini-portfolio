@@ -12,7 +12,10 @@
 <meta property="og:title" content="Città di Castello Visual Identity — Filippo Mantini" />
 <meta property="og:description" content="A place-branding proposal for Città di Castello inspired by Alberto Burri, combining a civic mark, custom letterforms and a flexible visual system." />
 <meta property="og:url" content="https://filippomantini.com/work/citta-di-castello/" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://filippomantini.com/assets/citta-di-castello-hero.jpg" />
+<meta property="og:image:alt" content="Città di Castello visual identity proposal by Filippo Mantini" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://filippomantini.com/assets/citta-di-castello-hero.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,6 +27,7 @@
   "creator":{"@type":"Person","name":"Filippo Mantini","url":"https://filippomantini.com/"},
   "url":"https://filippomantini.com/work/citta-di-castello/",
   "genre":["Visual Identity","Place Branding","Graphic Design"],
+  "image":"https://filippomantini.com/assets/citta-di-castello-hero.jpg",
   "description":"A contemporary visual identity and flexible graphic system developed for Città di Castello."
 }
 </script>
@@ -72,6 +76,13 @@ h1{
   background:var(--paper2);overflow:hidden
 }
 .visual span{font-size:clamp(58px,10vw,154px);line-height:.76;letter-spacing:-.075em;text-align:center}
+.hero-image{min-height:0;background:var(--paper2)}
+.hero-image img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
 .project-video{position:relative;background:#11110f}
 .project-video video{width:100%;height:100%;min-height:70vh;display:block;object-fit:cover}
 .project-video .video-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ece9e3;pointer-events:none}
@@ -119,6 +130,10 @@ h1{
     </div>
   </div>
 </section>
+
+<figure class="visual hero-image">
+  <img src="/assets/citta-di-castello-hero.jpg" alt="Città di Castello visual identity proposal by Filippo Mantini" fetchpriority="high">
+</figure>
 
 <div class="visual project-video" aria-label="Città di Castello visual identity animation">
   <video autoplay muted loop playsinline preload="metadata" oncanplay="this.nextElementSibling.style.display='none'">
