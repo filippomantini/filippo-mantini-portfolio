@@ -72,6 +72,9 @@ h1{
   background:var(--paper2);overflow:hidden
 }
 .visual span{font-size:clamp(58px,10vw,154px);line-height:.76;letter-spacing:-.075em;text-align:center}
+.project-video{position:relative;background:#11110f}
+.project-video video{width:100%;height:100%;min-height:70vh;display:block;object-fit:cover}
+.project-video .video-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ece9e3;pointer-events:none}
 .section{padding:90px 22px;border-bottom:1px solid var(--line)}
 .section-head{display:grid;grid-template-columns:160px 1fr;gap:30px;margin-bottom:42px}
 .section-head .n{font:10px/1 "IBM Plex Mono",monospace;color:var(--muted)}
@@ -117,8 +120,11 @@ h1{
   </div>
 </section>
 
-<div class="visual" aria-label="Città di Castello project cover placeholder">
-  <span>CITTÀ DI<br>CASTELLO</span>
+<div class="visual project-video" aria-label="Città di Castello visual identity animation">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="/assets/citta-di-castello-process.mov" type="video/quicktime">
+  </video>
+  <span class="video-fallback">CITTÀ DI<br>CASTELLO</span>
 </div>
 
 <section class="section">
