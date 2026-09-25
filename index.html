@@ -503,22 +503,26 @@ body.fx .cursor{opacity:1}
     transform:translateY(5%);
   }
   .archive-row{grid-template-columns:48px 1fr}.archive-row .type{display:none}
-  .about-grid{
-    grid-template-columns:1fr;
-    gap:34px;
+  .about-index{margin-bottom:18px}
+  .about-gallery{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:7px;
   }
-  .about-grid p{
+  .about-shot:nth-child(2){transform:translateY(8px)}
+  .about-shot.empty::after{display:none}
+  .about-copy{
+    grid-template-columns:1fr;
+    gap:30px;
+    margin-top:38px;
+  }
+  .about-copy p{
     text-align:justify;
     text-justify:inter-word;
     hyphens:auto;
     -webkit-hyphens:auto;
     line-height:1.42;
   }
-  .about-media{
-    width:min(76vw,360px);
-    justify-self:center;
-    aspect-ratio:4/5;
-  }
+  .about-copy p:last-child{justify-self:stretch}
   footer{padding:24px 16px}
 }
 
@@ -632,13 +636,21 @@ body.fx .cursor{opacity:1}
     </div>
   </section>
   <section class="about" id="about">
-    <div class="about-grid">
+    <div class="about-index" aria-label="About index">
+      <span>Filippo Mantini</span>
+      <span>NID Perugia</span>
+    </div>
+
+    <div class="about-gallery" aria-label="Filippo Mantini visual archive">
+      <figure class="about-shot empty" aria-label="Reserved image space"></figure>
+      <figure class="about-shot">
+        <img src="/assets/filippo-mantini-illustration.jpg" alt="Original illustration by Filippo Mantini" loading="lazy">
+      </figure>
+      <figure class="about-shot empty" aria-label="Reserved image space"></figure>
+    </div>
+
+    <div class="about-copy">
       <p>Filippo Mantini is a multidisciplinary graphic designer working across identity, art direction, digital experiences, photography and moving image.</p>
-
-      <div class="about-media about-illustration">
-        <img src="/assets/filippo-mantini-illustration.jpg" alt="Illustration by Filippo Mantini" loading="lazy" onerror="this.style.display='none'">
-      </div>
-
       <p>Trained in Graphic Design at NID Perugia, his practice moves between commercial work and experimental projects, building coherent visual worlds rather than isolated outputs.</p>
     </div>
   </section>
