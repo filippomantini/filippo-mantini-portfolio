@@ -297,6 +297,14 @@ a{color:inherit;text-decoration:none}
   object-fit:cover;
   object-position:center;
 }
+.cdc-visual{
+  min-height:0;
+  aspect-ratio:16/9;
+  background:var(--paper-2);
+}
+.cdc-visual img{
+  object-fit:cover;
+}
 .project-visual span{
   font-size:clamp(60px,11vw,170px);
   line-height:.8;letter-spacing:-.075em;font-weight:600;text-align:center
@@ -399,7 +407,7 @@ a{color:inherit;text-decoration:none}
 .about-shot{
   position:relative;
   margin:0;
-  aspect-ratio:4/3;
+  aspect-ratio:5/4;
   overflow:hidden;
   background:rgba(17,17,15,.035);
 }
@@ -409,6 +417,10 @@ a{color:inherit;text-decoration:none}
   display:block;
   object-fit:cover;
   object-position:center;
+}
+.about-shot:first-child img{
+  object-fit:contain;
+  background:var(--paper);
 }
 .about-shot.empty::after{
   content:"IMAGE / RESERVED";
@@ -511,6 +523,7 @@ body.fx .cursor{opacity:1}
   .project{padding:16px}
   .project-head{grid-template-columns:50px 1fr}.project-meta{display:none}
   .project-visual{min-height:340px}
+  .cdc-visual{min-height:0;aspect-ratio:16/9}
   .project-bottom{grid-template-columns:1fr;gap:10px}
   .photo,.archive,.about{padding-left:14px;padding-right:14px}
   .photo-row{height:66px}
@@ -628,7 +641,7 @@ body.fx .cursor{opacity:1}
 
     <a class="project project-link" href="/work/citta-di-castello/" aria-label="View Città di Castello case study">
       <div class="project-head"><span class="project-index">FM—002</span><div class="project-title">CITTÀ DI CASTELLO</div><span class="project-meta">IDENTITY PROPOSAL</span></div>
-      <div class="project-visual light"><img src="/assets/citta-di-castello-burri.webp?v=2" alt="Città di Castello visual identity inspired by Alberto Burri"></div>
+      <div class="project-visual light cdc-visual"><img src="/assets/citta-di-castello-hero.jpg?v=4" alt="Città di Castello visual identity proposal by Filippo Mantini"></div>
       <div class="project-bottom"><p>Visual Identity / Place Branding / Graphic System</p><p class="muted">A visual identity proposal for Città di Castello inspired by Alberto Burri and developed as a flexible graphic and typographic system.</p></div>
     </a>
 
