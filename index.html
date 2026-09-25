@@ -355,14 +355,46 @@ a{color:inherit;text-decoration:none}
 .archive-row .t{font-size:30px;letter-spacing:-.03em}
 
 /* ABOUT */
-.about{padding:92px 22px 120px;border-bottom:1px solid var(--line)}
-.about h2{
-  margin:0 0 42px;
-  font-size:clamp(66px,10vw,155px);
-  line-height:.8;letter-spacing:-.072em;font-weight:500;
+.about{
+  padding:92px 22px 120px;
+  border-bottom:1px solid var(--line)
 }
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
-.about-grid p{margin:0;max-width:620px;font-size:19px;line-height:1.35}
+.about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.82fr) minmax(0,1fr);
+  gap:34px;
+  align-items:center;
+}
+.about-grid p{
+  margin:0;
+  max-width:620px;
+  font-size:19px;
+  line-height:1.35;
+}
+.about-media{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:#11110f;
+}
+.about-media video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.about-media .video-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding:12px;
+  color:#ece9e3;
+  font:9px/1.25 "IBM Plex Mono",monospace;
+  text-transform:uppercase;
+  pointer-events:none;
+}
 
 /* FOOTER */
 footer{
@@ -452,13 +484,21 @@ body.fx .cursor{opacity:1}
     transform:translateY(5%);
   }
   .archive-row{grid-template-columns:48px 1fr}.archive-row .type{display:none}
-  .about-grid{grid-template-columns:1fr}
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
   .about-grid p{
     text-align:justify;
     text-justify:inter-word;
     hyphens:auto;
     -webkit-hyphens:auto;
     line-height:1.42;
+  }
+  .about-media{
+    width:min(76vw,360px);
+    justify-self:center;
+    aspect-ratio:4/5;
   }
   footer{padding:24px 16px}
 }
@@ -572,9 +612,16 @@ body.fx .cursor{opacity:1}
     </div>
   </section>
   <section class="about" id="about">
-    <h2>DESIGN AS<br>A PROCESS<br>OF BUILDING.</h2>
     <div class="about-grid">
       <p>Filippo Mantini is a multidisciplinary graphic designer working across identity, art direction, digital experiences, photography and moving image.</p>
+
+      <div class="about-media">
+        <video autoplay muted loop playsinline preload="metadata" aria-label="NID Perugia graphic design animation">
+          <source src="/assets/nid-animation.mp4" type="video/mp4">
+        </video>
+        <div class="video-placeholder"><span>NID Perugia</span><span>Graphic Design</span></div>
+      </div>
+
       <p>Trained in Graphic Design at NID Perugia, his practice moves between commercial work and experimental projects, building coherent visual worlds rather than isolated outputs.</p>
     </div>
   </section>
