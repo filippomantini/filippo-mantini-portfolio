@@ -980,12 +980,12 @@ body.fx .cursor{opacity:1}
 
   document.body.classList.add('fx');
 
-  let dpr = Math.min(window.devicePixelRatio || 1, .85);
+  let dpr = Math.min(window.devicePixelRatio || 1, 1.25);
   let w = innerWidth, h = innerHeight;
 
   const resize = () => {
     w = innerWidth; h = innerHeight;
-    dpr = Math.min(window.devicePixelRatio || 1, .85);
+    dpr = Math.min(window.devicePixelRatio || 1, 1.25);
     canvas.width = Math.round(w*dpr);
     canvas.height = Math.round(h*dpr);
     canvas.style.width = w+'px';
@@ -1001,23 +1001,18 @@ body.fx .cursor{opacity:1}
   let speed=0, angle=0, t=0;
   let running=true;
   let interactive=false;
-  let mediaHover=false;
 
   const interactiveSelector='a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])';
 
   document.addEventListener('pointerover',e=>{
     interactive=!!e.target.closest?.(interactiveSelector);
-    mediaHover=!!e.target.closest?.('.about-desk');
     cursor.classList.toggle('is-interactive',interactive);
-    canvas.style.opacity=mediaHover?'0':'';
   },{passive:true});
 
   document.addEventListener('pointerout',e=>{
     const next=e.relatedTarget;
     interactive=!!next?.closest?.(interactiveSelector);
-    mediaHover=!!next?.closest?.('.about-desk');
     cursor.classList.toggle('is-interactive',interactive);
-    canvas.style.opacity=mediaHover?'0':'';
   },{passive:true});
 
   window.addEventListener('mousemove', e=>{
@@ -1051,7 +1046,6 @@ body.fx .cursor{opacity:1}
 
   const draw = () => {
     ctx.clearRect(0,0,w,h);
-    if(mediaHover) return;
 
     // Soft off-white membrane.
     ctx.globalCompositeOperation='source-over';
