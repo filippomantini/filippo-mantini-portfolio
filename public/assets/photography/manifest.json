@@ -1,7 +1,57 @@
 {
   "version": 1,
   "categories": {
-    "events": [],
+    "events": [
+      {
+        "source": "events_01.webp",
+        "path": "/assets/photography/optimized/events/events_01.webp",
+        "hash": "d8f9903f7fc7c5e16d1e83fa949bde10518c5358",
+        "width": 1467,
+        "height": 2200
+      },
+      {
+        "source": "events_02.webp",
+        "path": "/assets/photography/optimized/events/events_02.webp",
+        "hash": "85d1e027d56a8d36864cf4cc06f7580b2c5ae63c",
+        "width": 2200,
+        "height": 1467
+      },
+      {
+        "source": "events_03.webp",
+        "path": "/assets/photography/optimized/events/events_03.webp",
+        "hash": "33cac90d68923d90d2d3acaec60c81964d5f9ec8",
+        "width": 2200,
+        "height": 1467
+      },
+      {
+        "source": "events_04.webp",
+        "path": "/assets/photography/optimized/events/events_04.webp",
+        "hash": "96978e893523df40eecf0fd0dd3bcdf0802e8640",
+        "width": 1467,
+        "height": 2200
+      },
+      {
+        "source": "events_05.webp",
+        "path": "/assets/photography/optimized/events/events_05.webp",
+        "hash": "9df86cd045ee7e34d785eaaa77eb5e28f05f3b68",
+        "width": 1620,
+        "height": 1080
+      },
+      {
+        "source": "events_06.webp",
+        "path": "/assets/photography/optimized/events/events_06.webp",
+        "hash": "53d3612660e36b3b61f0687689d9c95825927457",
+        "width": 1080,
+        "height": 1620
+      },
+      {
+        "source": "events_07.webp",
+        "path": "/assets/photography/optimized/events/events_07.webp",
+        "hash": "2206e40e662031042967c3b3776a03ddb43d8d09",
+        "width": 1080,
+        "height": 1620
+      }
+    ],
     "street": [],
     "fashion": [],
     "personal": []
