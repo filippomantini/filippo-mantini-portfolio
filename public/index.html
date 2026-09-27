@@ -643,14 +643,31 @@ body.fx .liquid-veil{opacity:1}
 
 .cursor{
   position:fixed;left:0;top:0;z-index:150;
-  width:16px;height:11px;background:#080808;border-radius:999px;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 32% 28%,
+      rgba(255,255,255,.34) 0 8%,
+      rgba(255,255,255,.10) 17%,
+      rgba(255,255,255,0) 34%),
+    radial-gradient(circle at 58% 62%, #171715 0 42%, #070707 76%, #020202 100%);
+  box-shadow:
+    inset 2px 2px 3px rgba(255,255,255,.10),
+    inset -3px -4px 6px rgba(0,0,0,.34),
+    0 2px 5px rgba(0,0,0,.16);
   pointer-events:none;opacity:0;
   transform:translate3d(-100px,-100px,0);
   transform-origin:center;
   will-change:transform;
-  transition:background-color .14s ease;
 }
-.cursor.is-interactive{background:var(--orange)}
+.cursor.is-interactive{
+  background:
+    radial-gradient(circle at 32% 28%,
+      rgba(255,255,255,.35) 0 8%,
+      rgba(255,255,255,.10) 17%,
+      rgba(255,255,255,0) 34%),
+    radial-gradient(circle at 58% 62%, #bd683d 0 42%, var(--orange) 72%, #6e351c 100%);
+}
 body.fx .cursor{opacity:1}
 
 @media (max-width: 900px){
@@ -1008,6 +1025,8 @@ body.fx .cursor{opacity:1}
   let speed=0, angle=0, t=0;
   let running=true;
   let interactive=false;
+  let pointerSeen=false;
+  let cursorSx=1, cursorSy=1;
 
   const interactiveSelector='a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])';
 
@@ -1024,15 +1043,11 @@ body.fx .cursor{opacity:1}
 
   window.addEventListener('mousemove', e=>{
     const dx=e.clientX-prevX, dy=e.clientY-prevY;
-    speed=Math.min(1.15,Math.hypot(dx,dy)/48);
-    angle=Math.atan2(dy,dx)*180/Math.PI;
+    speed=Math.min(1.2,Math.hypot(dx,dy)/34);
+    if(Math.abs(dx)+Math.abs(dy)>.2) angle=Math.atan2(dy,dx)*180/Math.PI;
     tx=e.clientX; ty=e.clientY;
     prevX=tx; prevY=ty;
-
-    const hoverScale=interactive?1.18:1;
-    const sx=(1+speed*.62)*hoverScale;
-    const sy=(1-speed*.15)*hoverScale;
-    cursor.style.transform=`translate3d(${tx-8}px,${ty-5.5}px,0) rotate(${angle}deg) scale(${sx},${sy})`;
+    pointerSeen=true;
   },{passive:true});
 
   const punch = (cx,cy,rx,ry,alpha=1) => {
@@ -1093,7 +1108,19 @@ body.fx .cursor{opacity:1}
     t+=.018;
 
     draw();
-    speed*=.91;
+
+    // Fluid spherical cursor: stretches in the movement direction,
+    // then softly returns to a perfect sphere when the pointer slows down.
+    const hoverScale=interactive?1.16:1;
+    const targetSx=(1+speed*.82)*hoverScale;
+    const targetSy=Math.max(.62,1-speed*.30)*hoverScale;
+    cursorSx+=(targetSx-cursorSx)*.24;
+    cursorSy+=(targetSy-cursorSy)*.24;
+    if(pointerSeen){
+      cursor.style.transform=`translate3d(${tx-9}px,${ty-9}px,0) rotate(${angle}deg) scale(${cursorSx},${cursorSy})`;
+    }
+
+    speed*=.86;
     requestAnimationFrame(animate);
   };
   requestAnimationFrame(animate);
