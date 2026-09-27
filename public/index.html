@@ -643,31 +643,16 @@ body.fx .liquid-veil{opacity:1}
 
 .cursor{
   position:fixed;left:0;top:0;z-index:150;
-  width:18px;height:18px;
+  width:16px;height:16px;
   border-radius:50%;
-  background:
-    radial-gradient(circle at 32% 28%,
-      rgba(255,255,255,.34) 0 8%,
-      rgba(255,255,255,.10) 17%,
-      rgba(255,255,255,0) 34%),
-    radial-gradient(circle at 58% 62%, #171715 0 42%, #070707 76%, #020202 100%);
-  box-shadow:
-    inset 2px 2px 3px rgba(255,255,255,.10),
-    inset -3px -4px 6px rgba(0,0,0,.34),
-    0 2px 5px rgba(0,0,0,.16);
+  background:#080808;
   pointer-events:none;opacity:0;
   transform:translate3d(-100px,-100px,0);
   transform-origin:center;
   will-change:transform;
+  transition:background-color .14s ease;
 }
-.cursor.is-interactive{
-  background:
-    radial-gradient(circle at 32% 28%,
-      rgba(255,255,255,.35) 0 8%,
-      rgba(255,255,255,.10) 17%,
-      rgba(255,255,255,0) 34%),
-    radial-gradient(circle at 58% 62%, #bd683d 0 42%, var(--orange) 72%, #6e351c 100%);
-}
+.cursor.is-interactive{background:var(--orange)}
 body.fx .cursor{opacity:1}
 
 @media (max-width: 900px){
@@ -1112,15 +1097,15 @@ body.fx .cursor{opacity:1}
     // Fluid spherical cursor: stretches in the movement direction,
     // then softly returns to a perfect sphere when the pointer slows down.
     const hoverScale=interactive?1.16:1;
-    const targetSx=(1+speed*.82)*hoverScale;
-    const targetSy=Math.max(.62,1-speed*.30)*hoverScale;
-    cursorSx+=(targetSx-cursorSx)*.24;
-    cursorSy+=(targetSy-cursorSy)*.24;
+    const targetSx=(1+speed*.22)*hoverScale;
+    const targetSy=(1-speed*.10)*hoverScale;
+    cursorSx+=(targetSx-cursorSx)*.28;
+    cursorSy+=(targetSy-cursorSy)*.28;
     if(pointerSeen){
-      cursor.style.transform=`translate3d(${tx-9}px,${ty-9}px,0) rotate(${angle}deg) scale(${cursorSx},${cursorSy})`;
+      cursor.style.transform=`translate3d(${tx-8}px,${ty-8}px,0) rotate(${angle}deg) scale(${cursorSx},${cursorSy})`;
     }
 
-    speed*=.86;
+    speed*=.82;
     requestAnimationFrame(animate);
   };
   requestAnimationFrame(animate);
