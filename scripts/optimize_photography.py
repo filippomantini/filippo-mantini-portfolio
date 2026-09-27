@@ -62,35 +62,41 @@ for category in CATEGORIES:
         used_names.add(out_name.lower())
 
         dest = out_dir / out_name
-        desired_outputs.add(dest.resolve())
         digest = file_hash(src)
         previous = old_by_source.get((category, src.name))
 
         width = height = None
-        if previous and previous.get("hash") == digest and dest.exists():
-            width = previous.get("width")
-            height = previous.get("height")
-        else:
-            with Image.open(src) as im:
-                im = ImageOps.exif_transpose(im)
-                width, height = im.size
-                # WebP files that are already within the portfolio size limit
-                # are kept byte-for-byte to avoid generation loss.
-                if src.suffix.lower() == ".webp" and max(width, height) <= MAX_SIDE:
-                    shutil.copy2(src, dest)
-                else:
-                    if im.mode not in ("RGB", "RGBA"):
-                        im = im.convert("RGB")
-                    im.thumbnail((MAX_SIDE, MAX_SIDE), Image.Resampling.LANCZOS)
+        try:
+            if previous and previous.get("hash") == digest and dest.exists():
+                width = previous.get("width")
+                height = previous.get("height")
+            else:
+                with Image.open(src) as im:
+                    im = ImageOps.exif_transpose(im)
                     width, height = im.size
-                    if im.mode == "RGBA":
-                        bg = Image.new("RGB", im.size, "white")
-                        bg.paste(im, mask=im.getchannel("A"))
-                        im = bg
+                    # WebP files that are already within the portfolio size limit
+                    # are kept byte-for-byte to avoid generation loss.
+                    if src.suffix.lower() == ".webp" and max(width, height) <= MAX_SIDE:
+                        shutil.copy2(src, dest)
                     else:
-                        im = im.convert("RGB")
-                    im.save(dest, "WEBP", quality=QUALITY, method=6)
+                        if im.mode not in ("RGB", "RGBA"):
+                            im = im.convert("RGB")
+                        im.thumbnail((MAX_SIDE, MAX_SIDE), Image.Resampling.LANCZOS)
+                        width, height = im.size
+                        if im.mode == "RGBA":
+                            bg = Image.new("RGB", im.size, "white")
+                            bg.paste(im, mask=im.getchannel("A"))
+                            im = bg
+                        else:
+                            im = im.convert("RGB")
+                        im.save(dest, "WEBP", quality=QUALITY, method=6)
+        except (OSError, ValueError) as exc:
+            print(f"Skipping invalid image {src}: {exc}")
+            if dest.exists():
+                dest.unlink()
+            continue
 
+        desired_outputs.add(dest.resolve())
         items.append({
             "source": src.name,
             "path": f"/assets/photography/optimized/{category}/{out_name}",
