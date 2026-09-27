@@ -1011,12 +1011,10 @@ body.fx .cursor{opacity:1}
 
   let tx=w*.5, ty=h*.5;
   let x=tx, y=ty, vx=0, vy=0;
-  let prevX=tx, prevY=ty;
-  let speed=0, angle=0, t=0;
+  let t=0;
   let running=true;
   let interactive=false;
   let pointerSeen=false;
-  let cursorSx=1, cursorSy=1;
   let lastMove=performance.now(), lastFrame=0;
 
   const interactiveSelector='a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])';
@@ -1033,13 +1031,11 @@ body.fx .cursor{opacity:1}
   },{passive:true});
 
   window.addEventListener('mousemove', e=>{
-    const dx=e.clientX-prevX, dy=e.clientY-prevY;
-    speed=Math.min(1.4,Math.hypot(dx,dy)/18);
-    if(Math.abs(dx)+Math.abs(dy)>.2) angle=Math.atan2(dy,dx)*180/Math.PI;
     tx=e.clientX; ty=e.clientY;
-    prevX=tx; prevY=ty;
     pointerSeen=true;
     lastMove=performance.now();
+    const scale=interactive?1.12:1;
+    cursor.style.transform=`translate3d(${tx-9}px,${ty-9}px,0) scale(${scale})`;
   },{passive:true});
 
   const punch = (cx,cy,rx,ry,alpha=1) => {
@@ -1060,19 +1056,14 @@ body.fx .cursor{opacity:1}
 
   const draw = () => {
     ctx.clearRect(0,0,w,h);
-
-    // Soft off-white membrane.
     ctx.globalCompositeOperation='source-over';
     ctx.fillStyle='rgba(239,237,231,.80)';
     ctx.fillRect(0,0,w,h);
-
-    // A few overlapping "metaball-like" holes create an irregular liquid opening.
     ctx.globalCompositeOperation='destination-out';
 
     const vel=Math.min(1.2,Math.hypot(vx,vy)/26);
     const dir=Math.atan2(vy,vx);
     const driftX=Math.cos(dir), driftY=Math.sin(dir);
-
     const baseX=x + Math.sin(t*.9)*7;
     const baseY=y + Math.cos(t*.8)*6;
 
@@ -1092,32 +1083,16 @@ body.fx .cursor{opacity:1}
 
   const animate=(now=0)=>{
     if(!running) return;
-
-    // Reduce canvas work when the pointer is idle while preserving the liquid motion.
     const idle=now-lastMove>700;
     if(idle && now-lastFrame<33){ requestAnimationFrame(animate); return; }
     lastFrame=now;
 
-    // viscous spring motion
     vx=(vx+(tx-x)*.038)*.81;
     vy=(vy+(ty-y)*.038)*.81;
     x+=vx; y+=vy;
     t+=.018;
 
     draw();
-
-    // Fluid spherical cursor: stretches in the movement direction,
-    // then softly returns to a perfect sphere when the pointer slows down.
-    const hoverScale=interactive?1.16:1;
-    const targetSx=(1+speed*.48)*hoverScale;
-    const targetSy=Math.max(.68,1-speed*.22)*hoverScale;
-    cursorSx+=(targetSx-cursorSx)*.34;
-    cursorSy+=(targetSy-cursorSy)*.34;
-    if(pointerSeen){
-      cursor.style.transform=`translate3d(${tx-9}px,${ty-9}px,0) rotate(${angle}deg) scale(${cursorSx},${cursorSy})`;
-    }
-
-    speed*=.82;
     requestAnimationFrame(animate);
   };
   requestAnimationFrame(animate);
