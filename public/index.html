@@ -638,8 +638,8 @@ body.fx .liquid-veil{opacity:1}
 
 .cursor{
   position:fixed;left:0;top:0;z-index:150;
-  width:16px;height:16px;
-  border-radius:50%;
+  width:16px;height:12px;
+  border-radius:999px;
   background:#080808;
   pointer-events:none;opacity:0;
   transform:translate3d(-100px,-100px,0);
@@ -1024,7 +1024,7 @@ body.fx .cursor{opacity:1}
 
   window.addEventListener('mousemove', e=>{
     const dx=e.clientX-prevX, dy=e.clientY-prevY;
-    speed=Math.min(1.2,Math.hypot(dx,dy)/34);
+    speed=Math.min(1.4,Math.hypot(dx,dy)/18);
     if(Math.abs(dx)+Math.abs(dy)>.2) angle=Math.atan2(dy,dx)*180/Math.PI;
     tx=e.clientX; ty=e.clientY;
     prevX=tx; prevY=ty;
@@ -1099,12 +1099,12 @@ body.fx .cursor{opacity:1}
     // Fluid spherical cursor: stretches in the movement direction,
     // then softly returns to a perfect sphere when the pointer slows down.
     const hoverScale=interactive?1.16:1;
-    const targetSx=(1+speed*.22)*hoverScale;
-    const targetSy=(1-speed*.10)*hoverScale;
-    cursorSx+=(targetSx-cursorSx)*.28;
-    cursorSy+=(targetSy-cursorSy)*.28;
+    const targetSx=(1+speed*.48)*hoverScale;
+    const targetSy=Math.max(.68,1-speed*.22)*hoverScale;
+    cursorSx+=(targetSx-cursorSx)*.34;
+    cursorSy+=(targetSy-cursorSy)*.34;
     if(pointerSeen){
-      cursor.style.transform=`translate3d(${tx-8}px,${ty-8}px,0) rotate(${angle}deg) scale(${cursorSx},${cursorSy})`;
+      cursor.style.transform=`translate3d(${tx-8}px,${ty-6}px,0) rotate(${angle}deg) scale(${cursorSx},${cursorSy})`;
     }
 
     speed*=.82;
