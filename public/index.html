@@ -526,6 +526,15 @@ a{color:inherit;text-decoration:none}
   background:rgba(17,17,15,.025);
   border:1px solid var(--line);
 }
+.about-desk img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
 .about-desk::before{
   content:"";
   position:absolute;
@@ -909,7 +918,9 @@ body.fx .cursor{opacity:1}
     </div>
 
     <a class="about-preview-link" href="/about/" aria-label="Read more about Filippo Mantini">
-      <div class="about-desk" aria-label="Workspace image placeholder"></div>
+      <div class="about-desk">
+        <img src="/assets/about-desk.jpg?v=1" alt="Filippo Mantini workspace and design desk" loading="lazy">
+      </div>
 
       <div class="about-copy">
         <p>Filippo Mantini is a multidisciplinary graphic designer working across identity, art direction, web design, digital experiences, photography and moving image.</p>
