@@ -529,7 +529,10 @@ a{color:inherit;text-decoration:none}
 .about-preview-link{display:block}
 .about-desk{
   position:relative;
-  min-height:620px;
+  width:min(980px,72vw);
+  aspect-ratio:16/10;
+  min-height:0;
+  margin:0 auto;
   overflow:hidden;
   background:rgba(17,17,15,.025);
   border:1px solid var(--line);
@@ -590,7 +593,11 @@ a{color:inherit;text-decoration:none}
 @media (max-width:900px){
   .about{padding:72px 14px 86px}
   .about-index{margin-bottom:18px}
-  .about-desk{min-height:72vw}
+  .about-desk{
+    width:100%;
+    aspect-ratio:4/3;
+    min-height:0;
+  }
   .about-copy{
     grid-template-columns:1fr;
     gap:28px;
