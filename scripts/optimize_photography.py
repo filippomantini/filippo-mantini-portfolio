@@ -1,6 +1,6 @@
 from pathlib import Path
 from PIL import Image, ImageOps
-import hashlib, json, re
+import hashlib, json, re, shutil
 
 ROOT = Path("public/assets/photography")
 OUT = ROOT / "optimized"
@@ -73,17 +73,23 @@ for category in CATEGORIES:
         else:
             with Image.open(src) as im:
                 im = ImageOps.exif_transpose(im)
-                if im.mode not in ("RGB", "RGBA"):
-                    im = im.convert("RGB")
-                im.thumbnail((MAX_SIDE, MAX_SIDE), Image.Resampling.LANCZOS)
                 width, height = im.size
-                if im.mode == "RGBA":
-                    bg = Image.new("RGB", im.size, "white")
-                    bg.paste(im, mask=im.getchannel("A"))
-                    im = bg
+                # WebP files that are already within the portfolio size limit
+                # are kept byte-for-byte to avoid generation loss.
+                if src.suffix.lower() == ".webp" and max(width, height) <= MAX_SIDE:
+                    shutil.copy2(src, dest)
                 else:
-                    im = im.convert("RGB")
-                im.save(dest, "WEBP", quality=QUALITY, method=6)
+                    if im.mode not in ("RGB", "RGBA"):
+                        im = im.convert("RGB")
+                    im.thumbnail((MAX_SIDE, MAX_SIDE), Image.Resampling.LANCZOS)
+                    width, height = im.size
+                    if im.mode == "RGBA":
+                        bg = Image.new("RGB", im.size, "white")
+                        bg.paste(im, mask=im.getchannel("A"))
+                        im = bg
+                    else:
+                        im = im.convert("RGB")
+                    im.save(dest, "WEBP", quality=QUALITY, method=6)
 
         items.append({
             "source": src.name,
