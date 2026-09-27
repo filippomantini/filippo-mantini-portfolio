@@ -496,6 +496,14 @@ a{color:inherit;text-decoration:none}
   display:grid;grid-template-columns:72px 1fr auto;gap:20px;
   padding:14px 0;border-top:1px solid var(--line);
   align-items:center;
+  transition:opacity .18s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .archive-row:hover{opacity:.5}
+}
+.archive-row:focus-visible{
+  opacity:.5;
+  outline:none;
 }
 .archive-row:last-child{border-bottom:1px solid var(--line)}
 .archive-row .n,.archive-row .type{font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
@@ -919,7 +927,7 @@ body.fx .cursor{opacity:1}
 
     <a class="about-preview-link" href="/about/" aria-label="Read more about Filippo Mantini">
       <div class="about-desk">
-        <img src="/assets/about-desk.jpg?v=1" alt="Filippo Mantini workspace and design desk" loading="lazy">
+        <img src="/assets/about-desk.jpg?v=1" alt="Filippo Mantini workspace and design desk" loading="lazy" decoding="async">
       </div>
 
       <div class="about-copy">
@@ -972,12 +980,12 @@ body.fx .cursor{opacity:1}
 
   document.body.classList.add('fx');
 
-  let dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+  let dpr = Math.min(window.devicePixelRatio || 1, .85);
   let w = innerWidth, h = innerHeight;
 
   const resize = () => {
     w = innerWidth; h = innerHeight;
-    dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+    dpr = Math.min(window.devicePixelRatio || 1, .85);
     canvas.width = Math.round(w*dpr);
     canvas.height = Math.round(h*dpr);
     canvas.style.width = w+'px';
@@ -993,18 +1001,23 @@ body.fx .cursor{opacity:1}
   let speed=0, angle=0, t=0;
   let running=true;
   let interactive=false;
+  let mediaHover=false;
 
   const interactiveSelector='a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])';
 
   document.addEventListener('pointerover',e=>{
     interactive=!!e.target.closest?.(interactiveSelector);
+    mediaHover=!!e.target.closest?.('.about-desk');
     cursor.classList.toggle('is-interactive',interactive);
+    canvas.style.opacity=mediaHover?'0':'';
   },{passive:true});
 
   document.addEventListener('pointerout',e=>{
     const next=e.relatedTarget;
     interactive=!!next?.closest?.(interactiveSelector);
+    mediaHover=!!next?.closest?.('.about-desk');
     cursor.classList.toggle('is-interactive',interactive);
+    canvas.style.opacity=mediaHover?'0':'';
   },{passive:true});
 
   window.addEventListener('mousemove', e=>{
@@ -1038,6 +1051,7 @@ body.fx .cursor{opacity:1}
 
   const draw = () => {
     ctx.clearRect(0,0,w,h);
+    if(mediaHover) return;
 
     // Soft off-white membrane.
     ctx.globalCompositeOperation='source-over';
