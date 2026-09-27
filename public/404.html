@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>404 — Page Not Found | Filippo Mantini</title>
+<meta name="description" content="The page you were looking for does not exist. Return to Filippo Mantini's portfolio.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#ece9e3;--ink:#11110f;--orange:#a6532a;--muted:#77716a;--line:rgba(17,17,15,.18)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink)}
+body{font-family:"Inter Tight",Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+.topbar{height:54px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;padding:0 22px;border-bottom:1px solid var(--line);font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+.name{font-family:"Inter Tight",sans-serif;font-size:13px;font-weight:600;letter-spacing:-.03em}
+.error{flex:1;display:grid;grid-template-rows:auto 1fr auto;padding:22px;min-height:calc(100vh - 54px)}
+.kicker{display:flex;justify-content:space-between;gap:20px;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.code{align-self:center;font-size:clamp(150px,31vw,520px);font-weight:500;line-height:.64;letter-spacing:-.095em;white-space:nowrap}
+.code span{color:var(--orange)}
+.bottom{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end;border-top:1px solid var(--line);padding-top:18px}
+.message{margin:0;font-size:clamp(30px,4.4vw,70px);line-height:.9;letter-spacing:-.055em;max-width:900px}
+.links{display:grid;gap:9px;justify-self:end;text-align:right;font:11px/1.2 "IBM Plex Mono",monospace;text-transform:uppercase}
+.links a:hover,.links a:focus-visible{color:var(--orange)}
+.links a:focus-visible{outline:1px solid var(--orange);outline-offset:4px}
+@media(max-width:760px){.topbar{padding:0 14px}.error{padding:18px 14px}.kicker span:last-child{display:none}.code{font-size:43vw}.bottom{grid-template-columns:1fr;gap:32px}.links{justify-self:start;text-align:left}}
+</style>
+</head>
+<body>
+<header class="topbar"><a class="name" href="/">FILIPPO MANTINI</a><span>ERROR / 404</span></header>
+<main class="error">
+  <div class="kicker"><span>Wrong turn</span><span>Filippo Mantini / Portfolio 2026</span></div>
+  <div class="code" aria-label="Error 404">4<span>0</span>4</div>
+  <div class="bottom">
+    <h1 class="message">THIS PAGE<br>DOESN'T EXIST.</h1>
+    <nav class="links" aria-label="Recovery navigation">
+      <a href="/">Home ↗</a>
+      <a href="/#work">Work ↗</a>
+      <a href="/photography/">Photography ↗</a>
+      <a href="/about/">About ↗</a>
+    </nav>
+  </div>
+</main>
+</body>
+</html>
