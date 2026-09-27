@@ -1,0 +1,99 @@
+from pathlib import Path
+from PIL import Image, ImageOps
+import hashlib, json, re
+
+ROOT = Path("public/assets/photography")
+OUT = ROOT / "optimized"
+MANIFEST = ROOT / "manifest.json"
+CATEGORIES = ("events", "street", "fashion", "personal")
+SUPPORTED = {".jpg", ".jpeg", ".png", ".webp"}
+MAX_SIDE = 2200
+QUALITY = 80
+
+def natural_key(path):
+    return [int(x) if x.isdigit() else x.lower() for x in re.split(r"(\d+)", path.name)]
+
+def file_hash(path):
+    h = hashlib.sha1()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+try:
+    old = json.loads(MANIFEST.read_text("utf-8")) if MANIFEST.exists() else {}
+except Exception:
+    old = {}
+
+old_by_source = {}
+for category, items in old.get("categories", {}).items():
+    for item in items:
+        old_by_source[(category, item.get("source", ""))] = item
+
+manifest = {"version": 1, "categories": {}}
+desired_outputs = set()
+
+for category in CATEGORIES:
+    src_dir = ROOT / category
+    out_dir = OUT / category
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    items = []
+    sources = sorted(
+        [p for p in src_dir.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED],
+        key=natural_key
+    ) if src_dir.exists() else []
+
+    used_names = set()
+
+    for index, src in enumerate(sources, start=1):
+        stem = re.sub(r"[^A-Za-z0-9._-]+", "-", src.stem).strip("-") or f"photo-{index:02d}"
+        out_name = f"{stem}.webp"
+        counter = 2
+        while out_name.lower() in used_names:
+            out_name = f"{stem}-{counter}.webp"
+            counter += 1
+        used_names.add(out_name.lower())
+
+        dest = out_dir / out_name
+        desired_outputs.add(dest.resolve())
+        digest = file_hash(src)
+        previous = old_by_source.get((category, src.name))
+
+        width = height = None
+        if previous and previous.get("hash") == digest and dest.exists():
+            width = previous.get("width")
+            height = previous.get("height")
+        else:
+            with Image.open(src) as im:
+                im = ImageOps.exif_transpose(im)
+                if im.mode not in ("RGB", "RGBA"):
+                    im = im.convert("RGB")
+                im.thumbnail((MAX_SIDE, MAX_SIDE), Image.Resampling.LANCZOS)
+                width, height = im.size
+                if im.mode == "RGBA":
+                    bg = Image.new("RGB", im.size, "white")
+                    bg.paste(im, mask=im.getchannel("A"))
+                    im = bg
+                else:
+                    im = im.convert("RGB")
+                im.save(dest, "WEBP", quality=QUALITY, method=6)
+
+        items.append({
+            "source": src.name,
+            "path": f"/assets/photography/optimized/{category}/{out_name}",
+            "hash": digest,
+            "width": width,
+            "height": height
+        })
+
+    manifest["categories"][category] = items
+
+# Remove optimized files whose source was deleted/renamed.
+if OUT.exists():
+    for p in OUT.rglob("*.webp"):
+        if p.resolve() not in desired_outputs:
+            p.unlink()
+
+MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", "utf-8")
+print(json.dumps({k: len(v) for k, v in manifest["categories"].items()}))
