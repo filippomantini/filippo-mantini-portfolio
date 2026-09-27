@@ -53,7 +53,78 @@
       }
     ],
     "street": [],
-    "fashion": [],
+    "fashion": [
+      {
+        "source": "fashion_01.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_01.webp",
+        "hash": "1b4d8eef13b66542141724493a766d476f38847f",
+        "width": 2190,
+        "height": 2190
+      },
+      {
+        "source": "fashion_02.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_02.webp",
+        "hash": "41b583728233aaa5f1f65b17f8a6a4f19647243f",
+        "width": 1457,
+        "height": 2200
+      },
+      {
+        "source": "fashion_03.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_03.webp",
+        "hash": "ed1b1e1597a8c02eddfa215a8b012c2d3a3e2145",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "fashion_04.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_04.webp",
+        "hash": "6a09d38bb17893396d1061088f6d01a2f8f44144",
+        "width": 1247,
+        "height": 2091
+      },
+      {
+        "source": "fashion_05.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_05.webp",
+        "hash": "30b13a3631d4eba3733f91dcee85c83fd1ab9b5b",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "fashion_06.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_06.webp",
+        "hash": "6ab90ccff88f00db504463c8d547d42e87fcabcd",
+        "width": 1120,
+        "height": 1400
+      },
+      {
+        "source": "fashion_07.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_07.webp",
+        "hash": "eb3c2f0ce381e305a52fff32ea5a72b4ad682198",
+        "width": 1000,
+        "height": 1429
+      },
+      {
+        "source": "fashion_08.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_08.webp",
+        "hash": "047ea322d04533bdbf2d99fbdbbbe1647fc82154",
+        "width": 1436,
+        "height": 2200
+      },
+      {
+        "source": "fashion_09.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_09.webp",
+        "hash": "f805bd69ca5e5df39f7966998f6b83c99d64e4bb",
+        "width": 1247,
+        "height": 2091
+      },
+      {
+        "source": "fashion_10.webp",
+        "path": "/assets/photography/optimized/fashion/fashion_10.webp",
+        "hash": "f06fb757e42b730fb57bd2b4064b93da24d2c84f",
+        "width": 1760,
+        "height": 2200
+      }
+    ],
     "personal": []
   }
 }
