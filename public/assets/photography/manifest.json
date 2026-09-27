@@ -52,7 +52,183 @@
         "height": 1620
       }
     ],
-    "street": [],
+    "street": [
+      {
+        "source": "street_01.webp",
+        "path": "/assets/photography/street/street_01.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1235
+      },
+      {
+        "source": "street_02.webp",
+        "path": "/assets/photography/street/street_02.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_03.webp",
+        "path": "/assets/photography/street/street_03.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_04.webp",
+        "path": "/assets/photography/street/street_04.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_05.webp",
+        "path": "/assets/photography/street/street_05.webp",
+        "hash": "",
+        "width": 1650,
+        "height": 2200
+      },
+      {
+        "source": "street_06.webp",
+        "path": "/assets/photography/street/street_06.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_07.webp",
+        "path": "/assets/photography/street/street_07.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_08.webp",
+        "path": "/assets/photography/street/street_08.webp",
+        "hash": "",
+        "width": 1561,
+        "height": 2081
+      },
+      {
+        "source": "street_09.webp",
+        "path": "/assets/photography/street/street_09.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_10.webp",
+        "path": "/assets/photography/street/street_10.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1650
+      },
+      {
+        "source": "street_11.webp",
+        "path": "/assets/photography/street/street_11.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 917
+      },
+      {
+        "source": "street_12.webp",
+        "path": "/assets/photography/street/street_12.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 917
+      },
+      {
+        "source": "street_13.webp",
+        "path": "/assets/photography/street/street_13.webp",
+        "hash": "",
+        "width": 1920,
+        "height": 800
+      },
+      {
+        "source": "street_14.webp",
+        "path": "/assets/photography/street/street_14.webp",
+        "hash": "",
+        "width": 1920,
+        "height": 800
+      },
+      {
+        "source": "street_15.webp",
+        "path": "/assets/photography/street/street_15.webp",
+        "hash": "",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "street_16.webp",
+        "path": "/assets/photography/street/street_16.webp",
+        "hash": "",
+        "width": 1237,
+        "height": 2200
+      },
+      {
+        "source": "street_17.webp",
+        "path": "/assets/photography/street/street_17.webp",
+        "hash": "",
+        "width": 1237,
+        "height": 2200
+      },
+      {
+        "source": "street_18.webp",
+        "path": "/assets/photography/street/street_18.webp",
+        "hash": "",
+        "width": 1237,
+        "height": 2200
+      },
+      {
+        "source": "street_19.webp",
+        "path": "/assets/photography/street/street_19.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 688
+      },
+      {
+        "source": "street_20.webp",
+        "path": "/assets/photography/street/street_20.webp",
+        "hash": "",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "street_21.webp",
+        "path": "/assets/photography/street/street_21.webp",
+        "hash": "",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "street_22.webp",
+        "path": "/assets/photography/street/street_22.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1467
+      },
+      {
+        "source": "street_23.webp",
+        "path": "/assets/photography/street/street_23.webp",
+        "hash": "",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "street_24.webp",
+        "path": "/assets/photography/street/street_24.webp",
+        "hash": "",
+        "width": 1760,
+        "height": 2200
+      },
+      {
+        "source": "street_25.webp",
+        "path": "/assets/photography/street/street_25.webp",
+        "hash": "",
+        "width": 2200,
+        "height": 1238
+      }
+    ],
     "fashion": [
       {
         "source": "fashion_01.webp",
