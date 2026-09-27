@@ -9,7 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Filippo Mantini — Graphic Designer & Art Director" />
 <meta property="og:description" content="Selected work in visual identity, art direction, digital experiences, photography and moving image." />
-<meta property="og:url" content="https://filippomantini.com/" />
+<meta property="og:url" content="https://filippomantini.com/" /><meta property="og:image" content="https://filippomantini.com/assets/about-desk.webp?v=1"><meta property="og:image:alt" content="Filippo Mantini — Graphic Designer & Art Director"><meta name="twitter:image" content="https://filippomantini.com/assets/about-desk.webp?v=1">
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="shortcut icon" href="/favicon.svg" />
@@ -24,14 +24,9 @@
   --orange:#a6532a;
   --muted:#77716a;
   --line:rgba(17,17,15,.18);
-  --mx:50vw; --my:50vh;
-  --x2:50vw; --y2:50vh;
-  --x3:50vw; --y3:50vh;
-  --x4:50vw; --y4:50vh;
-  --stretch:1;
-  --angle:0deg;
 }
 *{box-sizing:border-box}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
 body{
   margin:0;
@@ -62,14 +57,14 @@ a{color:inherit;text-decoration:none}
 }
 .splash.out{opacity:0;visibility:hidden}
 .splash-inner{text-align:center;padding:28px}
-.splash h1{
+.splash-title{
   margin:0;
   font-size:clamp(48px,8.5vw,126px);
   line-height:.83;
   letter-spacing:-.067em;
   font-weight:600;
 }
-.splash h1 span{color:var(--orange)}
+.splash-title span{color:var(--orange)}
 .splash small{
   display:block;margin-top:24px;
   font:10px/1.4 "IBM Plex Mono",monospace;
@@ -88,7 +83,7 @@ a{color:inherit;text-decoration:none}
 }
 .topbar .name{
   font-family:"Inter Tight",sans-serif;
-  font-size:20px;line-height:1;font-weight:600;
+  line-height:1;font-weight:600;
   letter-spacing:-.035em;
   text-transform:uppercase;
   white-space:nowrap;
@@ -502,8 +497,9 @@ a{color:inherit;text-decoration:none}
   .archive-row:hover{opacity:.5}
 }
 .archive-row:focus-visible{
-  opacity:.5;
-  outline:none;
+  opacity:.72;
+  outline:1px solid var(--orange);
+  outline-offset:4px;
 }
 .archive-row:last-child{border-bottom:1px solid var(--line)}
 .archive-row .n,.archive-row .type{font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
@@ -746,16 +742,16 @@ body.fx .cursor{opacity:1}
 
 @media (prefers-reduced-motion: reduce){
   .splash{transition:none}
+  .micro-columns p{animation:none}
 }
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Filippo Mantini","url":"https://filippomantini.com/","jobTitle":"Graphic Designer","alumniOf":{"@type":"EducationalOrganization","name":"NID Perugia"},"sameAs":["https://www.instagram.com/filippomantini/","https://www.behance.net/filippomantini"]}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Filippo Mantini","url":"https://filippomantini.com/","description":"Portfolio of Filippo Mantini, multidisciplinary graphic designer and art director."},{"@type":"Person","name":"Filippo Mantini","url":"https://filippomantini.com/","jobTitle":"Graphic Designer & Art Director","alumniOf":{"@type":"EducationalOrganization","name":"NID Perugia"},"sameAs":["https://www.instagram.com/filippomantini/","https://www.behance.net/filippomantini"]}]}</script>
 </head>
 <body>
+<h1 class="sr-only">Filippo Mantini — Graphic Designer & Art Director</h1>
 <div class="splash" id="splash">
   <div class="splash-inner">
-    <h1>LET'S BUILD<br><span>SOMETHING TOGETHER.</span></h1>
+    <div class="splash-title" aria-hidden="true">LET'S BUILD<br><span>SOMETHING TOGETHER.</span></div>
     <small>Filippo Mantini / Portfolio 2026</small>
   </div>
 </div>
@@ -813,7 +809,7 @@ body.fx .cursor{opacity:1}
 
     <a class="project project-link" href="/work/citta-di-castello/" aria-label="View Città di Castello case study">
       <div class="project-head"><span class="project-index">FM—002</span><div class="project-title">CITTÀ DI CASTELLO</div><span class="project-meta">IDENTITY PROPOSAL</span></div>
-      <div class="project-visual light cdc-visual"><img src="/assets/citta-di-castello-hero.jpg?v=4" alt="Città di Castello visual identity proposal by Filippo Mantini"></div>
+      <div class="project-visual light cdc-visual"><img src="/assets/citta-di-castello-hero.webp?v=4" alt="Città di Castello visual identity proposal by Filippo Mantini" loading="lazy" decoding="async"></div>
       <div class="project-bottom"><p>Visual Identity / Place Branding / Graphic System</p><p class="muted">A visual identity proposal for Città di Castello inspired by Alberto Burri and developed as a flexible graphic and typographic system.</p></div>
     </a>
 
@@ -936,7 +932,7 @@ body.fx .cursor{opacity:1}
 
     <a class="about-preview-link" href="/about/" aria-label="Read more about Filippo Mantini">
       <div class="about-desk">
-        <img src="/assets/about-desk.jpg?v=1" alt="Filippo Mantini workspace and design desk" loading="lazy" decoding="async">
+        <img src="/assets/about-desk.webp?v=1" alt="Filippo Mantini workspace and design desk" loading="lazy" decoding="async">
       </div>
 
       <div class="about-copy">
@@ -965,7 +961,7 @@ body.fx .cursor{opacity:1}
   const ctx = canvas.getContext('2d', { alpha:true });
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  setTimeout(() => splash.classList.add('out'), reduced ? 250 : 1050);
+  setTimeout(() => splash.classList.add('out'), reduced ? 150 : 550);
 
   // Subtle text glitch, transform-only for performance.
   const micro = [...document.querySelectorAll('.micro-columns p')];
@@ -985,7 +981,7 @@ body.fx .cursor{opacity:1}
   }
 
   const canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches && window.innerWidth > 900;
-  if (!canHover) return;
+  if (!canHover || reduced) return;
 
   document.body.classList.add('fx');
 
@@ -1012,6 +1008,7 @@ body.fx .cursor{opacity:1}
   let interactive=false;
   let pointerSeen=false;
   let cursorSx=1, cursorSy=1;
+  let lastMove=performance.now(), lastFrame=0;
 
   const interactiveSelector='a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])';
 
@@ -1033,6 +1030,7 @@ body.fx .cursor{opacity:1}
     tx=e.clientX; ty=e.clientY;
     prevX=tx; prevY=ty;
     pointerSeen=true;
+    lastMove=performance.now();
   },{passive:true});
 
   const punch = (cx,cy,rx,ry,alpha=1) => {
@@ -1083,8 +1081,13 @@ body.fx .cursor{opacity:1}
     ctx.globalCompositeOperation='source-over';
   };
 
-  const animate=()=>{
+  const animate=(now=0)=>{
     if(!running) return;
+
+    // Reduce canvas work when the pointer is idle while preserving the liquid motion.
+    const idle=now-lastMove>700;
+    if(idle && now-lastFrame<33){ requestAnimationFrame(animate); return; }
+    lastFrame=now;
 
     // viscous spring motion
     vx=(vx+(tx-x)*.038)*.81;

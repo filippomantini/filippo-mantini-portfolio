@@ -12,10 +12,10 @@
 <meta property="og:title" content="Città di Castello Visual Identity — Filippo Mantini" />
 <meta property="og:description" content="A place-branding proposal for Città di Castello inspired by Alberto Burri, combining a civic mark, custom letterforms and a flexible visual system." />
 <meta property="og:url" content="https://filippomantini.com/work/citta-di-castello/" />
-<meta property="og:image" content="https://filippomantini.com/assets/citta-di-castello-hero.jpg" />
+<meta property="og:image" content="https://filippomantini.com/assets/citta-di-castello-hero.webp" />
 <meta property="og:image:alt" content="Città di Castello visual identity proposal by Filippo Mantini" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://filippomantini.com/assets/citta-di-castello-hero.jpg" />
+<meta name="twitter:image" content="https://filippomantini.com/assets/citta-di-castello-hero.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   "creator":{"@type":"Person","name":"Filippo Mantini","url":"https://filippomantini.com/"},
   "url":"https://filippomantini.com/work/citta-di-castello/",
   "genre":["Visual Identity","Place Branding","Graphic Design"],
-  "image":"https://filippomantini.com/assets/citta-di-castello-hero.jpg",
+  "image":"https://filippomantini.com/assets/citta-di-castello-hero.webp",
   "description":"A proposed visual identity for Città di Castello inspired by Alberto Burri and developed through a custom graphic and typographic system."
 }
 </script>
@@ -108,7 +108,7 @@ h1{
   .block{min-height:300px}.full{min-height:430px}.next{padding:60px 14px 76px}.footer{padding:16px 14px}
 }
 </style>
-</head>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://filippomantini.com/"},{"@type":"ListItem","position":2,"name":"Città di Castello","item":"https://filippomantini.com/work/citta-di-castello/"}]}</script></head>
 <body>
 <div class="site-cursor" id="siteCursor" aria-hidden="true"></div>
 <header class="topbar">
@@ -132,12 +132,12 @@ h1{
 </section>
 
 <figure class="visual hero-image">
-  <img src="/assets/citta-di-castello-hero.jpg" alt="Città di Castello visual identity proposal by Filippo Mantini" fetchpriority="high">
+  <img src="/assets/citta-di-castello-hero.webp" alt="Città di Castello visual identity proposal by Filippo Mantini" fetchpriority="high">
 </figure>
 
 <div class="visual project-video" aria-label="Città di Castello visual identity animation">
-  <video autoplay muted loop playsinline preload="metadata" oncanplay="this.nextElementSibling.style.display='none'">
-    <source src="/assets/citta-di-castello-process.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="none" oncanplay="this.nextElementSibling.style.display='none'">
+    <source data-src="/assets/citta-di-castello-process.mp4" type="video/mp4">
   </video>
   <span class="video-fallback">CITTÀ DI<br>CASTELLO</span>
 </div>
@@ -189,6 +189,32 @@ h1{
   <span>Filippo Mantini © 2026</span>
   <a href="mailto:info@filippomantini.com">info@filippomantini.com ↗</a>
 </footer>
+<script>
+(() => {
+  const projectVideo=document.querySelector('.project-video video');
+  const source=projectVideo?.querySelector('source[data-src]');
+  if(!projectVideo || !source) return;
+  const loadVideo=()=>{
+    if(!source.dataset.src) return;
+    source.src=source.dataset.src;
+    source.removeAttribute('data-src');
+    projectVideo.load();
+    const play=projectVideo.play();
+    if(play?.catch) play.catch(()=>{});
+  };
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){
+        observer.disconnect();
+        loadVideo();
+      }
+    },{rootMargin:'320px 0px'});
+    observer.observe(projectVideo);
+  }else{
+    loadVideo();
+  }
+})();
+</script>
 <script>
 (() => {
   const cursor=document.getElementById('siteCursor');
