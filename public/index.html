@@ -1011,7 +1011,7 @@ body.fx .cursor{opacity:1}
 
   let tx=w*.5, ty=h*.5;
   let x=tx, y=ty, vx=0, vy=0;
-  let t=0;
+  let t=0, veilAngle=0;
   let running=true;
   let interactive=false;
   let pointerSeen=false;
@@ -1061,11 +1061,12 @@ body.fx .cursor{opacity:1}
     ctx.fillRect(0,0,w,h);
     ctx.globalCompositeOperation='destination-out';
 
-    const vel=Math.min(1.2,Math.hypot(vx,vy)/26);
-    const dir=Math.atan2(vy,vx);
-    const driftX=Math.cos(dir), driftY=Math.sin(dir);
-    const baseX=x + Math.sin(t*.9)*7;
-    const baseY=y + Math.cos(t*.8)*6;
+    const rawVel=Math.hypot(vx,vy);
+    const vel=Math.min(1.2,rawVel/26);
+    if(rawVel>.12) veilAngle=Math.atan2(vy,vx);
+    const driftX=Math.cos(veilAngle), driftY=Math.sin(veilAngle);
+    const baseX=x;
+    const baseY=y;
 
     punch(baseX,baseY,360+vel*75,285-vel*18,1);
     punch(baseX-driftX*(120+vel*75)+Math.sin(t*1.3)*18,
@@ -1090,7 +1091,7 @@ body.fx .cursor{opacity:1}
     vx=(vx+(tx-x)*.038)*.81;
     vy=(vy+(ty-y)*.038)*.81;
     x+=vx; y+=vy;
-    t+=.018;
+    if(Math.hypot(vx,vy)>.08) t+=.018;
 
     draw();
     requestAnimationFrame(animate);
