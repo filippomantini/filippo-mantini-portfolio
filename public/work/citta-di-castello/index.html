@@ -110,6 +110,12 @@ h1{
 .block{min-height:420px;border:1px solid var(--line);background:var(--paper2);display:flex;align-items:center;justify-content:center;padding:24px}
 .block span{font:10px/1.4 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
 .full{min-height:620px;margin-top:14px}
+.application-guidelines{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:72px;padding-top:18px;border-top:1px solid var(--line)}
+.application-guidelines p{margin:12px 0 0;max-width:650px;font-size:19px;line-height:1.4}
+.application-label,.format-list{font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
+.application-label{color:var(--muted)}
+.format-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
+.merchandise-figure{margin-top:72px}
 .next{padding:70px 22px 90px;background:#11110f;color:#ece9e3}
 .next small{font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#aaa59d}
 .next a{display:block;margin-top:24px;font-size:clamp(64px,10vw,150px);line-height:.8;letter-spacing:-.07em}
@@ -119,7 +125,7 @@ h1{
   .hero{padding:20px 14px 0}h1{font-size:18.2vw;line-height:.82;letter-spacing:-.065em;margin:22px 0 28px}
   .hero-grid,.copy,.system-grid{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}
   .visual{margin:0 14px;min-height:62vh}.visual.project-video{min-height:0;height:auto}.project-video video{width:100%;height:auto;min-height:0;object-fit:contain}.section{padding:68px 14px}.section-head{grid-template-columns:1fr;gap:12px}
-  .block{min-height:300px}.full{min-height:430px}.next{padding:60px 14px 76px}.footer{padding:16px 14px}
+  .block{min-height:300px}.full{min-height:430px}.application-guidelines{grid-template-columns:1fr;gap:28px;margin-top:52px}.format-list{grid-template-columns:1fr}.merchandise-figure{margin-top:52px}.next{padding:60px 14px 76px}.footer{padding:16px 14px}
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://filippomantini.com/"},{"@type":"ListItem","position":2,"name":"Città di Castello","item":"https://filippomantini.com/work/citta-di-castello/"}]}</script></head>
@@ -208,16 +214,40 @@ h1{
   </figure>
 </section>
 
-<section class="section">
-  <div class="section-head"><span class="n">04 / APPLICATIONS</span><h2>FROM INSTITUTION<br>TO CITY.</h2></div>
+<section class="section applications-section">
+  <div class="section-head"><span class="n">04 / APPLICATIONS</span><h2>FROM SYSTEM<br>TO USE.</h2></div>
   <div class="copy">
-    <p>The system was developed across institutional and public-facing applications, including stationery, press communication, posters, office signage, wayfinding and merchandise.</p>
-    <p>Each application follows the same hierarchy while allowing the identity to adapt to different scales and functions.</p>
+    <p>The identity moves from a graphic system into everyday institutional communication. Across printed matter and physical applications, the same visual language remains recognisable while adapting to different formats and functions.</p>
+    <p>Rather than repeating a fixed composition, the applications show how the mark, CDC Regular and the colour system can shift in scale and hierarchy without losing their relationship to the city.</p>
   </div>
-  <div class="system-grid">
-    <div class="block"><span>Project material / Institutional applications</span></div>
-    <div class="block"><span>Project material / Public communication & wayfinding</span></div>
+
+  <figure class="process-figure">
+    <img src="/assets/cdc-business-card.webp" alt="Città di Castello visual identity applied to business cards" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Institutional Application</span><span>Business Card</span></figcaption>
+  </figure>
+
+  <div class="application-guidelines">
+    <div>
+      <span class="application-label">Sizing & Placement</span>
+      <p>The configuration and size of the mark adapt to format and viewing distance, while its proportions and clear space remain consistent across applications.</p>
+    </div>
+    <div class="format-list">
+      <span>A4 / 30 mm — extended</span>
+      <span>A5 / 15 mm — single</span>
+      <span>A3 / 40 mm — extended</span>
+      <span>A3 / 30 mm — acronym</span>
+      <span>50×70 / 60 mm — extended</span>
+      <span>50×70 / 40 mm — acronym</span>
+      <span>70×100 / 70 mm — extended</span>
+      <span>70×100 / 50 mm — acronym</span>
+      <span>300×100 / 300 mm — extended</span>
+    </div>
   </div>
+
+  <figure class="process-figure merchandise-figure">
+    <img src="/assets/cdc-merchandise.webp" alt="Città di Castello identity applied to T-shirts and tote bags" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Identity in Use</span><span>T-shirt / Tote Bag</span></figcaption>
+  </figure>
 </section>
 
 <section class="next">
