@@ -975,6 +975,23 @@ body.fx .cursor{opacity:1}
 
 <script>
 (() => {
+  const track = document.querySelector('.graphic-archive-track');
+  if (!track) return;
+  track.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    const max = track.scrollWidth - track.clientWidth;
+    if (max <= 0) return;
+    const atStart = track.scrollLeft <= 0 && e.deltaY < 0;
+    const atEnd = track.scrollLeft >= max - 1 && e.deltaY > 0;
+    if (atStart || atEnd) return;
+    e.preventDefault();
+    track.scrollLeft += e.deltaY;
+  }, { passive:false });
+})();
+</script>
+
+<script>
+(() => {
   const splash = document.getElementById('splash');
   const cursor = document.getElementById('cursor');
   const canvas = document.getElementById('liquidVeil');
