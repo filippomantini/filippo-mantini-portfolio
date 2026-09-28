@@ -7,19 +7,31 @@
 <meta name="description" content="Privacy information for filippomantini.com.">
 <link rel="canonical" href="https://filippomantini.com/privacy/">
 <meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#ece9e3;--ink:#11110f;--muted:#77716a;--line:rgba(17,17,15,.18)}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}
-a{color:inherit}.top{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid var(--line);font-size:12px}
-main{max-width:1050px;margin:auto;padding:70px 22px 110px}h1{font-size:clamp(60px,10vw,140px);line-height:.82;letter-spacing:-.065em;margin:0 0 70px;font-weight:500}
-.grid{display:grid;grid-template-columns:220px 1fr;gap:45px;border-top:1px solid var(--line);padding-top:24px}.label{font-size:11px;text-transform:uppercase;color:var(--muted)}
-.content{max-width:720px}.content h2{font-size:28px;margin:44px 0 12px}.content h2:first-child{margin-top:0}.content p{font-size:17px;line-height:1.55;margin:0 0 18px}
-footer{display:flex;justify-content:space-between;padding:18px 22px;border-top:1px solid var(--line);font-size:11px;text-transform:uppercase}
-@media(max-width:700px){.top,footer{padding-left:14px;padding-right:14px}main{padding:54px 14px 80px}.grid{grid-template-columns:1fr;gap:22px}h1{margin-bottom:48px}}
+:root{--paper:#ece9e3;--paper-2:#f1eee8;--ink:#11110f;--muted:#77716a;--line:rgba(17,17,15,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter Tight",sans-serif}a{color:inherit;text-decoration:none}
+.topbar{position:relative;z-index:5;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:26px;padding:17px 22px;border-bottom:1px solid var(--line);font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+.topbar .name{font-family:"Inter Tight",sans-serif;line-height:1;font-weight:600;letter-spacing:-.035em;white-space:nowrap;font-size:13px}.topbar nav{display:flex;gap:18px}
+main{padding:72px 22px 120px}h1{font-size:clamp(76px,12vw,190px);line-height:.78;letter-spacing:-.07em;margin:0 0 90px;font-weight:500;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,720px);gap:clamp(36px,8vw,130px);border-top:1px solid var(--line);padding-top:24px}.label{font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.content h2{font-size:30px;letter-spacing:-.035em;margin:48px 0 12px;font-weight:500}.content h2:first-child{margin-top:0}.content p{font-size:17px;line-height:1.55;margin:0 0 18px}
+footer{min-height:620px;background:#11110f;color:var(--paper-2);padding:30px 22px;display:flex;flex-direction:column;justify-content:space-between}
+footer h2{margin:0;font-size:clamp(72px,11.5vw,175px);line-height:.78;letter-spacing:-.075em;font-weight:500}footer h2 span{color:#c6532e}
+footer .bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#a6a19a}
+footer .bottom a{color:var(--paper-2)}.footer-left{display:flex;gap:16px;align-items:center}
+@media(max-width:900px){.topbar{grid-template-columns:1fr auto}.topbar .status{display:none}}
+@media(max-width:700px){.topbar{padding:17px 14px}.topbar nav{gap:12px}main{padding:54px 14px 84px}h1{font-size:18vw;margin-bottom:60px}.grid{grid-template-columns:1fr;gap:28px}.content h2{font-size:25px}footer{min-height:520px;padding:24px 14px}.footer-left{gap:10px}}
 </style>
 </head>
 <body>
-<header class="top"><a href="/">FILIPPO MANTINI</a><a href="/">← Back to portfolio</a></header>
+<header class="topbar">
+  <a class="name" href="/">FILIPPO MANTINI</a>
+  <nav><a href="/#work">Work</a><a href="/#photo">Photo</a><a href="/about/">About</a></nav>
+  <div class="status">Independent / Italy / 2026</div>
+</header>
 <main>
 <h1>PRIVACY<br>POLICY</h1>
 <div class="grid"><div class="label">Last updated<br>29 September 2026</div><div class="content">
@@ -41,5 +53,12 @@ footer{display:flex;justify-content:space-between;padding:18px 22px;border-top:1
 <p>This notice may be updated when the website, its infrastructure or the services used by the portfolio change. The current version and update date will always be available on this page.</p>
 </div></div>
 </main>
-<footer><span>Filippo Mantini © 2026</span><a href="/">filippomantini.com</a></footer>
+<footer id="contact">
+  <h2>LET'S BUILD<br>SOMETHING<br><span>TOGETHER.</span></h2>
+  <div class="bottom">
+    <div class="footer-left"><span>Filippo Mantini © 2026</span><a href="/privacy/" aria-current="page">Privacy</a></div>
+    <a href="mailto:info@filippomantini.com">info@filippomantini.com ↗</a>
+    <span>Portfolio FM</span>
+  </div>
+</footer>
 </body></html>
