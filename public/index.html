@@ -976,14 +976,17 @@ body.fx .cursor{opacity:1}
   const track = document.querySelector('.graphic-archive-track');
   if (!track) return;
   track.addEventListener('wheel', e => {
-    // Keep native horizontal gestures (trackpads) untouched.
-    if (Math.abs(e.deltaX) >= Math.abs(e.deltaY)) return;
-
     const max = track.scrollWidth - track.clientWidth;
     if (max <= 0) return;
 
-    // A vertical mouse wheel may browse the archive horizontally,
-    // but it must never trap normal page scrolling.
+    // Trackpad horizontal gesture: let the browser handle it natively.
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+    // Vertical scrolling must always keep moving the page on trackpads/Mac.
+    // Only convert coarse mouse-wheel steps (typical Windows wheel) to horizontal.
+    const coarseWheel = e.deltaMode !== 0 || Math.abs(e.deltaY) >= 40;
+    if (!coarseWheel) return;
+
     const direction = Math.sign(e.deltaY);
     const atStart = track.scrollLeft <= 1;
     const atEnd = track.scrollLeft >= max - 1;
