@@ -51,7 +51,8 @@
 
     const gap = window.innerWidth <= 1100 ? 10 : 14;
     const targetHeight = window.innerWidth <= 1100 ? 260 : 330;
-    const available = gallery.clientWidth;
+    const styles = getComputedStyle(gallery);
+    const available = gallery.clientWidth - parseFloat(styles.paddingLeft || 0) - parseFloat(styles.paddingRight || 0);
     const rows = [];
     let current = [];
     let ratioSum = 0;
