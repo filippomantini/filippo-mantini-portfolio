@@ -976,14 +976,24 @@ body.fx .cursor{opacity:1}
   const track = document.querySelector('.graphic-archive-track');
   if (!track) return;
   track.addEventListener('wheel', e => {
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    // Keep native horizontal gestures (trackpads) untouched.
+    if (Math.abs(e.deltaX) >= Math.abs(e.deltaY)) return;
+
     const max = track.scrollWidth - track.clientWidth;
     if (max <= 0) return;
-    const atStart = track.scrollLeft <= 0 && e.deltaY < 0;
-    const atEnd = track.scrollLeft >= max - 1 && e.deltaY > 0;
-    if (atStart || atEnd) return;
+
+    // A vertical mouse wheel may browse the archive horizontally,
+    // but it must never trap normal page scrolling.
+    const direction = Math.sign(e.deltaY);
+    const atStart = track.scrollLeft <= 1;
+    const atEnd = track.scrollLeft >= max - 1;
+    if ((direction < 0 && atStart) || (direction > 0 && atEnd)) return;
+
+    const next = Math.max(0, Math.min(max, track.scrollLeft + e.deltaY));
+    if (Math.abs(next - track.scrollLeft) < 1) return;
+
     e.preventDefault();
-    track.scrollLeft += e.deltaY;
+    track.scrollLeft = next;
   }, { passive:false });
 })();
 </script>
