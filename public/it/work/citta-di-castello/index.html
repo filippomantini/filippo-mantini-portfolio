@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Città di Castello Visual Identity — Filippo Mantini</title>
+<meta name="description" content="Visual identity and place-branding proposal for Città di Castello by Filippo Mantini, inspired by Alberto Burri and developed through a custom graphic and typographic system." />
+<link rel="canonical" href="https://filippomantini.com/work/citta-di-castello/" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.svg" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Città di Castello Visual Identity — Filippo Mantini" />
+<meta property="og:description" content="A place-branding proposal for Città di Castello inspired by Alberto Burri, combining a civic mark, custom letterforms and a flexible visual system." />
+<meta property="og:url" content="https://filippomantini.com/work/citta-di-castello/" />
+<meta property="og:image" content="https://filippomantini.com/assets/filippo-mantini-portrait.webp?v=6">
+<meta property="og:image:alt" content="Città di Castello visual identity proposal by Filippo Mantini" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://filippomantini.com/assets/filippo-mantini-portrait.webp?v=6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CreativeWork",
+  "name":"Città di Castello — Visual Identity",
+  "creator":{"@type":"Person","name":"Filippo Mantini","url":"https://filippomantini.com/"},
+  "url":"https://filippomantini.com/work/citta-di-castello/",
+  "genre":["Visual Identity","Place Branding","Graphic Design"],
+  "image":"https://filippomantini.com/assets/citta-di-castello-hero.webp",
+  "description":"A proposed visual identity for Città di Castello inspired by Alberto Burri and developed through a custom graphic and typographic system."
+}
+</script>
+<style>
+:root{
+  --paper:#ece9e3;--paper2:#f5f2ec;--ink:#11110f;--orange:#a6532a;
+  --muted:#77716a;--line:rgba(17,17,15,.18)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter Tight",Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+@media (hover:hover) and (pointer:fine){
+  html,body,a,button,[role="button"],input,select,textarea,summary,[tabindex]:not([tabindex="-1"]){cursor:none!important}
+}
+.site-cursor{
+  position:fixed;left:0;top:0;z-index:9999;
+  width:18px;height:18px;border-radius:50%;
+  background:#050505;pointer-events:none;opacity:0;
+  transform:translate3d(-100px,-100px,0);
+  transform-origin:center;
+  will-change:transform;
+  box-shadow:
+    0 0 4px 3px rgba(0,0,0,.28),
+    0 0 10px 8px rgba(0,0,0,.14),
+    0 0 24px 16px rgba(0,0,0,.07);
+  transition:box-shadow .16s ease;
+}
+.site-cursor.is-visible{opacity:1}
+.site-cursor.is-interactive{
+  background:#d7d2ca;
+  box-shadow:
+    0 0 5px 4px rgba(0,0,0,.30),
+    0 0 12px 9px rgba(0,0,0,.15),
+    0 0 26px 17px rgba(0,0,0,.075);
+}
+@media(max-width:800px){.site-cursor{display:none!important}}
+.topbar{position:fixed;top:0;left:0;width:100%;z-index:1000;height:54px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:26px;padding:0 22px;border-bottom:0;background:transparent;color:#fff;mix-blend-mode:difference;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+.topbar .name{font-family:"Inter Tight";font-size:13px;font-weight:600;letter-spacing:-.03em}
+.topbar nav{display:flex;gap:18px}
+.back{color:inherit;opacity:.62}
+.hero{padding:78px 22px 0}
+.kicker{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+h1{
+  margin:18px 0 26px;font-size:clamp(72px,12.2vw,188px);line-height:.80;letter-spacing:-.072em;font-weight:500
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--line);padding:18px 0 34px}
+.hero-grid p{margin:0;font-size:19px;line-height:1.35;max-width:680px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase}\n.meta a{display:inline-block;border-bottom:1px solid currentColor;padding-bottom:2px}
+.meta b{display:block;margin-bottom:8px;color:var(--muted);font-weight:400}
+.visual{
+  min-height:70vh;margin:0 22px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  background:var(--paper2);overflow:hidden
+}
+.visual span{font-size:clamp(58px,10vw,154px);line-height:.76;letter-spacing:-.075em;text-align:center}
+.hero-image{min-height:0;background:var(--paper2)}
+.hero-image img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
+.project-video{position:relative;background:#11110f}
+.project-video video{width:100%;height:100%;min-height:70vh;display:block;object-fit:cover}
+.project-video .video-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ece9e3;pointer-events:none}
+.section{padding:90px 22px;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:160px 1fr;gap:30px;margin-bottom:42px}
+.section-head .n{font:10px/1 "IBM Plex Mono",monospace;color:var(--muted)}
+.section h2{margin:0;font-size:clamp(56px,8vw,118px);line-height:.82;letter-spacing:-.065em;font-weight:500}
+.copy{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.process-figure + .copy,.system-copy{margin-top:64px}
+.copy p{margin:0;max-width:680px;font-size:19px;line-height:1.4}
+.process-figure{margin:48px 0 0;border:1px solid var(--line);background:var(--paper2);overflow:hidden}
+.process-figure img{display:block;width:100%;height:auto}
+.process-caption{display:flex;justify-content:space-between;gap:20px;padding:12px 14px;border-top:1px solid var(--line);font:10px/1.35 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.system-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+.block{min-height:420px;border:1px solid var(--line);background:var(--paper2);display:flex;align-items:center;justify-content:center;padding:24px}
+.block span{font:10px/1.4 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.full{min-height:620px;margin-top:14px}
+.application-guidelines{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:72px;padding-top:18px;border-top:1px solid var(--line)}
+.application-guidelines p{margin:12px 0 0;max-width:650px;font-size:19px;line-height:1.4}
+.application-label,.format-list{font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
+.application-label{color:var(--muted)}
+.format-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
+.merchandise-figure{margin-top:72px}
+.cdc-statement{margin:0 18px;border-top:1px solid var(--line);padding:28px 0 80px}
+.cdc-statement-label{font:10px/1.4 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.cdc-statement-text{margin-top:54px;font-size:clamp(64px,10vw,190px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}
+.next{padding:70px 22px 90px;background:#11110f;color:#ece9e3}
+.next small{font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase;color:#aaa59d}
+.next a{display:block;margin-top:24px;font-size:clamp(64px,10vw,150px);line-height:.8;letter-spacing:-.07em}
+.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 22px;border-top:1px solid rgba(255,255,255,.12);background:#11110f;color:#aaa59d;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
+@media(max-width:800px){
+  .topbar{grid-template-columns:1fr auto;padding:0 14px}.topbar nav{display:none}
+  .hero{padding:20px 14px 0}h1{font-size:18.2vw;line-height:.82;letter-spacing:-.065em;margin:22px 0 28px}
+  .hero-grid,.copy,.system-grid{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}
+  .visual{margin:0 14px;min-height:62vh}.visual.project-video{min-height:0;height:auto}.project-video video{width:100%;height:auto;min-height:0;object-fit:contain}.section{padding:68px 14px}.section-head{grid-template-columns:1fr;gap:12px}
+  .block{min-height:300px}.full{min-height:430px}.process-caption{font-size:8px;padding:10px 10px}.application-guidelines{grid-template-columns:1fr;gap:28px;margin-top:52px}.format-list{grid-template-columns:1fr}.merchandise-figure{margin-top:52px}.cdc-statement{margin:0 14px;padding-bottom:64px}.cdc-statement-text{margin-top:38px;font-size:18vw;line-height:.84}.next{padding:60px 14px 76px}.footer{padding:16px 14px}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://filippomantini.com/"},{"@type":"ListItem","position":2,"name":"Città di Castello","item":"https://filippomantini.com/work/citta-di-castello/"}]}</script></head>
+<body>
+<div class="site-cursor" id="siteCursor" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="name" href="/it/">FILIPPO MANTINI</a>
+  <nav><a href="/it/#work">Work</a><a href="/it/photography/">Photo</a><a href="/#about">About</a><a href="/work/citta-di-castello/" lang="en" hreflang="en">EN</a></nav>
+  <a class="back" href="/">← Back to work</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="kicker"><span>FM—002 / Selected Work</span><span>Visual Identity / Place Branding</span></div>
+  <h1>CITTÀ DI<br>CASTELLO</h1>
+  <div class="hero-grid">
+    <p>Una proposta di visual identity per Città di Castello, costruita attorno al rapporto culturale della città con Alberto Burri. Il progetto traduce forme presenti nelle sue opere in un segno civico, un alfabeto custom e un linguaggio visivo flessibile.</p>
+    <div class="meta">
+      <div><b>Role</b>Graphic Design<br>Visual Identity</div>
+      <div><b>Disciplines</b>Place Branding<br>Graphic System</div>
+      <div><b>Project</b>Identity Proposal<br>FM—002</div><div><b>Full Project</b><a href="https://www.behance.net/gallery/256366803/Citta-di-Castello-Visual-Identity-Proposal" target="_blank" rel="noopener noreferrer">Behance ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="visual project-video" aria-label="Città di Castello visual identity animation">
+  <video autoplay muted loop playsinline preload="none" oncanplay="this.nextElementSibling.style.display='none'">
+    <source data-src="/assets/citta-di-castello-process.mp4" type="video/mp4">
+  </video>
+  <span class="video-fallback">CITTÀ DI<br>CASTELLO</span>
+</div>
+
+<section class="section">
+  <div class="section-head"><span class="n">01 / CONTEXT</span><h2>LA CITTÀ COME<br>PUNTO DI PARTENZA.</h2></div>
+  <div class="copy">
+    <p>Il progetto nasce da una domanda semplice: come può una città essere tradotta in una visual identity riconoscibile? L’obiettivo era creare un sistema condiviso capace di collegare istituzioni, cultura e comunicazione pubblica attraverso un unico linguaggio coerente.</p>
+    <p>Invece di progettare un singolo logo, la proposta sviluppa un sistema visivo capace di adattarsi ai diversi ambiti della comunicazione cittadina mantenendo continuità e riconoscibilità.</p>
+  </div>
+</section>
+
+<section class="section concept-section">
+  <div class="section-head"><span class="n">02 / CONCEPT</span><h2>PUÒ L’IDENTITÀ DI UNA CITTÀ<br>NASCERE DALLE FORME<br>DELLA SUA CULTURA?</h2></div>
+  <div class="copy">
+    <p>La proposta parte dall’idea di costruire un linguaggio visivo a partire dal patrimonio artistico di Città di Castello. Il progetto prende forma dal rapporto tra la città e Alberto Burri, trasformando questa connessione nel punto di partenza dell’identità.</p>
+    <p>Le opere di Burri non vengono trattate semplicemente come riferimenti estetici, ma come un archivio di forme. Frammenti, curve, tagli e geometrie vengono isolati dalle composizioni originali, semplificati e reinterpretati fino a diventare elementi tipografici. L’opera diventa materiale di design.</p>
+  </div>
+  <figure class="process-figure">
+    <img src="/assets/cdc-character-construction-01.webp" alt="Character construction process derived from an Alberto Burri artwork" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Character Construction 01</span><span>Artwork → Form → Letterform</span></figcaption>
+  </figure>
+  <figure class="process-figure">
+    <img src="/assets/cdc-character-construction-02.webp" alt="Second character construction process derived from an Alberto Burri artwork" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Character Construction 02</span><span>Artwork → Form → Letterform</span></figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <div class="section-head"><span class="n">03 / SYSTEM</span><h2>UN LINGUAGGIO,<br>NON SOLO UN LOGO.</h2></div>
+  <figure class="process-figure">
+    <img src="/assets/cdc-logotype-construction.webp" alt="Construction of the CDC logotype for Città di Castello" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>CDC Logotype</span><span>Form → Identity</span></figcaption>
+  </figure>
+  <div class="copy system-copy identity-system-copy">
+    <p>Il segno si espande in una famiglia di configurazioni pensate per diversi ambiti della comunicazione civica, collegando Comune, patrimonio culturale e servizi pubblici attraverso lo stesso linguaggio visivo.</p>
+    <p>Invece di funzionare come identità separate, ogni configurazione rimane parte di un unico sistema riconoscibile costruito attorno all’acronimo CDC.</p>
+  </div>
+  <figure class="process-figure identity-system-figure">
+    <img src="/assets/cdc-identity-system.webp" alt="Città di Castello identity system and its institutional, cultural and municipal configurations" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Identity System</span><span>One Language / Multiple Functions</span></figcaption>
+  </figure>
+
+  <div class="copy system-copy">
+    <p>CDC Regular estende lo stesso processo a un alfabeto visivo completo. Ogni carattere nasce da una forma isolata dall’opera di Burri, poi semplificata e trasformata in glifo mantenendo un rapporto visibile con la composizione originale.</p>
+    <p>Il risultato è un sistema tipografico in cui il patrimonio artistico della città diventa uno strumento attivo per la comunicazione contemporanea.</p>
+  </div>
+  <figure class="process-figure">
+    <img src="/assets/cdc-regular-alphabet.webp" alt="CDC Regular custom alphabet developed for the Città di Castello visual identity" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>CDC Regular</span><span>Custom Visual Alphabet</span></figcaption>
+  </figure>
+  <div class="copy system-copy">
+    <p>Il typeface Butler completa il sistema come carattere secondario. La sua struttura serif crea un contrasto intenzionale con le forme irregolari ed espressive di CDC Regular, definendo una gerarchia più istituzionale per testi, informazioni e comunicazione ufficiale.</p>
+    <p>Insieme, i due typeface permettono all’identità di muoversi tra espressione e funzione mantenendo una voce visiva coerente.</p>
+  </div>
+  <figure class="process-figure">
+    <img src="/assets/cdc-typography-butler.webp" alt="Butler secondary typography specimen for the Città di Castello visual identity" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Secondary Typography</span><span>Butler</span></figcaption>
+  </figure>
+  <div class="copy system-copy">
+    <p>La palette unisce il patrimonio artistico e istituzionale della città. I colori vengono estratti e reinterpretati dalle opere di Alberto Burri, creando un sistema essenziale costruito attorno a rosso, nero e un fondo off-white.</p>
+    <p>#9A1E13 è il colore distintivo dell’identità, mentre #242321 dà profondità e contrasto. #EFEDEE viene utilizzato principalmente come sfondo e contrappunto neutro all’interno del sistema.</p>
+  </div>
+  <figure class="process-figure">
+    <img src="/assets/cdc-colour-palette.webp" alt="Colour palette for the Città di Castello visual identity" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Colour System</span><span>Artistic Heritage → Institutional Identity</span></figcaption>
+  </figure>
+</section>
+
+<section class="cdc-statement" aria-label="Questa è CDC">
+  <span class="cdc-statement-label">Città di Castello / Visual Identity</span>
+  <div class="cdc-statement-text">QUESTA È<br>CDC.</div>
+</section>
+
+<section class="section applications-section">
+  <div class="section-head"><span class="n">04 / APPLICATIONS</span><h2>DAL SISTEMA<br>ALL’USO.</h2></div>
+  <div class="copy">
+    <p>L’identità passa dal sistema grafico alla comunicazione istituzionale quotidiana. Tra materiali stampati e applicazioni fisiche, lo stesso linguaggio visivo rimane riconoscibile adattandosi a formati e funzioni differenti.</p>
+    <p>Invece di ripetere una composizione fissa, le applicazioni mostrano come il segno, CDC Regular e il sistema cromatico possano cambiare scala e gerarchia senza perdere il rapporto con la città.</p>
+  </div>
+
+  <figure class="process-figure">
+    <img src="/assets/cdc-business-card.webp" alt="Città di Castello visual identity applied to business cards" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Institutional Application</span><span>Business Card</span></figcaption>
+  </figure>
+
+  <figure class="process-figure posters-figure">
+    <img src="/assets/cdc-posters-mockup.webp" alt="Città di Castello visual identity applied to an urban poster series" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Public Communication</span><span>Poster Series</span></figcaption>
+  </figure>
+
+  <figure class="process-figure merchandise-figure">
+    <img src="/assets/cdc-merchandise.webp" alt="Città di Castello identity applied to T-shirts and tote bags" loading="lazy" decoding="async">
+    <figcaption class="process-caption"><span>Identity in Use</span><span>T-shirt / Tote Bag</span></figcaption>
+  </figure>
+</section>
+
+<section class="next">
+  <small>Next selected project / FM—003</small>
+  <a href="/it/work/vibrazioni/">VIBRAZIONI <span aria-hidden="true">↗</span></a>
+</section>
+</main>
+
+<footer class="footer">
+  <span>Filippo Mantini © 2026</span>
+  <a href="mailto:info@filippomantini.com">info@filippomantini.com</a> <a href="/it/privacy/">Privacy</a></footer>
+<script>
+(() => {
+  const projectVideo=document.querySelector('.project-video video');
+  const source=projectVideo?.querySelector('source[data-src]');
+  if(!projectVideo || !source) return;
+  const loadVideo=()=>{
+    if(!source.dataset.src) return;
+    source.src=source.dataset.src;
+    source.removeAttribute('data-src');
+    projectVideo.load();
+    const play=projectVideo.play();
+    if(play?.catch) play.catch(()=>{});
+  };
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){
+        observer.disconnect();
+        loadVideo();
+      }
+    },{rootMargin:'320px 0px'});
+    observer.observe(projectVideo);
+  }else{
+    loadVideo();
+  }
+})();
+</script>
+<script src="/assets/simple-cursor.js" defer></script>
+</body>
+</html>
