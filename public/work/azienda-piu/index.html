@@ -16,7 +16,9 @@
 .project-video .video-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ece9e3;pointer-events:none;font-size:clamp(52px,8vw,120px);line-height:.8;letter-spacing:-.06em;text-align:center}
 .project-video .replay-button{position:absolute;inset:0;margin:auto;width:92px;height:92px;border:1px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(7,19,39,.52);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;color:#fff;font:11px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;cursor:pointer!important;z-index:3}
 .project-video.is-ended .replay-button{display:flex}
-.ap-blue-statement{background:var(--ap-blue);color:var(--ap-white)}
+.ap-blue-statement{background:var(--ap-midnight);color:var(--ap-white);padding:74px 54px 88px;min-height:72vh;display:flex;align-items:center}
+.ap-blue-statement .ap-tagline{display:block;max-width:1120px;font-size:clamp(64px,7.2vw,122px);line-height:.88;letter-spacing:-.055em;font-weight:600;text-transform:none}
+.ap-blue-statement .ap-tagline strong{color:var(--ap-blue);font-weight:600}
 .ap-close{background:var(--ap-midnight);color:white}
 .asset-figure{margin:48px 0 0;border:1px solid var(--line);background:var(--paper2);overflow:hidden}
 .asset-figure img,.asset-figure video{display:block;width:100%;height:auto}
@@ -32,6 +34,7 @@
 .applications-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .applications-grid .asset-figure{margin:0}
 .closing-visual{margin:0 22px 22px;border:1px solid var(--line);background:#eef3fa;overflow:hidden}
+@media(max-width:800px){.ap-blue-statement{min-height:0;padding:54px 18px 64px}.ap-blue-statement .ap-tagline{font-size:clamp(46px,13vw,74px);line-height:.9}}
 .closing-visual img{display:block;width:100%;height:auto}
 @media(max-width:800px){
  .hero h1{white-space:normal;font-size:clamp(46px,15vw,76px);line-height:.8}
@@ -65,7 +68,7 @@
   <button class="replay-button" type="button" aria-label="Play video">Play</button>
 </div>
 
-<div class="statement ap-blue-statement"><span>THE INSURANCE BROKER AT YOUR COMPANY'S SIDE.</span></div>
+<div class="ap-blue-statement"><span class="ap-tagline">The insurance broker<br>at the side of<br><strong>your company.</strong></span></div>
 
 <section class="section">
   <div class="section-head"><span class="n">01 / CONTEXT</span><h2>A MORE<br>CONTEMPORARY IDENTITY.</h2></div>
