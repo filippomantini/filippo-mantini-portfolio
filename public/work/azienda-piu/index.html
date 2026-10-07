@@ -13,6 +13,9 @@
 .project-video{position:relative;background:#11110f}
 .project-video video{width:100%;height:100%;min-height:70vh;display:block;object-fit:cover}
 .project-video .video-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ece9e3;pointer-events:none;font-size:clamp(52px,8vw,120px);line-height:.8;letter-spacing:-.06em;text-align:center}
+.project-video .replay-button{position:absolute;inset:0;margin:auto;width:92px;height:92px;border:1px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(7,19,39,.48);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;color:#fff;font:11px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;cursor:pointer!important;z-index:3}
+.project-video.is-ended .replay-button{display:flex}
+@media(max-width:800px){.project-video .replay-button{width:72px;height:72px;font-size:9px}}
 .ap-blue-statement{background:var(--ap-blue);color:var(--ap-white)}
 .ap-brand-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:42px}
 .ap-image{min-height:520px;overflow:hidden;background:#f5f7fb;border:1px solid var(--line)}
@@ -50,10 +53,11 @@
 <main>
 <section class="hero"><div class="kicker"><span>10 / Other Things I've Built</span><span>Visual Identity / Brand Restyling / Web Design</span></div><h1>AZIENDA PIÙ SRL</h1><div class="hero-grid"><p>A brand restyling and digital experience for Azienda Più SRL, developed to give the insurance broker a more contemporary, recognisable and versatile identity across physical and digital touchpoints.</p><div class="meta"><div><b>Role</b>Graphic Design<br>Web Design</div><div><b>Disciplines</b>Visual Identity<br>Digital<br>Print</div><div><b>Project</b>Brand Restyling<br>Responsive Web</div></div></div></section>
 <div class="visual project-video" aria-label="Azienda Più identity and website motion preview">
-  <video autoplay muted loop playsinline preload="none" oncanplay="this.nextElementSibling.style.display='none'">
-    <source data-src="/assets/azienda-piu-hero.mp4?v=2" type="video/mp4">
+  <video muted playsinline preload="none" oncanplay="this.nextElementSibling.style.display='none'">
+    <source data-src="/assets/azienda-piu-hero.mp4?v=3" type="video/mp4">
   </video>
   <span class="video-fallback">AZIENDA PIÙ SRL</span>
+  <button class="replay-button" type="button" aria-label="Play video">Play</button>
 </div>
 <div class="statement ap-blue-statement"><span>THE INSURANCE BROKER AT YOUR COMPANY'S SIDE.</span></div>
 
@@ -76,27 +80,55 @@
 <section class="next"><small>Next project</small><a href="/work/no-font/">NO FONT</a></section>
 </main><footer class="footer"><span>Filippo Mantini © 2026</span><a href="mailto:info@filippomantini.com">info@filippomantini.com</a></footer><script>
 (() => {
-  const projectVideo=document.querySelector('.project-video video');
+  const wrap=document.querySelector('.project-video');
+  const projectVideo=wrap?.querySelector('video');
   const source=projectVideo?.querySelector('source[data-src]');
-  if(!projectVideo || !source) return;
-  const loadVideo=()=>{
-    if(!source.dataset.src) return;
-    source.src=source.dataset.src;
-    source.removeAttribute('data-src');
-    projectVideo.load();
+  const replayButton=wrap?.querySelector('.replay-button');
+  if(!wrap || !projectVideo || !source || !replayButton) return;
+
+  let autoStarted=false;
+
+  const ensureLoaded=()=>{
+    if(source.dataset.src){
+      source.src=source.dataset.src;
+      source.removeAttribute('data-src');
+      projectVideo.load();
+    }
+  };
+
+  const startFirstPlay=()=>{
+    if(autoStarted) return;
+    autoStarted=true;
+    ensureLoaded();
+    wrap.classList.remove('is-ended');
     const play=projectVideo.play();
     if(play?.catch) play.catch(()=>{});
   };
+
+  projectVideo.addEventListener('play',()=>wrap.classList.remove('is-ended'));
+  projectVideo.addEventListener('ended',()=>{
+    wrap.classList.add('is-ended');
+    replayButton.focus({preventScroll:true});
+  });
+
+  replayButton.addEventListener('click',()=>{
+    ensureLoaded();
+    projectVideo.currentTime=0;
+    wrap.classList.remove('is-ended');
+    const play=projectVideo.play();
+    if(play?.catch) play.catch(()=>{});
+  });
+
   if('IntersectionObserver' in window){
     const observer=new IntersectionObserver(entries=>{
-      if(entries.some(entry=>entry.isIntersecting)){
+      if(entries.some(entry=>entry.isIntersecting && entry.intersectionRatio>=0.35)){
         observer.disconnect();
-        loadVideo();
+        startFirstPlay();
       }
-    },{rootMargin:'320px 0px'});
-    observer.observe(projectVideo);
+    },{threshold:[0,.35,.6],rootMargin:'0px'});
+    observer.observe(wrap);
   }else{
-    loadVideo();
+    startFirstPlay();
   }
 })();
 </script>
