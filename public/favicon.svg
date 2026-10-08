@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <circle cx="256" cy="256" r="256" fill="#000"/>
-  <rect x="69" y="133" width="94" height="94" fill="#fff"/>
-  <rect x="294" y="71" width="94" height="94" fill="#fff"/>
-  <rect x="181" y="196" width="94" height="94" fill="#fff"/>
-  <rect x="69" y="352" width="94" height="94" fill="#fff"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <circle cx="50" cy="50" r="50"/>
+  <polygon class="st0" points="80.52 44.69 80.53 67.63 49.97 67.64 49.97 81.41 19.47 81.41 19.47 18.59 80.53 18.59 80.53 41.54 49.97 41.54 49.97 44.68 80.52 44.69"/>
 </svg>
