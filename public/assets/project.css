@@ -11,3 +11,12 @@
 .next a::after{content:"\2197";font-family:"Inter Tight",Arial,sans-serif;font-size:.78em;line-height:.72;letter-spacing:0;flex:0 0 auto;font-variant-emoji:text}
 .footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 22px;border-top:1px solid rgba(255,255,255,.12);background:#11110f;color:#aaa59d;font:10px/1 "IBM Plex Mono",monospace;text-transform:uppercase}
 @media(max-width:800px){.site-cursor{display:none!important}.topbar{grid-template-columns:1fr auto;padding:0 14px}.topbar nav{display:none}.hero{padding:74px 14px 0}.hero h1{font-size:clamp(46px,17vw,76px);line-height:.8;letter-spacing:-.065em;margin:22px 0 28px;max-width:100%;overflow-wrap:normal;word-break:normal}.hero-grid,.copy,.media-grid{grid-template-columns:1fr}.meta{grid-template-columns:1fr 1fr}.statement{margin:0 14px;min-height:50vh;padding:18px}.section{padding:66px 14px}.section-head{grid-template-columns:1fr;gap:12px}.media,.media.wide{grid-column:auto;min-height:300px}.next{padding:58px 14px 72px;overflow:hidden}.next a{align-items:flex-end;gap:12px;font-size:clamp(48px,14.5vw,88px);line-height:.82;overflow-wrap:normal;word-break:normal}.next a::first-line{line-height:.82}.next a::after{content:"\2197\FE0E";font-size:.46em;line-height:.85}.footer{padding:16px 14px}}
+
+/* Project pages: authentic artwork, no placeholder tiles */
+.case-study-gallery{margin-top:44px}
+.case-study-artwork{margin:0;border:1px solid var(--line);background:var(--paper2);overflow:hidden}
+.case-study-artwork img{display:block;width:100%;height:auto;max-height:850px;object-fit:contain;background:#11110f}
+.case-study-artwork figcaption{display:grid;grid-template-columns:minmax(170px,.36fr) minmax(0,1fr);gap:36px;padding:18px 20px;border-top:1px solid var(--line)}
+.case-study-artwork figcaption span{font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.case-study-artwork figcaption p{margin:0;font-size:clamp(14px,1.4vw,19px);line-height:1.4;max-width:760px}
+@media(max-width:800px){.case-study-gallery{margin-top:30px}.case-study-artwork figcaption{grid-template-columns:1fr;gap:10px;padding:15px}.case-study-artwork img{max-height:none}}
