@@ -144,12 +144,6 @@ a.cp-collection:hover .cp-collection-arrow { transform: translate(3px,-3px); }
 .cp-collection-note { font: 12px/1.5 "IBM Plex Mono",monospace; margin: 0; padding: 0 10px 25px 10px; color: #77716a; }
 
 
-/* Small photographic interlude rather than an oversized product catalogue. */
-.cp-image-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 34px; }
-.cp-image-strip figure { min-width: 0; margin: 0; }
-.cp-image-strip img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: #dedbd6; }
-.cp-image-strip figcaption { padding: 11px 0; border-top: 1px solid var(--line); font: 10px/1.4 "IBM Plex Mono", monospace; }
-
 /* Entire archive cards are accessible links; cards without verified URLs expand natively. */
 .cp-archive-item { color: #121210; transition: background-color .2s ease, box-shadow .2s ease; }
 .cp-archive-item:hover, .cp-archive-item:focus-visible, .cp-archive-item:focus-within { background: #d1ccc3; box-shadow: inset 0 0 0 1px rgba(18,18,16,.18); }
@@ -184,9 +178,6 @@ a.cp-collection:hover .cp-collection-arrow { transform: translate(3px,-3px); }
  .cp-collection-arrow { grid-column: 2; text-align: right; }
  .cp-collection-details summary { grid-template-columns: 80px 1fr; gap: 10px; padding: 22px 6px; margin: 0 -6px; }
  .cp-collection-details summary p, .cp-collection-details summary .cp-collection-arrow { grid-column: 2; }
- .cp-image-strip { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; margin-top: 30px; padding-bottom: 12px; }
- .cp-image-strip figure { flex: 0 0 74%; scroll-snap-align: start; }
- .cp-image-strip img { aspect-ratio: 4/3; }
  .cp-card-title { font-size: clamp(20px,5.5vw,31px); }
  .cp-card-description { font-size: 13px; }
 }
