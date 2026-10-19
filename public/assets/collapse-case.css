@@ -1,0 +1,62 @@
+
+/* COLLAPSE / bespoke editorial case study – scoped to the project page. */
+.collapse-case{--co-ink:#11110f;--co-paper:#ece9e3;--co-dim:#77716a}
+.collapse-case .collapse-hero{padding-top:81px}
+.collapse-hero .kicker{color:var(--muted)}
+.collapse-case .collapse-hero h1{font-size:clamp(75px,15.2vw,260px);letter-spacing:-.083em;line-height:.78;margin:30px 0 43px;font-weight:500}
+.collapse-hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr);gap:48px;border-top:1px solid var(--line);padding:24px 0 73px}
+.collapse-overline{font:10px/1.5 "IBM Plex Mono",monospace;color:var(--muted)}
+.collapse-intro h2{font-size:clamp(39px,4.9vw,76px);line-height:.91;letter-spacing:-.057em;font-weight:500;margin:30px 0 23px}
+.collapse-intro p{font-size:clamp(17px,1.55vw,24px);line-height:1.38;max-width:800px;margin:0}
+.collapse-project-facts{display:grid;grid-template-columns:1fr;align-content:start}
+.collapse-project-facts>div{padding:14px 0 20px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:130px 1fr;gap:16px}
+.collapse-project-facts>div:first-child{padding-top:0}
+.collapse-project-facts span,.collapse-eyebrow,.collapse-related>span,.collapse-practices>span,.collapse-aside>span{font:10px/1.45 "IBM Plex Mono",monospace;color:var(--muted);text-transform:uppercase}
+.collapse-project-facts strong{font-size:clamp(16px,1.65vw,23px);line-height:1.2;letter-spacing:-.03em;font-weight:500}
+.collapse-cover{margin:0 22px;background:#11110f;color:#eeeae4}
+.collapse-cover img{width:100%;max-height:min(84vh,1000px);min-height:360px;object-fit:cover;object-position:center;display:block}
+.collapse-cover figcaption{display:flex;justify-content:space-between;gap:20px;padding:14px 0;background:var(--paper);color:var(--muted);font:10px/1.3 "IBM Plex Mono",monospace;text-transform:uppercase}
+.collapse-chapter-nav{margin:0 22px;padding:75px 0 90px;display:grid;grid-template-columns:165px 1fr;gap:28px}
+.collapse-chapter-nav-label{font:10px/1.4 "IBM Plex Mono",monospace;color:var(--muted)}
+.collapse-chapter-links{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.collapse-chapter-links a{display:flex;flex-direction:column;gap:17px;border-top:1px solid var(--ink);padding:13px 5px 8px 0;font-size:clamp(14px,1.4vw,20px);font-weight:500;line-height:1.1;letter-spacing:-.03em;position:relative}
+.collapse-chapter-links small{font:10px/1 "IBM Plex Mono",monospace;color:var(--muted)}
+.collapse-chapter-links a span{position:absolute;right:6px;top:11px;font-size:15px}
+.collapse-chapter-links a:hover{border-color:var(--orange);color:var(--orange)}
+.collapse-block{padding:105px 22px 125px;border-top:1px solid var(--line);scroll-margin-top:54px}
+.collapse-eyebrow{margin-bottom:41px}
+.collapse-text-columns{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(350px,.95fr);gap:50px}
+.collapse-text-columns h2{font-weight:500;letter-spacing:-.072em;font-size:clamp(65px,8.6vw,144px);line-height:.81;margin:0;overflow-wrap:normal}
+.collapse-body{padding-top:6px;max-width:780px}
+.collapse-body p{font-size:clamp(18px,1.85vw,26px);line-height:1.36;letter-spacing:-.025em;margin:0 0 25px}
+.collapse-aside{display:flex;flex-direction:column;gap:15px;border-top:1px solid var(--ink);padding:16px 0 0;margin-top:58px}
+.collapse-aside strong{font-size:clamp(32px,3.8vw,56px);font-weight:500;letter-spacing:-.055em;line-height:.9}
+.collapse-contribution{background:#171715;color:#ece9e3}
+.collapse-contribution .collapse-eyebrow,.collapse-contribution .collapse-role-num{color:#a9a39b}
+.collapse-contribution .collapse-roles{margin-top:90px;border-top:1px solid rgba(236,233,227,.3)}
+.collapse-role-row{display:grid;grid-template-columns:90px minmax(250px,1fr) minmax(250px,.84fr);gap:30px;padding:29px 0;border-bottom:1px solid rgba(236,233,227,.28)}
+.collapse-role-num{font:11px/1.6 "IBM Plex Mono",monospace}
+.collapse-role-row h3{font-size:clamp(24px,3.2vw,49px);line-height:1.03;letter-spacing:-.05em;margin:0;font-weight:500}
+.collapse-role-row p{font-size:clamp(15px,1.35vw,19px);line-height:1.5;color:#c1bdb6;margin:0;max-width:670px}
+.collapse-campaigns{background:var(--paper2)}
+.collapse-practices{display:grid;grid-template-columns:160px 1fr;gap:28px;border-top:1px solid var(--line);margin-top:100px;padding-top:19px}
+.collapse-practices>div{display:flex;flex-wrap:wrap;gap:10px}
+.collapse-practices>div>span{border:1px solid var(--line);border-radius:50px;padding:10px 14px;font:11px/1.3 "IBM Plex Mono",monospace}
+.collapse-platforms{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:96px}
+.collapse-platforms article{border-top:1px solid var(--ink);padding:22px 0 30px}
+.collapse-platforms article>span{font:10px/1.4 "IBM Plex Mono",monospace;color:var(--muted)}
+.collapse-platforms article h3{font-size:clamp(27px,3.6vw,57px);font-weight:500;letter-spacing:-.055em;line-height:.96;max-width:650px;margin:33px 0 20px}
+.collapse-platforms article p{font-size:clamp(16px,1.5vw,20px);line-height:1.5;max-width:660px;margin:0}
+.collapse-culture{background:var(--paper2)}
+.collapse-related{display:grid;grid-template-columns:160px 1fr;gap:20px 30px;margin-top:94px;border-top:1px solid var(--ink);padding-top:18px}
+.collapse-related>a{grid-column:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(140px,.65fr) 22px;gap:18px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.collapse-related strong{font-size:clamp(20px,2.6vw,38px);font-weight:500;letter-spacing:-.04em}
+.collapse-related a>span:not(:last-child){font:10px/1.45 "IBM Plex Mono",monospace;color:var(--muted)}
+.collapse-related a:hover strong{color:var(--orange)}
+.collapse-ending{background:var(--co-ink);color:#ece9e3;padding:99px 22px 100px;min-height:62vh;display:flex;flex-direction:column;justify-content:space-between}
+.collapse-ending>span{font:10px/1.4 "IBM Plex Mono",monospace;color:#aaa59d}
+.collapse-ending p{font-size:clamp(42px,7.7vw,118px);font-weight:500;letter-spacing:-.069em;line-height:.89;max-width:1350px;margin:55px 0}
+.collapse-ending>a{font:11px/1.4 "IBM Plex Mono",monospace;text-transform:uppercase;align-self:flex-end;border-bottom:1px solid rgba(236,233,227,.55);padding-bottom:7px}
+@media(max-width:1100px){.collapse-hero-grid{grid-template-columns:1fr;gap:35px}.collapse-project-facts{grid-template-columns:repeat(3,1fr);gap:12px}.collapse-project-facts>div{display:flex;flex-direction:column;gap:10px}.collapse-chapter-nav{grid-template-columns:1fr}.collapse-chapter-links{grid-template-columns:repeat(3,minmax(0,1fr))}.collapse-text-columns{grid-template-columns:1fr;gap:30px}.collapse-body{max-width:870px}.collapse-role-row{grid-template-columns:56px minmax(150px,.8fr) minmax(200px,1fr)}}
+@media(max-width:700px){.collapse-case .collapse-hero{padding:80px 14px 0}.collapse-case .collapse-hero h1{font-size:clamp(61px,18vw,115px);margin:28px 0 35px}.collapse-hero-grid{gap:31px;padding:20px 0 45px}.collapse-intro h2{font-size:clamp(34px,8.4vw,52px);margin:23px 0 18px}.collapse-intro p{font-size:17px}.collapse-project-facts{grid-template-columns:1fr}.collapse-project-facts>div{display:grid;grid-template-columns:115px 1fr;gap:15px;padding:13px 0}.collapse-project-facts strong{font-size:18px}.collapse-cover{margin:0 14px}.collapse-cover img{min-height:0;max-height:70vh;aspect-ratio:4/5;object-fit:cover}.collapse-cover figcaption{font-size:9px;display:grid;grid-template-columns:1fr;gap:4px}.collapse-chapter-nav{margin:0 14px;padding:47px 0 60px}.collapse-chapter-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}.collapse-chapter-links a{font-size:15px}.collapse-block{padding:70px 14px 82px}.collapse-eyebrow{margin-bottom:30px}.collapse-text-columns{gap:25px}.collapse-text-columns h2{font-size:clamp(49px,13vw,90px)}.collapse-body p{font-size:18px}.collapse-aside{margin-top:35px}.collapse-contribution .collapse-roles{margin-top:60px}.collapse-role-row{grid-template-columns:35px 1fr;gap:7px 15px;padding:24px 0}.collapse-role-row h3{font-size:26px}.collapse-role-row p{grid-column:2;font-size:15px}.collapse-practices{grid-template-columns:1fr;gap:16px;margin-top:65px}.collapse-practices>div>span{font-size:10px}.collapse-platforms{grid-template-columns:1fr;gap:12px;margin-top:62px}.collapse-platforms article h3{font-size:32px}.collapse-related{grid-template-columns:1fr;gap:10px;margin-top:60px}.collapse-related>a{grid-column:1;grid-template-columns:1fr 20px;gap:10px}.collapse-related>a>span:not(:last-child){grid-column:1;grid-row:2}.collapse-related>a>span:last-child{grid-column:2;grid-row:1}.collapse-ending{min-height:52vh;padding:75px 14px}.collapse-ending p{font-size:clamp(43px,11.5vw,73px)}}
+@media(prefers-reduced-motion:reduce){.collapse-chapter-links a{scroll-behavior:auto}}
