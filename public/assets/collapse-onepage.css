@@ -236,17 +236,9 @@ a.cp-collection:hover, a.cp-collection:focus-visible { background: #dcd8d0; }
 
 a.cp-collection:hover .cp-collection-arrow { transform: translate(3px,-3px); }
 
-.cp-collection-details { display: block; padding: 0 10px; }
-
-.cp-collection-details summary { display: grid; grid-template-columns: 120px minmax(250px,.8fr) 1fr 80px; gap: 22px; padding: 25px 10px; margin: 0 -10px; list-style: none; cursor: pointer; }
-
-.cp-collection-details summary::-webkit-details-marker { display: none; }
-
 .cp-collection-details summary:hover, .cp-collection-details summary:focus-visible { background: #dcd8d0; }
 
 .cp-collection-details[open] .cp-collection-arrow { transform: rotate(45deg); }
-
-.cp-collection-note { font: 12px/1.5 "IBM Plex Mono",monospace; margin: 0; padding: 0 10px 25px 10px; color: #77716a; }
 
 /* Entire archive cards are accessible links; cards without verified URLs expand natively. */
 
@@ -282,8 +274,6 @@ a.cp-collection:hover .cp-collection-arrow { transform: translate(3px,-3px); }
 
 .cp-collection-arrow { grid-column: 3; justify-self: end; }
 
-.cp-collection-details summary { grid-template-columns: 95px 1fr 1fr; }
-
 }
 
 @media (max-width: 800px) {
@@ -309,10 +299,6 @@ a.cp-collection:hover .cp-collection-arrow { transform: translate(3px,-3px); }
 .cp-collection p { grid-column: 2; font-size: 16px; }
 
 .cp-collection-arrow { grid-column: 2; text-align: right; }
-
-.cp-collection-details summary { grid-template-columns: 80px 1fr; gap: 10px; padding: 22px 6px; margin: 0 -6px; }
-
-.cp-collection-details summary p, .cp-collection-details summary .cp-collection-arrow { grid-column: 2; }
 
 .cp-card-title { font-size: clamp(20px,5.5vw,31px); }
 

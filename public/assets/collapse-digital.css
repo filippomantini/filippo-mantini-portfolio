@@ -2,22 +2,7 @@
 .cp-digital { background:#eeebe5; }
 .cp-digital-social { display:grid;grid-template-columns:minmax(300px,.92fr) minmax(0,1.08fr);gap:clamp(28px,4vw,85px);align-items:center;padding:45px 0 85px; }
 .cp-digital-device { margin:0;display:flex;align-items:center;flex-direction:column;gap:22px;min-width:0;background:#dedbd5;padding:clamp(22px,3vw,55px); }
-.cp-phone-frame { width:min(100%,320px);background:#141414;border:5px solid #141414;border-radius:44px;padding:4px;box-shadow:0 32px 55px rgba(0,0,0,.20),inset 0 0 0 1px #484848; }
-.cp-phone-screen { background:#f5f4f2;border-radius:36px;min-height:600px;overflow:hidden;display:flex;flex-direction:column;color:#151515; }
-.cp-phone-camera { background:#151515;width:82px;height:21px;border-radius:0 0 16px 16px;margin:0 auto 11px; }
-.cp-phone-top { display:flex;justify-content:space-between;align-items:center;padding:0 15px 16px;font-size:14px;border-bottom:1px solid #e3e0db; }
-.cp-phone-chevron { font-size:25px;line-height:1; }
-.cp-phone-profile { display:flex;align-items:center;gap:14px;padding:18px 15px 10px; }
-.cp-phone-profile strong { display:block;font-size:17px;letter-spacing:-.03em; }
-.cp-phone-profile span { display:block;font:9px/1.5 "IBM Plex Mono",monospace;color:#77716a;margin-top:6px; }
-.cp-profile-avatar { display:grid;place-items:center;flex:0 0 60px;height:60px;background:#161616;color:#f5f2ec;border:2px solid #e8e3db;border-radius:50%;font-size:39px;letter-spacing:-.09em; }
-.cp-phone-bio { padding:0 15px 13px;font:10px/1.5 "IBM Plex Mono",monospace; }
-.cp-phone-gallery-label { padding:13px 15px 12px;border-top:1px solid #dedbd6;font:9px/1.4 "IBM Plex Mono",monospace;color:#6f6b66; }
-.cp-phone-gallery { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px; }
-.cp-digital-tile { min-width:0;aspect-ratio:1/1.22;background:#ccc7bf;overflow:hidden; }
-.cp-digital-tile img { width:100%;height:100%;object-fit:cover; }
-.cp-phone-end { margin:auto 0 0;display:flex;align-items:center;justify-content:center;padding:13px; }
-.cp-phone-end span { width:75px;height:3px;border-radius:99px;background:#111; }
+.cp-phone-frame{width:min(100%,320px);background:#101012;border:6px solid #101012;border-radius:38px;padding:4px;box-shadow:0 32px 55px rgba(0,0,0,.20);overflow:hidden}
 .cp-digital-device figcaption,.cp-commerce-browser figcaption { color:#77716a;text-align:center;font:10px/1.4 "IBM Plex Mono",monospace;text-transform:uppercase; }
 .cp-digital-direction { max-width:675px; }
 .cp-digital-label,.cp-digital-reels>span,.cp-commerce-copy>span,.cp-pack-note>div>span{font:10px/1.4 "IBM Plex Mono",monospace;color:#77716a;text-transform:uppercase}
@@ -74,3 +59,5 @@
  .cp-pack-note { grid-template-columns:1fr;gap:17px; }
  .cp-pack-note a { grid-column:1;justify-self:start; }
 }
+
+.cp-phone-real{display:block;width:100%;height:auto;border-radius:27px;background:#111;object-fit:contain}
