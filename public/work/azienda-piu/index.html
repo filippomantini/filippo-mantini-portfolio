@@ -121,9 +121,9 @@
     <p>The videos show the project in its actual behaviour rather than only as a sequence of static screens.</p>
   </div>
   <div class="motion-grid">
-    <figure class="asset-figure"><video class="motion-video" muted loop playsinline preload="none" width="3456" height="1964" poster="/assets/responsive/azienda-piu-web-motion-01-d6f0e6791e53-poster.webp"><source data-src="/assets/azienda-piu-web-motion-01.mp4" type="video/mp4"></video><figcaption class="asset-caption"><span>Web Motion / 01</span><span>Interaction</span></figcaption></figure>
-    <figure class="asset-figure"><video class="motion-video" muted loop playsinline preload="none" width="3456" height="1964" poster="/assets/responsive/azienda-piu-web-motion-02-dc9404bac707-poster.webp"><source data-src="/assets/azienda-piu-web-motion-02.mp4" type="video/mp4"></video><figcaption class="asset-caption"><span>Web Motion / 02</span><span>Responsive</span></figcaption></figure>
-    <figure class="asset-figure"><video class="motion-video" muted loop playsinline preload="none" width="3456" height="1964" poster="/assets/responsive/azienda-piu-web-motion-05-887fdb4d166d-poster.webp"><source data-src="/assets/azienda-piu-web-motion-05.mp4" type="video/mp4"></video><figcaption class="asset-caption"><span>Web Motion / 03</span><span>Navigation / Transition</span></figcaption></figure>
+    <figure class="asset-figure"><video class="motion-video" autoplay muted loop playsinline preload="none" width="3456" height="1964" poster="/assets/responsive/azienda-piu-web-motion-01-d6f0e6791e53-poster.webp"><source data-src="/assets/azienda-piu-web-motion-01.mp4" type="video/mp4"></video><figcaption class="asset-caption"><span>Web Motion / 01</span><span>Interaction</span></figcaption></figure>
+    <figure class="asset-figure"><video class="motion-video" autoplay muted loop playsinline preload="none" width="3456" height="1964" poster="/assets/responsive/azienda-piu-web-motion-02-dc9404bac707-poster.webp"><source data-src="/assets/azienda-piu-web-motion-02.mp4" type="video/mp4"></video><figcaption class="asset-caption"><span>Web Motion / 02</span><span>Responsive</span></figcaption></figure>
+    <figure class="asset-figure"><video class="motion-video" autoplay muted loop playsinline preload="none" width="3456" height="1964" poster="/assets/responsive/azienda-piu-web-motion-05-887fdb4d166d-poster.webp"><source data-src="/assets/azienda-piu-web-motion-05.mp4" type="video/mp4"></video><figcaption class="asset-caption"><span>Web Motion / 03</span><span>Navigation / Transition</span></figcaption></figure>
   </div>
 </section>
 
@@ -155,6 +155,7 @@
   const replayButton=wrap?.querySelector('.replay-button');
   if(wrap && projectVideo && source && replayButton){
     let autoStarted=false;
+    let heroVisible=false;
     const ensureLoaded=()=>{
       if(source.dataset.src){
         source.src=source.dataset.src;
@@ -182,45 +183,82 @@
       const play=projectVideo.play();
       if(play?.catch) play.catch(()=>{});
     });
+    const resumeHero=()=>{
+      if(!heroVisible || document.hidden || wrap.classList.contains('is-ended'))return;
+      const play=projectVideo.play();
+      if(play?.catch)play.catch(()=>{});
+    };
+    projectVideo.addEventListener('canplay',()=>{
+      if(autoStarted)resumeHero();
+    });
     if('IntersectionObserver' in window){
       const heroObserver=new IntersectionObserver(entries=>{
-        if(entries.some(entry=>entry.isIntersecting && entry.intersectionRatio>=0.35)){
-          heroObserver.disconnect();
-          startFirstPlay();
-        }
+        entries.forEach(entry=>{
+          heroVisible=entry.isIntersecting;
+          if(!heroVisible){projectVideo.pause();return;}
+          if(entry.intersectionRatio>=0.35){
+            if(!autoStarted)startFirstPlay();
+            else resumeHero();
+          }
+        });
       },{threshold:[0,.35,.6]});
       heroObserver.observe(wrap);
-    }else startFirstPlay();
+    }else{
+      heroVisible=true;
+      startFirstPlay();
+    }
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden)projectVideo.pause();
+      else if(autoStarted)resumeHero();
+    });
   }
 
+  // The three muted motion films intentionally play independently.
+  // Do not attach the global single-video player to this project page.
   const motionVideos=[...document.querySelectorAll('.motion-video')];
-  if(!motionVideos.length) return;
-  const prepare=(video)=>{
-    const src=video.querySelector('source[data-src]');
-    if(src?.dataset.src){
-      src.src=src.dataset.src;
-      src.removeAttribute('data-src');
+  if(!motionVideos.length)return;
+  const visible=new WeakMap();
+  const prepare=video=>{
+    const source=video.querySelector('source[data-src]');
+    if(source?.dataset.src){
+      source.src=source.dataset.src;
+      source.removeAttribute('data-src');
       video.load();
     }
   };
+  const playVisible=video=>{
+    if(!visible.get(video) || document.hidden)return;
+    const attempt=video.play();
+    if(attempt?.catch)attempt.catch(()=>{});
+  };
+  motionVideos.forEach(video=>{
+    video.addEventListener('canplay',()=>playVisible(video));
+  });
   if('IntersectionObserver' in window){
     const motionObserver=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         const video=entry.target;
-        if(entry.isIntersecting){
+        const onScreen=entry.isIntersecting && entry.intersectionRatio>=.20;
+        visible.set(video,onScreen);
+        if(onScreen){
           prepare(video);
-          const play=video.play();
-          if(play?.catch) play.catch(()=>{});
-        }else{
-          video.pause();
-        }
+          playVisible(video);
+        }else video.pause();
       });
-    },{rootMargin:'280px 0px',threshold:.15});
-    motionVideos.forEach(v=>motionObserver.observe(v));
+    },{rootMargin:'0px',threshold:[0,.20,.50]});
+    motionVideos.forEach(video=>motionObserver.observe(video));
   }else{
-    motionVideos.forEach(v=>{prepare(v);const p=v.play();if(p?.catch)p.catch(()=>{});});
+    motionVideos.forEach(video=>{
+      visible.set(video,true);
+      prepare(video);
+      playVisible(video);
+    });
   }
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)motionVideos.forEach(video=>video.pause());
+    else motionVideos.forEach(playVisible);
+  });
 })();
 </script>
 <script src="/assets/static/project-cursor-10bb0092983c.js" defer></script>
-<script src="/assets/static/video-playback-70d2f866913a.js" defer></script></body></html>
+</body></html>
