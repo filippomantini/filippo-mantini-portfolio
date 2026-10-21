@@ -1,0 +1,5 @@
+/* Complete, usable gallery before JavaScript, and when JavaScript is disabled. */
+.gallery[data-gallery-static]:not(.is-laid-out){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.gallery[data-gallery-static]:not(.is-laid-out)>.shot{width:100%;aspect-ratio:var(--photo-ratio)}
+@media(max-width:1100px) and (min-width:801px){.gallery[data-gallery-static]:not(.is-laid-out){grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.gallery[data-gallery-static]:not(.is-laid-out){grid-template-columns:minmax(0,1fr)}}

@@ -9,6 +9,11 @@ on:
       - "public/assets/photography/fashion/**"
       - "public/assets/photography/personal/**"
       - "scripts/optimize_photography.py"
+      - "scripts/optimize_delivery.py"
+      - "scripts/check_delivery.py"
+      - "public/assets/photography-gallery-v2.js"
+      - "public/assets/photography-static.css"
+      - ".github/workflows/optimize-photography.yml"
       - "public/assets/about-desk.jpg"
       - "public/assets/filippo-mantini-illustration.jpg"
       - "public/assets/citta-di-castello-hero.jpg"
@@ -29,19 +34,30 @@ jobs:
           python-version: "3.12"
 
       - name: Install image tools
-        run: python -m pip install --upgrade pillow
+        run: |
+          python -m pip install --upgrade pillow fonttools brotli
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
 
       - name: Optimize photography
         run: python scripts/optimize_photography.py
+
+      - name: Build responsive pages and local fonts
+        run: python scripts/optimize_delivery.py
+
+      - name: Verify gallery completeness and delivery assets
+        run: python scripts/check_delivery.py
 
       - name: Commit generated images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/assets/case-preview public/assets/vib-preview public/assets/photography/optimized public/assets/photography/manifest.json public/assets/about-desk.webp public/assets/filippo-mantini-illustration.webp public/assets/citta-di-castello-hero.webp
+          git add public
           if git diff --cached --quiet; then
             echo "No optimized image changes."
           else
-            git commit -m "Optimize photography assets"
+            git commit -m "Build responsive portfolio pages and cached delivery assets"
             git push
           fi
