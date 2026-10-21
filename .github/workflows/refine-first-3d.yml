@@ -1,0 +1,28 @@
+name: Refine FIRST 3D sculpture
+on:
+  push:
+    paths:
+      - "scripts/project-sources/refine_first_model.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sculpt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install numpy
+      - name: Preserve photo texture and sculpt the grip in GLB
+        run: python scripts/project-sources/refine_first_model.py
+      - name: Commit refined GLB
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets/first/first-sculpt-handformed-v3.glb
+          if ! git diff --cached --quiet; then
+            git commit -m "Generate handformed FIRST sculpture 3D model"
+            git push
+          fi
