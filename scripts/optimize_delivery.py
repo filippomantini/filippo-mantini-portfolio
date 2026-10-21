@@ -253,6 +253,8 @@ def static_gallery(html, manifest):
 
 def image_sizes(page, url):
     path = urlsplit(url).path
+    if '/collapse/social/' in path:
+        return '(max-width:480px) calc(100vw - 100px), 326px'
     if '/collapse/eubodio/' in path:
         if any(name in path for name in ('/urban-', '/garment-')):
             return '(max-width:800px) calc((100vw - 38px)/2), calc((100vw - 80px)/3)'

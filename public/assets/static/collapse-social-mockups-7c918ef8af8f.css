@@ -1,0 +1,17 @@
+/* Real screenshots in a sharp, native device composition. */
+.social-phone{position:relative;width:min(100%,340px);padding:7px;border-radius:49px;background:linear-gradient(125deg,#a9adaf 0,#282b2e 15%,#08090a 42%,#74797c 75%,#25272a 100%);box-shadow:0 38px 52px -24px #17171769,0 5px 12px #0002,inset 0 0 0 1px #ffffff66;isolation:isolate}
+.social-phone::before{content:"";position:absolute;left:-2px;top:19%;width:3px;height:9%;border-radius:2px;background:#42474a;box-shadow:0 -35px 0 -1px #42474a}
+.social-phone::after{content:"";position:absolute;right:-2px;top:25%;width:3px;height:12%;border-radius:2px;background:#42474a}
+.social-phone-screen{overflow:hidden;border:4px solid #060708;border-radius:42px;background:#0b1014;line-height:0}
+.social-phone picture,.social-phone img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.cp-digital-device.social-device{padding:clamp(35px,4vw,62px);background:radial-gradient(ellipse at 50% 38%,#f1eee8,#d9d5ce);gap:30px}
+.social-device figcaption{font:10px/1.6 "IBM Plex Mono",monospace;text-transform:uppercase;color:#514d47;text-align:center}
+.social-device figcaption span{display:block;margin-top:5px;font-size:9px}
+.collection-social{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,1fr);gap:clamp(35px,7vw,110px);padding:85px 22px;border-top:1px solid var(--line);align-items:center}
+.collection-social-copy{max-width:620px}.collection-social-copy>span{font:10px/1.5 "IBM Plex Mono",monospace;color:#655e56;text-transform:uppercase}
+.collection-social h2{font-size:clamp(40px,5vw,76px);font-weight:500;line-height:.94;letter-spacing:-.055em;margin:30px 0}
+.collection-social-copy p{font-size:clamp(17px,1.45vw,22px);line-height:1.5;margin:0 0 30px}
+.collection-social-tasks{display:flex;flex-wrap:wrap;gap:10px 22px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
+.collection-social-copy>a{display:inline-flex;gap:30px;margin-top:26px;padding-bottom:9px;border-bottom:1px solid currentColor;font:10px/1.5 "IBM Plex Mono",monospace}
+.collection-social .social-device{margin:0;display:flex;align-items:center;flex-direction:column;gap:30px;padding:45px 30px;background:radial-gradient(ellipse at 50% 38%,#f1eee8,#d9d5ce)}
+@media(max-width:800px){.collection-social{grid-template-columns:1fr;padding:55px 14px;gap:32px}.collection-social .social-device{padding:35px 24px}.collection-social-copy{max-width:none}.social-phone{width:min(100%,320px)}.cp-digital-device.social-device{padding:35px 24px}}
