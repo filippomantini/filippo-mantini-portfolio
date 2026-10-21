@@ -23,7 +23,7 @@
 .ss26-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
 .ss26-film-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
 .ss26-film{margin:0;min-width:0}
-.ss26-film video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#171715}
+.ss26-film video{display:block;width:100%;height:auto;aspect-ratio:auto 9/16;object-fit:contain;background:#171715}
 .ss26-last{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-top:35px;padding-top:18px;border-top:1px solid rgba(23,23,21,.25)}
 .ss26-last a{text-decoration:underline;text-underline-offset:5px}
 @media(max-width:850px){

@@ -10,6 +10,10 @@ on:
       - "public/assets/photography/personal/**"
       - "scripts/optimize_photography.py"
       - "scripts/optimize_delivery.py"
+      - "scripts/optimize_video.py"
+      - "scripts/check_video_playback.cjs"
+      - "public/assets/video-playback.js"
+      - "public/assets/collapse-ss26.css"
       - "scripts/check_delivery.py"
       - "scripts/check_gallery_layout.cjs"
       - "public/assets/photography-gallery-v2.js"
@@ -52,6 +56,7 @@ jobs:
         run: |
           python scripts/check_delivery.py
           node scripts/check_gallery_layout.cjs
+          node scripts/check_video_playback.cjs
 
       - name: Commit generated images
         run: |

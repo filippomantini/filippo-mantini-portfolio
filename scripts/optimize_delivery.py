@@ -8,6 +8,7 @@ from functools import lru_cache
 from html import escape, unescape
 from pathlib import Path
 from PIL import Image, ImageOps
+from optimize_video import build_video_delivery
 from fontTools.ttLib import TTFont
 from fontTools import subset
 import hashlib
@@ -24,6 +25,7 @@ RESPONSIVE = ASSETS / 'responsive'
 STATIC = ASSETS / 'static'
 FONTS = ASSETS / 'fonts'
 RECIPE = 'delivery-v1-q93'
+VIDEO_DELIVERY = {}
 for directory in (RESPONSIVE, STATIC, FONTS):
     directory.mkdir(parents=True, exist_ok=True)
 
@@ -199,6 +201,13 @@ def improve_video(match):
     if not url or not url.startswith('/assets/') or not local_path(url).exists():
         return block
     url = urlsplit(url).path
+    delivered = VIDEO_DELIVERY.get(url, url)
+    if delivered != url:
+        block = block.replace(url, delivered)
+    url = delivered
+    if 'vibrazioni-process' in url:
+        if not re.search(r'\bmuted(?:\s|[=>])', opening):
+            opening = opening[:-1] + ' muted>'
     width, height = video_info(url)
     opening = set_attr(set_attr(opening, 'width', width), 'height', height)
     opening = set_attr(opening, 'preload', 'none')
@@ -270,6 +279,7 @@ def fingerprint_static(html):
 def main():
     manifest = json.loads((ASSETS / 'photography/manifest.json').read_text())
     font_html = build_fonts()
+    VIDEO_DELIVERY.update(build_video_delivery())
     # Precompute once; language variants share the same media.
     image_urls = {item['path'] for items in manifest['categories'].values() for item in items}
     for page in PUBLIC.rglob('*.html'):
@@ -303,6 +313,11 @@ def main():
 
         # A preload without matching srcset can download a second, full-size image.
         html = re.sub(r'<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>', '', html)
+        # The static poster replaces the old metadata seek to nine seconds.
+        if page.parent.name == 'vibrazioni':
+            html = re.sub(r"<script>\s*\(\(\) => \{\s*const video = document.getElementById\('vibrazioni-video'\);[\s\S]*?</script>", '', html)
+        if '<video' in html and 'video-playback' not in html:
+            html = html.replace('</body>', '<script src="/assets/video-playback.js" defer></script></body>')
         html = fingerprint_static(html)
         if html != page.read_text():
             page.write_text(html)
@@ -311,7 +326,8 @@ def main():
         '# Only content-fingerprinted assets use immutable caching. HTML stays fresh.\n'
         '/assets/responsive/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
         '/assets/static/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
-        '/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n')
+        '/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
+        '/assets/video/*\n  Cache-Control: public, max-age=31536000, immutable\n')
     print(json.dumps({'gallery_photos': {k: len(v) for k, v in manifest['categories'].items()},
         'responsive_files': len(list(RESPONSIVE.glob('*'))), 'html_pages': len(list(PUBLIC.rglob('*.html')))}))
 
