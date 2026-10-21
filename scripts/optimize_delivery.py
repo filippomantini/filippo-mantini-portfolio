@@ -205,6 +205,10 @@ def improve_video(match):
     url = (attr(source[0], 'src') or attr(source[0], 'data-src')) if source else attr(opening, 'src')
     if not url or not url.startswith('/assets/') or not local_path(url).exists():
         return block
+    # Multiple media-query sources carry responsive encodes and original display ratio.
+    # They already have a verified poster; do not rewrite dimensions from one rendition.
+    if 'data-playback-group="azienda-motion"' in opening:
+        return block
     url = urlsplit(url).path
     delivered = VIDEO_DELIVERY.get(url, url)
     if delivered != url:

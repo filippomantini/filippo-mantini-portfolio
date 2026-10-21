@@ -12,6 +12,8 @@ on:
       - "scripts/optimize_delivery.py"
       - "scripts/optimize_video.py"
       - "scripts/check_video_playback.cjs"
+      - "scripts/check_azienda_motion.cjs"
+      - "public/assets/azienda-piu-motion.js"
       - "scripts/check_type_specimen.cjs"
       - "scripts/check_first_viewer.cjs"
       - "public/assets/first-viewer.js"
@@ -65,6 +67,7 @@ jobs:
           python scripts/check_delivery.py
           node scripts/check_gallery_layout.cjs
           node scripts/check_video_playback.cjs
+          node scripts/check_azienda_motion.cjs
           node scripts/check_type_specimen.cjs
           node scripts/check_first_viewer.cjs
 

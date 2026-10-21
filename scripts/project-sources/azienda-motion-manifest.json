@@ -1,0 +1,71 @@
+[
+  {
+    "index": 1,
+    "source": "Registrazione schermo 2026-10-07 alle 12.59.03\u202fAM(1).mov",
+    "original_bytes": 26773984,
+    "duration": 9.7,
+    "variants": {
+      "desktop": {
+        "url": "/assets/video/azienda-piu-motion-01-desktop-c61354a8b9a2.mp4",
+        "bytes": 1385543,
+        "width": 1920,
+        "height": 1092,
+        "fps": "60/1"
+      },
+      "mobile": {
+        "url": "/assets/video/azienda-piu-motion-01-mobile-86c0c6bd6cdd.mp4",
+        "bytes": 507858,
+        "width": 960,
+        "height": 546,
+        "fps": "60/1"
+      }
+    },
+    "poster": "/assets/responsive/azienda-piu-motion-01-poster-73867bbfcea9.webp"
+  },
+  {
+    "index": 2,
+    "source": "Registrazione schermo 2026-10-07 alle 12.59.32\u202fAM(1).mov",
+    "original_bytes": 27479138,
+    "duration": 12.933333,
+    "variants": {
+      "desktop": {
+        "url": "/assets/video/azienda-piu-motion-02-desktop-8f1fe590a2c1.mp4",
+        "bytes": 2201614,
+        "width": 1920,
+        "height": 1092,
+        "fps": "60/1"
+      },
+      "mobile": {
+        "url": "/assets/video/azienda-piu-motion-02-mobile-829d77f67e69.mp4",
+        "bytes": 908612,
+        "width": 960,
+        "height": 546,
+        "fps": "60/1"
+      }
+    },
+    "poster": "/assets/responsive/azienda-piu-motion-02-poster-349ca3fafb68.webp"
+  },
+  {
+    "index": 3,
+    "source": "Registrazione schermo 2026-10-07 alle 1.00.01\u202fAM(1).mov",
+    "original_bytes": 12749801,
+    "duration": 8.316667,
+    "variants": {
+      "desktop": {
+        "url": "/assets/video/azienda-piu-motion-03-desktop-bf9e336175e6.mp4",
+        "bytes": 1866353,
+        "width": 1920,
+        "height": 1092,
+        "fps": "60/1"
+      },
+      "mobile": {
+        "url": "/assets/video/azienda-piu-motion-03-mobile-92f865c72245.mp4",
+        "bytes": 799158,
+        "width": 960,
+        "height": 546,
+        "fps": "60/1"
+      }
+    },
+    "poster": "/assets/responsive/azienda-piu-motion-03-poster-acc554773c44.webp"
+  }
+]

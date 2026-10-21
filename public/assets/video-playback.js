@@ -1,4 +1,4 @@
-/* Stop invisible/background decoders and never play two native films together. */
+/* Pause hidden decoders. Explicitly grouped silent motion studies may play together. */
 (() => {
   const videos = [...document.querySelectorAll('video')];
   if (!videos.length) return;
@@ -7,7 +7,9 @@
   const pause = video => { if (!video.paused) video.pause(); };
   videos.forEach(video => {
     video.addEventListener('play', () => videos.forEach(other => {
-      if (other !== video) pause(other);
+      const group=video.dataset?.playbackGroup;
+      const sharedSilentGroup=group && group===other.dataset?.playbackGroup && video.muted && other.muted;
+      if (other !== video && !sharedSilentGroup) pause(other);
     }));
   });
   if ('IntersectionObserver' in window) {
