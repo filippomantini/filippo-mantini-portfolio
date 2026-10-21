@@ -6,6 +6,8 @@
   const fallback = gallery.innerHTML;
   let items = [];
   let resizeTimer = 0;
+  let lastLayoutWidth = window.innerWidth;
+  const figureCache = new Map();
 
   const escapeText = value => String(value || '').replace(/[-_]+/g, ' ').replace(/\.[^.]+$/, '').trim();
   const ratioOf = item => {
@@ -15,6 +17,12 @@
   };
 
   const makeFigure = (item, index) => {
+    // Reuse the original image elements between resizes; do not trigger a second decode.
+    const cached = figureCache.get(item.path);
+    if (cached) {
+      cached.dataset.label = String(index + 1).padStart(2, '0');
+      return cached;
+    }
     const figure = document.createElement('figure');
     figure.className = 'shot';
     figure.dataset.label = String(index + 1).padStart(2, '0');
@@ -26,6 +34,7 @@
     if (item.width) img.width = item.width;
     if (item.height) img.height = item.height;
     img.addEventListener('error', () => {
+      figureCache.delete(item.path);
       items = items.filter(entry => entry !== item);
       render();
     }, { once: true });
@@ -42,6 +51,7 @@
     img.src = item.path;
 
     figure.appendChild(img);
+    figureCache.set(item.path, figure);
     return figure;
   };
 
@@ -49,13 +59,14 @@
     if (!items.length) return;
 
     if (window.innerWidth <= 800) {
-      gallery.innerHTML = '';
+      const fragment = document.createDocumentFragment();
       items.forEach((item, index) => {
         const row = document.createElement('div');
         row.className = 'gallery-row';
         row.appendChild(makeFigure(item, index));
-        gallery.appendChild(row);
+        fragment.appendChild(row);
       });
+      gallery.replaceChildren(fragment);
       return;
     }
 
@@ -82,7 +93,7 @@
 
     if (current.length) rows.push({ entries: current, ratioSum, last: true });
 
-    gallery.innerHTML = '';
+    const fragment = document.createDocumentFragment();
 
     rows.forEach(rowData => {
       const row = document.createElement('div');
@@ -101,8 +112,9 @@
         row.appendChild(figure);
       });
 
-      gallery.appendChild(row);
+      fragment.appendChild(row);
     });
+    gallery.replaceChildren(fragment);
   };
 
   fetch('/assets/photography/manifest.json')
@@ -113,10 +125,22 @@
     .then(data => {
       items = data?.categories?.[category] || [];
       if (!items.length) return;
+      // The HTML already has two visible photos; preserve these loaded DOM nodes.
+      const initialFigures = [...gallery.querySelectorAll('[data-initial-gallery] .shot')];
+      initialFigures.forEach((figure, index) => {
+        const item = items[index];
+        if (item && figure.querySelector('img')) {
+          figureCache.set(item.path, figure);
+        }
+      });
       render();
       window.addEventListener('resize', () => {
+        // Mobile address bars often change height without changing the layout width.
+        const nextWidth = window.innerWidth;
+        if (Math.abs(nextWidth - lastLayoutWidth) < 16) return;
+        lastLayoutWidth = nextWidth;
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(render, 120);
+        resizeTimer = setTimeout(render, 170);
       }, { passive: true });
     })
     .catch(() => {
