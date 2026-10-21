@@ -12,6 +12,10 @@ on:
       - "scripts/optimize_delivery.py"
       - "scripts/optimize_video.py"
       - "scripts/check_video_playback.cjs"
+      - "scripts/check_type_specimen.cjs"
+      - "public/assets/type-specimen.js"
+      - "public/assets/type-specimen.css"
+      - "public/assets/type/**"
       - "public/assets/video-playback.js"
       - "public/assets/collapse-ss26.css"
       - "scripts/check_delivery.py"
@@ -57,6 +61,7 @@ jobs:
           python scripts/check_delivery.py
           node scripts/check_gallery_layout.cjs
           node scripts/check_video_playback.cjs
+          node scripts/check_type_specimen.cjs
 
       - name: Commit generated images
         run: |
