@@ -47,3 +47,18 @@
  .cc-paginate a{padding:40px 14px}
 }
 @media(max-width:550px){.cc-paginate{grid-template-columns:1fr}.cc-paginate a:first-child{border-right:0;border-bottom:1px solid #5b5750}}
+
+/* SS26: two graphic directions within the same collection launch. */
+.cc-directions{padding:92px 22px 110px;background:#ece9e3;color:#171715}
+.cc-directions-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(245px,.5fr);gap:45px;align-items:end;margin-bottom:55px}
+.cc-directions-heading>div>span,.cc-direction>span,.cc-directions-heading>p{font:11px/1.55 "IBM Plex Mono",monospace}
+.cc-directions-heading h2{font-size:clamp(50px,7.2vw,126px);letter-spacing:-.075em;line-height:.83;font-weight:500;margin:35px 0 0}
+.cc-directions-heading>p{margin:0;color:#66625d;max-width:530px;align-self:end}
+.cc-directions-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.cc-direction{border-top:1px solid #1c1b19;padding:26px 0 25px;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.cc-direction>span{color:#77716a}
+.cc-direction h3{font-size:clamp(42px,6vw,90px);letter-spacing:-.074em;line-height:.86;font-weight:500;margin:50px 0 23px}
+.cc-direction p{font-size:clamp(17px,1.6vw,23px);line-height:1.4;max-width:620px;margin:0 0 45px}
+.cc-direction a{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;max-width:590px;border-top:1px solid #b6b1a9;border-bottom:1px solid #b6b1a9;padding:14px 0;font:11px/1.45 "IBM Plex Mono",monospace;margin-top:auto}
+.cc-direction a:hover{color:#a6532a}
+@media(max-width:700px){.cc-directions{padding:70px 14px 85px}.cc-directions-heading{grid-template-columns:1fr;gap:22px}.cc-directions-heading h2{font-size:clamp(48px,11.6vw,74px)}.cc-directions-grid{grid-template-columns:1fr}.cc-direction h3{font-size:clamp(49px,11.3vw,76px);margin:30px 0 20px}.cc-direction p{font-size:18px;margin-bottom:30px}}
