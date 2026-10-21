@@ -11,6 +11,7 @@ on:
       - "scripts/optimize_photography.py"
       - "scripts/optimize_delivery.py"
       - "scripts/check_delivery.py"
+      - "scripts/check_gallery_layout.cjs"
       - "public/assets/photography-gallery-v2.js"
       - "public/assets/photography-static.css"
       - ".github/workflows/optimize-photography.yml"
@@ -48,7 +49,9 @@ jobs:
         run: python scripts/optimize_delivery.py
 
       - name: Verify gallery completeness and delivery assets
-        run: python scripts/check_delivery.py
+        run: |
+          python scripts/check_delivery.py
+          node scripts/check_gallery_layout.cjs
 
       - name: Commit generated images
         run: |
