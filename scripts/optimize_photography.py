@@ -195,3 +195,30 @@ for source in sorted(Path("public/assets").glob("vib_*.webp"), key=natural_key):
         variant = create_preview(source, target, *limits)
         print(f"Vibrazioni {source.name}: " +
               (f"{variant[0]}x{variant[1]} preview" if variant else "original retained"))
+
+
+# Large visual identity mockups: serve faithful 1400px copies on mobile,
+# always retain originals for desktop/full-quality presentation.
+# Fallback is an exact copy when recompression cannot improve file size.
+CASE_IMAGES = (
+    "azienda-piu-brandmark-3d.webp",
+    "azienda-piu-stationery.webp",
+    "azienda-piu-website-home.webp",
+    "azienda-piu-business-card.webp",
+    "azienda-piu-nfc-card.webp",
+    "cdc-business-card.webp",
+    "cdc-posters-mockup.webp",
+    "cdc-merchandise.webp",
+)
+CASE_OUT = Path("public/assets/case-preview")
+CASE_OUT.mkdir(parents=True, exist_ok=True)
+for name in CASE_IMAGES:
+    src = Path("public/assets") / name
+    dest = CASE_OUT / name
+    if not src.exists():
+        continue
+    if not dest.exists():
+        candidate = create_preview(src, dest, 1400, 1800)
+        if candidate is None:
+            shutil.copy2(src, dest)
+        print(f"Case preview {name}: {src.stat().st_size} -> {dest.stat().st_size} bytes")
