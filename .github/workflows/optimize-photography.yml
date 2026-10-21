@@ -13,6 +13,10 @@ on:
       - "scripts/optimize_video.py"
       - "scripts/check_video_playback.cjs"
       - "scripts/check_type_specimen.cjs"
+      - "scripts/check_first_viewer.cjs"
+      - "public/assets/first-viewer.js"
+      - "public/assets/new-case-studies.css"
+      - "public/assets/first/*.glb"
       - "public/assets/type-specimen.js"
       - "public/assets/type-specimen.css"
       - "public/assets/type/**"
@@ -62,6 +66,7 @@ jobs:
           node scripts/check_gallery_layout.cjs
           node scripts/check_video_playback.cjs
           node scripts/check_type_specimen.cjs
+          node scripts/check_first_viewer.cjs
 
       - name: Commit generated images
         run: |

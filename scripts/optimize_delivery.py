@@ -78,11 +78,16 @@ def variants(url):
             if size == 320 and not source.name.startswith('vib_'):
                 continue
             dest = RESPONSIVE / f'{source.stem}-{fingerprint}-{size}.webp'
-            if not dest.exists():
+            if not dest.exists() or dest.stat().st_size == 0:
                 thumb = image.copy()
                 thumb.thumbnail((size, 100000), Image.Resampling.LANCZOS)
-                thumb.save(dest, 'WEBP', quality=93, method=6,
+                encoded = io.BytesIO()
+                thumb.save(encoded, 'WEBP', quality=93, method=6,
                            **({'icc_profile': icc} if icc else {}))
+                # Publish a complete image, and recover interrupted empty cache files.
+                temporary = dest.with_suffix('.tmp.webp')
+                temporary.write_bytes(encoded.getvalue())
+                temporary.replace(dest)
             if dest.stat().st_size < len(raw) * .9:
                 candidates.append((size, public_url(dest)))
             else:
