@@ -327,7 +327,8 @@ def main():
         '/assets/responsive/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
         '/assets/static/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
         '/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
-        '/assets/video/*\n  Cache-Control: public, max-age=31536000, immutable\n')
+        '/assets/video/*\n  Cache-Control: public, max-age=31536000, immutable\n\n'
+        '/assets/type/*\n  Cache-Control: public, max-age=31536000, immutable\n')
     print(json.dumps({'gallery_photos': {k: len(v) for k, v in manifest['categories'].items()},
         'responsive_files': len(list(RESPONSIVE.glob('*'))), 'html_pages': len(list(PUBLIC.rglob('*.html')))}))
 
