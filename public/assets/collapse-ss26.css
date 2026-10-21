@@ -1,5 +1,4 @@
-/* COLLAPSE / SS26 editorial portfolio — activated when original media are hosted. */
-.ss26-story[hidden], .cc-gallery[hidden],.cc-directions[hidden]{display:none!important}
+/* COLLAPSE / SS26 editorial portfolio. Native images render immediately; videos load on play. */
 .ss26-story{background:#ece9e3;color:#171715;padding:85px 22px 115px}
 .ss26-story-lead{display:grid;grid-template-columns:1fr minmax(300px,.40fr);gap:40px;align-items:end;margin-bottom:48px}
 .ss26-story-lead span,.ss26-label>span,.ss26-chapter>div:first-child>span,.ss26-img figcaption,.ss26-film figcaption,.ss26-last{font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
@@ -7,6 +6,7 @@
 .ss26-story-lead p,.ss26-chapter>div:first-child>p,.ss26-label p{font-size:clamp(17px,1.6vw,23px);line-height:1.45;margin:0}
 .ss26-hero-pair,.ss26-image-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
 .ss26-img{margin:0;min-width:0}
+.ss26-chapter,.ss26-graphics,.ss26-product,.ss26-motion{content-visibility:auto;contain-intrinsic-size:auto 1000px}
 .ss26-img img{width:100%;height:auto;display:block;background:#dad6ce}
 .ss26-img figcaption,.ss26-film figcaption{display:flex;justify-content:space-between;gap:15px;border-top:1px solid rgba(23,23,21,.25);padding:12px 0 18px;color:#57534e}
 .ss26-chapter{display:grid;grid-template-columns:minmax(230px,.42fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:125px}
