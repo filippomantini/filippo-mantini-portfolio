@@ -249,6 +249,11 @@ def static_gallery(html, manifest):
 
 def image_sizes(page, url):
     path = urlsplit(url).path
+    if '/collapse/eubodio/' in path:
+        if any(name in path for name in ('/urban-', '/garment-')):
+            return '(max-width:800px) calc((100vw - 38px)/2), calc((100vw - 80px)/3)'
+        if '/campaign-01' not in path:
+            return '(max-width:800px) calc(100vw - 28px), calc((100vw - 64px)/2)'
     if 'vib_' in path:
         index = int(re.search(r'vib_(\d+)', path)[1])
         if 2 <= index <= 8:
