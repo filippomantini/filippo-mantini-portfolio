@@ -13,4 +13,4 @@ One launch, two graphic directions: TARGET (including C Logo) and ROACH (includi
 - Product/process: `product-target.webp`, `product-roach.webp`, `process-editorial.webp`
 - Motion: `film-target.mp4`, `film-campaign-01.mp4`, `film-campaign-02.mp4`; each has a matching `*-poster.webp`.
 
-The above media are prepared in a separate upload bundle. Add the 19 media files to this directory without changing Shopify.
+The above media are prepared in a separate upload bundle. Add all **20 entries** to this directory: 19 media files plus `ready.json`. The JSON file activates the bilingual SS26 gallery only once this complete set is deployed, preserving the existing Instagram gallery as a fallback. No Shopify edits are required.
