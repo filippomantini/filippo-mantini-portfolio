@@ -29,6 +29,16 @@
       items = items.filter(entry => entry !== item);
       render();
     }, { once: true });
+    // Keep full-resolution originals for large displays, use high-quality
+    // 1152px previews where the requested display size does not need them.
+    const previewWidth = Number(item.previewWidth) || 0;
+    const fullWidth = Number(item.width) || 0;
+    if (item.previewPath && item.previewPath !== item.path &&
+        previewWidth > 0 && fullWidth > previewWidth) {
+      img.srcset = `${item.previewPath} ${previewWidth}w, ${item.path} ${fullWidth}w`;
+      img.sizes = '(max-width: 800px) 100vw, (max-width: 1100px) 50vw, 30vw';
+    }
+    if (index === 0) img.fetchPriority = 'high';
     img.src = item.path;
 
     figure.appendChild(img);
@@ -95,7 +105,7 @@
     });
   };
 
-  fetch('/assets/photography/manifest.json', { cache: 'no-cache' })
+  fetch('/assets/photography/manifest.json')
     .then(r => {
       if (!r.ok) throw new Error('manifest unavailable');
       return r.json();
