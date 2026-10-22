@@ -5,10 +5,10 @@ from PIL import Image
 import re,json,hashlib,shutil
 R=Path(__file__).resolve().parents[2];P=R/'public';A=P/'assets'
 def asset_hash(path):return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
-model=A/'first/first-study-v1.glb';model_name='first-study-'+asset_hash(model)+'.glb';shutil.copyfile(model,model.with_name(model_name))
+model=A/'first/FIRST_THINGS_FIRST_DA_SCANSIONE_RESTAURO_WEB.glb';model_name=model.name
 for name in ['new-case-studies.css','first-viewer.js']:
  p=A/name;dest=A/'static'/(p.stem+'-'+asset_hash(p)+p.suffix);dest.write_bytes(p.read_bytes())
-css='/assets/static/new-case-studies-'+asset_hash(A/'new-case-studies.css')+'.css';js='/assets/static/first-viewer-'+asset_hash(A/'first-viewer.js')+'.js'
+css='/assets/static/new-case-studies-'+asset_hash(A/'new-case-studies.css')+'.css';js='/assets/first-scan-viewer.js'
 font_html=re.search(r'<style data-local-fonts>.*?</style>',(P/'it/work/no-font/index.html').read_text(),re.S)[0]
 def image(path,alt,eager=False,extra=''):
  p=P/path.lstrip('/');w,h=Image.open(p).size
