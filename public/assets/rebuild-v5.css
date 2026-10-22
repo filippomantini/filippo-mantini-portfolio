@@ -1,0 +1,57 @@
+/* Rebuild Yourself V5 — real photographic documentation, responsive 50/50 split, original wristband artwork */
+.ryv .ry-video-photo-split{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;margin:0;padding:0;background:#171615;color:#f3f0ea}
+.ryv .ry-video-half,.ryv .ry-photo-half{position:relative;margin:0;min-width:0;height:min(73vw,770px);min-height:460px;overflow:hidden}
+.ryv .ry-video-half video,.ryv .ry-photo-half>img{width:100%;height:100%;object-fit:cover;display:block}
+.ryv .ry-video-half video{background:#10100e;object-position:center}
+.ryv .ry-photo-half>img{object-position:center center}
+.ryv .ry-video-photo-split .ry-half-caption{position:absolute;left:18px;bottom:18px;max-width:calc(100% - 38px);padding:8px 12px;background:rgba(14,14,13,.74);color:#fff;font:10px/1.4 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;z-index:2}
+.ryv .ry-video-toggle{position:absolute;right:18px;top:18px;z-index:5;border:1px solid rgba(255,255,255,.8);background:rgba(14,14,13,.72);color:#fff;font:11px/1 "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase;padding:13px 15px;border-radius:0;cursor:pointer!important}
+.ryv .ry-video-toggle:hover,.ryv .ry-video-toggle:focus-visible{background:#f5f1e9;color:#141414;outline:2px solid #fff;outline-offset:2px}
+.ryv .ry-video-photo-note{margin:0;padding:13px 22px 22px;display:flex;gap:24px;justify-content:space-between;background:var(--paper);color:#65605c;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;border-bottom:1px solid var(--ry-line)}
+.ryv .ry-a3-real-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:38px 0 60px}
+.ryv .ry-a3-real-gallery figure{margin:0;min-width:0;overflow:hidden}
+.ryv .ry-a3-real-gallery figure:first-child{grid-column:1/-1}
+.ryv .ry-a3-real-gallery figure:last-child{grid-column:1/-1}
+.ryv .ry-a3-real-gallery img{width:100%;height:auto;display:block;object-fit:contain;background:transparent;border:0;box-shadow:none}
+.ryv .ry-a3-real-gallery figure:first-child img,.ryv .ry-a3-real-gallery figure:last-child img{max-height:900px;object-fit:contain}
+.ryv .ry-a3-real-gallery figcaption{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--ry-line);padding-top:9px;margin-top:10px;font:10px/1.55 "IBM Plex Mono",monospace;text-transform:uppercase;color:#6d6761}
+.ryv .ry-a3-intro{margin-top:36px;color:#77716a}
+.ryv .ry-fold-explanation .ry-asset-figure{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
+.ryv .ry-fold-explanation .ry-asset-figure img{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
+.ryv .ry-fold-explanation .ry-asset-figure figcaption{border:0!important;margin-top:7px;color:#c9c5be}
+.ryv .ry-space-archive{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:35px}
+.ryv .ry-space-archive figure{margin:0;min-width:0;grid-column:span 4}
+.ryv .ry-space-archive figure:nth-child(1),.ryv .ry-space-archive figure:nth-child(7){grid-column:span 6}
+.ryv .ry-space-archive figure:nth-child(2),.ryv .ry-space-archive figure:nth-child(8){grid-column:span 6}
+.ryv .ry-space-archive figure:nth-child(3){grid-column:span 8}
+.ryv .ry-space-archive figure:nth-child(4){grid-column:span 4}
+.ryv .ry-space-archive img{display:block;width:100%;height:min(44vw,660px);object-fit:cover;background:#dedad4}
+.ryv .ry-space-archive figcaption{padding-top:10px;font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase;color:#77716b}
+.ryv .ry-tote-stage{padding:0!important;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;min-height:0!important}
+.ryv .ry-tote-stage img{max-height:none!important;background:transparent!important}
+.ryv .ry-application{border:0!important;outline:0!important;box-shadow:none!important}
+.ryv .ry-wristband-section{margin-top:50px;padding:0;border-top:1px solid #827b74}
+.ryv .ry-wristband-head{display:grid;grid-template-columns:.9fr 1.25fr;gap:24px;padding:30px 0}
+.ryv .ry-wristband-head p{font-size:clamp(16px,1.5vw,22px);line-height:1.42;max-width:750px;margin:0}
+.ryv .ry-wristband-mockup{display:flex;position:relative;align-items:center;justify-content:center;min-height:340px;padding:50px 4vw;background:#eeeae3;overflow:hidden;isolation:isolate}
+.ryv .ry-wristband-mockup::before{content:"";position:absolute;left:10%;right:10%;top:40%;height:32%;border-radius:50%;box-shadow:0 46px 55px rgba(19,16,13,.17);z-index:-1}
+.ryv .ry-wristband-paper{width:min(100%,1150px);transform:perspective(1100px) rotateX(8deg) rotateZ(-3deg);background:#fafaf7;box-shadow:0 16px 18px rgba(0,0,0,.15),0 38px 65px rgba(0,0,0,.12);border-radius:7px;overflow:hidden}
+.ryv .ry-wristband-paper img{display:block;width:100%;height:auto}
+.ryv .ry-wristband-caption{color:#6d6761;background:#eeeae3;padding:11px 20px;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
+@media(max-width:900px){.ryv .ry-video-half,.ryv .ry-photo-half{height:60vw;min-height:340px}.ryv .ry-a3-real-gallery{gap:8px}.ryv .ry-space-archive{gap:8px}.ryv .ry-space-archive img{height:42vw}}
+@media(max-width:650px){
+.ryv .ry-video-photo-split{grid-template-columns:1fr}
+.ryv .ry-video-half,.ryv .ry-photo-half{height:74vh;min-height:370px;max-height:660px}
+.ryv .ry-photo-half{height:64vh}
+.ryv .ry-video-photo-note{padding:12px 14px;flex-direction:column;gap:5px}
+.ryv .ry-a3-real-gallery{grid-template-columns:1fr;gap:24px}
+.ryv .ry-a3-real-gallery figure:first-child,.ryv .ry-a3-real-gallery figure:last-child{grid-column:auto}
+.ryv .ry-a3-real-gallery figcaption{font-size:9px}
+.ryv .ry-space-archive{grid-template-columns:1fr;gap:24px}
+.ryv .ry-space-archive figure,.ryv .ry-space-archive figure:nth-child(n){grid-column:1}
+.ryv .ry-space-archive img{height:auto;max-height:700px;object-fit:contain}
+.ryv .ry-wristband-head{grid-template-columns:1fr;gap:16px}
+.ryv .ry-wristband-mockup{min-height:210px;padding:30px 14px}
+.ryv .ry-wristband-caption{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.ryv .ry-wristband-paper{transform:none!important}}
