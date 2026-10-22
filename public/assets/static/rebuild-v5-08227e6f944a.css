@@ -3,7 +3,7 @@
 .ryv .ry-video-half,.ryv .ry-photo-half{position:relative;margin:0;min-width:0;height:min(73vw,770px);min-height:460px;overflow:hidden}
 .ryv .ry-video-half video,.ryv .ry-photo-half>img{width:100%;height:100%;object-fit:cover;display:block}
 .ryv .ry-video-half video{background:#10100e;object-position:center}
-.ryv .ry-photo-half>img{object-position:center center}
+.ryv .ry-photo-half>img{object-position:center bottom}
 .ryv .ry-video-toggle{position:absolute;right:18px;top:18px;z-index:5;border:1px solid rgba(255,255,255,.8);background:rgba(14,14,13,.72);color:#fff;font:11px/1 "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase;padding:13px 15px;border-radius:0;cursor:pointer!important}
 .ryv .ry-video-toggle:hover,.ryv .ry-video-toggle:focus-visible{background:#f5f1e9;color:#141414;outline:2px solid #fff;outline-offset:2px}
 .ryv .ry-video-photo-note{margin:0;padding:13px 22px 22px;display:flex;gap:24px;justify-content:space-between;background:var(--ry-paper);color:#65605c;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;border-bottom:1px solid var(--ry-line)}
