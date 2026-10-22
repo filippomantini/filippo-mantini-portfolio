@@ -11,7 +11,7 @@
   const it = document.documentElement.lang === "it";
   const tr = (a,b) => it ? a : b;
   let viewer = null, busy = false;
-  const initialOrbit = "35deg 78deg auto";
+  const initialOrbit = "90deg 78deg auto";
   const fail = error => {
     console.error("FIRST 3D:", error);
     if (viewer) viewer.remove();
