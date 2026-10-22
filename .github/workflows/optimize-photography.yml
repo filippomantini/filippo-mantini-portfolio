@@ -80,5 +80,6 @@ jobs:
             echo "No optimized image changes."
           else
             git commit -m "Build responsive portfolio pages and cached delivery assets"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
