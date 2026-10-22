@@ -62,3 +62,13 @@
 .ryv .ry-ticket-placeholder .ry-ticket-qr{width:100px;height:100px;border:1px solid #a49d94;display:grid;place-items:center;color:#888078}
 .ryv .ry-ticket-qr span{font:36px/1 'IBM Plex Mono',monospace;letter-spacing:-.08em}
 @media(max-width:650px){.ryv .ry-a3-real-gallery,.ryv .ry-admission-grid{grid-template-columns:1fr}.ryv .ry-ticket-placeholder{min-height:280px}}
+
+/* V6.1 — authentic VIDEO.mp4 presented 1:1, without cropping the artwork. */
+.ryv .ry-video-photo-split{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ryv .ry-video-half,.ryv .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}
+.ryv .ry-video-half video{object-fit:contain;background:#fff}
+.ryv .ry-photo-half>img{object-fit:cover}
+@media(max-width:650px){
+ .ryv .ry-video-photo-split{grid-template-columns:1fr}
+ .ryv .ry-video-half,.ryv .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}
+}
