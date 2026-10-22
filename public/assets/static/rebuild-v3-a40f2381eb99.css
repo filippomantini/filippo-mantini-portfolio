@@ -1,0 +1,131 @@
+/* REBUILD YOURSELF / COLLAPSE — Exhibition + Editorial System 2025 */
+.ryv{--ry-paper:#eeebe4;--ry-ink:#171716;--ry-red:#ed4d39;--ry-blue:#3944ed;--ry-yellow:#ffb72d;--ry-line:rgba(23,23,22,.23);background:var(--ry-paper);color:var(--ry-ink);overflow:hidden}
+.ryv *{box-sizing:border-box}
+.ryv .ry-mono{font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.02em}
+.ryv .ry-label{display:flex;justify-content:space-between;gap:16px;align-items:start;border-bottom:1px solid currentColor;padding:0 0 14px}
+.ryv .ry-mark{position:absolute;display:block;pointer-events:none;user-select:none;overflow:visible;z-index:0}
+.ryv .ry-mark use{pointer-events:none}
+.ryv .ry-mark.chain{width:43vw;min-width:420px;height:70vh;right:-17vw;top:-12vh;transform:rotate(17deg);opacity:.55}
+.ryv .ry-mark.nail{width:22vw;height:54vh;right:4vw;bottom:4vh;transform:rotate(20deg)}
+.ryv .ry-mark.button{width:100px;height:100px;right:32%;top:22%;transform:rotate(18deg)}
+.ryv .ry-mark.shirt{width:58vw;min-width:540px;height:65vh;right:-15vw;bottom:-18vh;transform:rotate(-14deg);opacity:.9}
+.ryv .ry-mark.stitches{width:100px;height:380px;left:5vw;bottom:-85px;opacity:.6;transform:rotate(13deg)}
+.ryv .ry-mark.ruler{height:520px;width:150px;right:-45px;top:-70px;transform:rotate(-16deg);opacity:.65}
+.ryv .ry-block{position:relative;isolation:isolate;padding:90px 22px 105px;border-bottom:1px solid var(--ry-line)}
+.ryv .ry-hero{position:relative;isolation:isolate;padding:82px 22px 36px;min-height:830px;display:flex;flex-direction:column;justify-content:space-between}
+.ryv .ry-hero h1{position:relative;z-index:2;margin:60px 0 100px;font-weight:600;font-size:clamp(78px,12.7vw,215px);line-height:.77;letter-spacing:-.086em}
+.ryv .ry-hero h1 span{display:block}
+.ryv .ry-hero h1 span:last-child{color:var(--ry-red)}
+.ryv .ry-hero-bottom{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px, .75fr);gap:6vw;border-top:1px solid var(--ry-line);padding-top:22px}
+.ryv .ry-hero-bottom p{font-size:clamp(23px,2.3vw,38px);letter-spacing:-.043em;line-height:1.14;max-width:850px;margin:0}
+.ryv .ry-hero-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;font:11px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase}
+.ryv .ry-hero-info b{display:block;font-weight:400;color:#77716b;margin-bottom:10px}
+.ryv .ry-cover{margin:0 22px 0;background:#111}
+.ryv .ry-cover img{display:block;width:100%;height:auto;max-height:760px;object-fit:cover}
+.ryv .ry-figcap{padding:13px 0 0;display:flex;justify-content:space-between;gap:15px;background:var(--ry-paper);color:#746c64}
+.ryv .ry-manifesto{position:relative;isolation:isolate;background:#171715;color:#f0ede6;padding:46px 22px 110px;min-height:700px;margin-top:95px}
+.ryv .ry-manifesto .ry-label{color:#9e988e;border-color:#5c5750}
+.ryv .ry-manifesto h2{font-size:clamp(63px,9vw,155px);font-weight:500;line-height:.86;letter-spacing:-.073em;position:relative;z-index:1;margin:105px 0 90px}
+.ryv .ry-manifesto h2 em{color:var(--ry-red);font-style:normal}
+.ryv .ry-manifesto-copy{position:relative;z-index:2;max-width:760px;margin-left:auto;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.ryv .ry-manifesto-copy p{font-size:clamp(17px,1.5vw,23px);line-height:1.38;margin:0}
+.ryv .ry-section-head{display:grid;grid-template-columns:180px 1fr;gap:24px;position:relative;z-index:2}
+.ryv h2.ry-display{margin:0;font-weight:500;letter-spacing:-.067em;line-height:.87;font-size:clamp(50px,7.15vw,115px)}
+.ryv .ry-textcols{display:grid;grid-template-columns:1fr 1fr;gap:44px;max-width:1250px;margin:62px 0 0 auto;width:83%;position:relative;z-index:2}
+.ryv .ry-textcols p{font-size:clamp(17px,1.6vw,23px);line-height:1.42;margin:0}
+.ryv .ry-poster-intro{position:relative;z-index:1;display:flex;justify-content:space-between;gap:20px;margin:44px 0 16px;padding-top:16px;border-top:1px solid var(--ry-line)}
+.ryv .ry-poster-stage{background:#dad6ce;padding:clamp(18px,4.8vw,82px);position:relative;overflow:hidden}
+.ryv .ry-poster-sheet{aspect-ratio:1.414/1;width:100%;max-width:1250px;margin:auto;background:#fafaf8;color:#101010;position:relative;overflow:hidden;box-shadow:0 25px 38px rgba(0,0,0,.14);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(15px,2.4vw,36px)}
+.ryv .ry-poster-sheet .ry-poster-mast{position:relative;z-index:2;font-weight:500;font-size:clamp(25px,4.2vw,74px);letter-spacing:-.065em;line-height:.82}
+.ryv .ry-poster-sheet .ry-poster-mast span{display:block}
+.ryv .ry-poster-sheet .ry-poster-mast span:nth-child(2){text-align:right}
+.ryv .ry-poster-art{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ryv .ry-poster-art svg{position:absolute}
+.ryv .ry-poster-art svg:nth-child(1){width:40%;height:110%;top:-16%;left:-10%;transform:rotate(30deg);opacity:.85}
+.ryv .ry-poster-art svg:nth-child(2){width:30%;height:60%;right:-4%;top:18%;transform:rotate(20deg)}
+.ryv .ry-poster-art svg:nth-child(3){width:28%;height:35%;top:35%;left:25%}
+.ryv .ry-poster-art svg:nth-child(4){width:13%;height:55%;left:47%;top:20%;transform:rotate(27deg)}
+.ryv .ry-poster-art svg:nth-child(5){width:12%;height:70%;right:14%;top:-12%;transform:rotate(-13deg)}
+.ryv .ry-poster-bottom{position:relative;z-index:2;border-top:2px solid #111;padding-top:7px}
+.ryv .ry-poster-bottom strong{font-size:clamp(27px,5.2vw,94px);font-weight:500;line-height:.89;letter-spacing:-.068em;white-space:nowrap}
+.ryv .ry-poster-bottom .ry-mono{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:clamp(6px,.8vw,11px)}
+.ryv .ry-spec{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;border-top:1px solid var(--ry-line);padding-top:16px;margin-top:18px;color:#736d66}
+.ryv .ry-fold-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:18px;margin-top:58px;position:relative;z-index:1}
+.ryv .ry-folded{min-height:430px;background:#dedbd4;padding:clamp(25px,3vw,50px);display:flex;align-items:center;justify-content:center}
+.ryv .ry-mini-book{width:min(100%,300px);aspect-ratio:.73;background:#f9f8f4;box-shadow:13px 13px 25px rgba(0,0,0,.17);border-left:1px solid #d1d0cb;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-5deg)}
+.ryv .ry-mini-book div:first-child{font-size:clamp(26px,2.6vw,41px);font-weight:500;letter-spacing:-.06em;line-height:.92}
+.ryv .ry-mini-book svg{width:70%;height:38%;align-self:center;transform:rotate(15deg)}
+.ryv .ry-mini-book div:last-child{font-size:clamp(20px,2vw,34px);letter-spacing:-.06em;line-height:.9;border-top:2px solid;padding-top:9px}
+.ryv .ry-fold-map{background:#242320;color:#f1eee7;min-height:430px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.ryv .ry-fold-map h3{font-size:clamp(39px,5vw,83px);line-height:.84;letter-spacing:-.07em;font-weight:500;margin:44px 0 30px}
+.ryv .ry-fold-map p{max-width:550px;font-size:clamp(16px,1.45vw,22px);line-height:1.4}
+.ryv .ry-fold-line{display:grid;grid-template-columns:repeat(4,1fr);margin-top:32px;border:1px solid #77716b}
+.ryv .ry-fold-line span{min-height:110px;border-right:1px solid #77716b;font:10px/1.3 "IBM Plex Mono",monospace;text-transform:uppercase;padding:10px;display:flex;align-items:end}
+.ryv .ry-fold-line span:last-child{border:0}
+.ryv .ry-graphic{position:relative;background:#ed4e39;color:#181715;padding:50px 22px 90px;min-height:670px;overflow:hidden;isolation:isolate}
+.ryv .ry-graphic .ry-mark{opacity:.9}
+.ryv .ry-graphic h2{font-size:clamp(65px,9.5vw,165px);letter-spacing:-.082em;line-height:.8;margin:90px 0 90px;font-weight:500;position:relative;z-index:2}
+.ryv .ry-graphic p{position:relative;z-index:2;margin-left:auto;max-width:650px;font-size:clamp(18px,2vw,30px);line-height:1.25}
+.ryv .ry-cards-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:65px;position:relative;z-index:1}
+.ryv .ry-osb{background:#d3d3d3;border:1px solid #111;padding:clamp(8px,.85vw,14px);aspect-ratio:4/3;min-height:0;min-width:0;display:flex}
+.ryv .ry-card-paper{background:#f7f7f5;color:#171717;width:100%;height:100%;min-height:0;padding:clamp(10px,1vw,18px);display:flex;flex-direction:column}
+.ryv .ry-card-paper b{font-size:clamp(14px,1.7vw,29px);letter-spacing:-.055em;line-height:.96;font-weight:600}
+.ryv .ry-card-paper em{font-size:9px;font-style:normal;margin-top:3px}
+.ryv .ry-card-paper h3{font:11px/1.3 "IBM Plex Mono",monospace;margin:clamp(11px,1.4vw,22px) 0 7px}
+.ryv .ry-card-paper p{font-size:clamp(12px,1vw,15px);line-height:1.35;margin:0}
+.ryv .ry-card-paper small{font:8px/1.4 "IBM Plex Mono",monospace;margin-top:auto;padding-top:10px}
+.ryv .ry-application{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:65px;position:relative;z-index:2}
+.ryv .ry-tote-stage{background:#e5e2de;min-height:580px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:65px 25px}
+.ryv .ry-tote{height:340px;width:290px;position:relative;background:linear-gradient(125deg,#fafaf7,#e6e5e1 62%,#f6f5f2);box-shadow:13px 24px 30px rgba(0,0,0,.15);border:1px solid #e1ded9;display:flex;align-items:end;justify-content:center;padding:27px 18px 45px}
+.ryv .ry-tote::before,.ryv .ry-tote::after{content:"";position:absolute;bottom:calc(100% - 20px);height:125px;width:43px;border:12px solid #efefeb;border-bottom:0;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.16));border-radius:90px 90px 0 0}
+.ryv .ry-tote::before{left:53px}.ryv .ry-tote::after{right:53px}
+.ryv .ry-tote-print{width:100%;font-size:32px;font-weight:500;line-height:.9;letter-spacing:-.06em}
+.ryv .ry-tote-print span{display:block;font-size:14px;line-height:1;margin-bottom:60px}
+.ryv .ry-application-copy{background:#171715;color:#f0ede6;padding:40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.ryv .ry-application-copy h3{font-size:clamp(55px,6vw,98px);line-height:.83;font-weight:500;letter-spacing:-.07em;margin:45px 0}
+.ryv .ry-application-copy p{font-size:clamp(17px,1.6vw,23px);line-height:1.37;max-width:560px}
+.ryv .ry-application-copy svg{position:absolute;width:270px;height:330px;right:-55px;top:90px;opacity:.4;transform:rotate(-17deg)}
+.ryv .ry-event{background:#f3eee6}
+.ryv .ry-event-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:90px}
+.ryv .ry-event-head h2{font-size:clamp(66px,8.5vw,148px);font-weight:500;line-height:.84;letter-spacing:-.078em;margin:40px 0 0}
+.ryv .ry-event-head p{font-size:clamp(18px,1.7vw,25px);line-height:1.38;max-width:640px;align-self:end}
+.ryv .ry-event-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--ry-line)}
+.ryv .ry-event-grid article{padding:25px 24px 55px 0;border-right:1px solid var(--ry-line);margin-right:24px}
+.ryv .ry-event-grid article:last-child{border:0;margin-right:0}
+.ryv .ry-event-grid h3{font-size:clamp(39px,4.8vw,86px);font-weight:500;letter-spacing:-.06em;line-height:.9;margin:38px 0}
+.ryv .ry-event-grid p{font-size:17px;line-height:1.45}
+.ryv .ry-close{background:#151515;color:#f0ede6;padding:100px 22px;position:relative;isolation:isolate}
+.ryv .ry-close h2{font-size:clamp(65px,9.3vw,150px);font-weight:500;letter-spacing:-.077em;line-height:.84;position:relative;z-index:2;margin:90px 0 120px}
+.ryv .ry-close h2 span{color:var(--ry-red)}
+.ryv .ry-close p{font-size:clamp(20px,2.3vw,35px);line-height:1.32;max-width:850px;margin:0 0 110px;position:relative;z-index:2}
+.ryv .ry-close-foot{border-top:1px solid #5b5853;padding-top:20px;display:flex;justify-content:space-between;gap:20px;position:relative;z-index:2}
+.ryv .ry-close-foot a{text-decoration:underline;text-underline-offset:5px}
+.ryv a:focus-visible,.ryv summary:focus-visible{outline:3px solid var(--ry-blue);outline-offset:4px}
+@media(max-width:1180px){.ryv .ry-cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){
+.ryv .ry-hero{min-height:730px}.ryv .ry-hero-bottom{grid-template-columns:1fr;gap:25px}.ryv .ry-section-head{grid-template-columns:1fr;gap:14px}.ryv .ry-textcols{width:100%;margin-top:40px}
+.ryv .ry-fold-grid{grid-template-columns:1fr}.ryv .ry-cards-grid{grid-template-columns:repeat(2,1fr)}.ryv .ry-event-grid{grid-template-columns:1fr 1fr}
+.ryv .ry-event-grid article:nth-child(2){border:0}.ryv .ry-event-grid article:last-child{border-top:1px solid var(--ry-line)}
+}
+@media(max-width:650px){
+.ryv .ry-block{padding:72px 14px}.ryv .ry-hero{min-height:730px;padding:74px 14px 24px}
+.ryv .ry-label{font-size:9px;gap:10px}.ryv .ry-hero h1{font-size:clamp(48px,14.9vw,94px);margin:100px 0 85px;line-height:.78}
+.ryv .ry-mark.chain{width:92vw;min-width:320px;height:420px;right:-42vw;top:45px}.ryv .ry-mark.nail{height:280px;width:45vw;right:-8vw;bottom:60px}.ryv .ry-mark.button{right:25%;top:31%;height:60px;width:60px}
+.ryv .ry-hero-bottom p{font-size:24px}.ryv .ry-hero-info{font-size:9px;gap:15px}.ryv .ry-cover{margin:0 14px}.ryv .ry-figcap{flex-direction:column;gap:4px;font-size:9px}
+.ryv .ry-manifesto{padding:35px 14px 75px;margin-top:55px;min-height:550px}.ryv .ry-manifesto h2{font-size:clamp(49px,12vw,88px);margin:105px 0 80px}
+.ryv .ry-manifesto-copy{grid-template-columns:1fr;gap:16px}.ryv .ry-manifesto-copy p{font-size:17px}
+.ryv h2.ry-display{font-size:clamp(45px,11.6vw,84px)}.ryv .ry-textcols{grid-template-columns:1fr;gap:20px}.ryv .ry-textcols p{font-size:17px}
+.ryv .ry-poster-stage{padding:20px 7px}.ryv .ry-poster-sheet{padding:9px}.ryv .ry-poster-sheet .ry-poster-mast{font-size:clamp(14px,5vw,28px)}
+.ryv .ry-poster-bottom strong{font-size:clamp(19px,5vw,40px)}.ryv .ry-poster-bottom .ry-mono{font-size:5px;margin-top:5px}
+.ryv .ry-fold-grid{margin-top:30px}.ryv .ry-folded{min-height:390px}.ryv .ry-fold-map{padding:20px;min-height:380px}.ryv .ry-fold-map h3{font-size:56px}
+.ryv .ry-fold-line span{font-size:8px;padding:6px;min-height:84px}
+.ryv .ry-graphic{padding:40px 14px 70px;min-height:570px}.ryv .ry-graphic h2{font-size:clamp(60px,12vw,90px);margin:130px 0 100px}
+.ryv .ry-mark.shirt{width:100vw;min-width:350px;height:400px;right:-40vw;bottom:-90px}.ryv .ry-mark.stitches{left:0;bottom:-95px;height:250px;width:65px}
+.ryv .ry-cards-grid{grid-template-columns:1fr;gap:12px;margin-top:35px}.ryv .ry-osb{min-height:0;padding:9px}.ryv .ry-card-paper{padding:13px 12px}.ryv .ry-card-paper b{font-size:clamp(20px,6vw,30px)}.ryv .ry-card-paper h3{margin:20px 0 7px;font-size:10px}.ryv .ry-card-paper p{font-size:clamp(12px,3.5vw,16px)}.ryv .ry-card-paper small{padding-top:14px;font-size:7px}
+.ryv .ry-application{grid-template-columns:1fr;margin-top:40px}.ryv .ry-tote-stage{min-height:490px}.ryv .ry-application-copy{padding:24px;min-height:410px}.ryv .ry-application-copy h3{font-size:65px}
+.ryv .ry-event-head{grid-template-columns:1fr;gap:25px;margin-bottom:50px}.ryv .ry-event-head h2{font-size:73px}.ryv .ry-event-head p{font-size:17px}.ryv .ry-event-grid{grid-template-columns:1fr}
+.ryv .ry-event-grid article{margin:0;padding:22px 0 35px;border:0;border-bottom:1px solid var(--ry-line)}.ryv .ry-event-grid h3{font-size:65px;margin:25px 0}
+.ryv .ry-close{padding:80px 14px}.ryv .ry-close h2{font-size:clamp(58px,11vw,84px);margin:90px 0}.ryv .ry-close p{font-size:21px;margin-bottom:75px}
+.ryv .ry-close-foot{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){.ryv *, .ryv *::before,.ryv *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

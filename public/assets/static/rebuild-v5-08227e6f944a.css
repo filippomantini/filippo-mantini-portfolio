@@ -1,0 +1,72 @@
+/* Rebuild Yourself V5 — real photographic documentation, responsive 50/50 split, original wristband artwork */
+.ryv .ry-video-photo-split{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;margin:0;padding:0;background:#171615;color:#f3f0ea}
+.ryv .ry-video-half,.ryv .ry-photo-half{position:relative;margin:0;min-width:0;height:min(73vw,770px);min-height:460px;overflow:hidden}
+.ryv .ry-video-half video,.ryv .ry-photo-half>img{width:100%;height:100%;object-fit:cover;display:block}
+.ryv .ry-video-half video{background:#10100e;object-position:center}
+.ryv .ry-photo-half>img{object-position:center center}
+.ryv .ry-video-toggle{position:absolute;right:18px;top:18px;z-index:5;border:1px solid rgba(255,255,255,.8);background:rgba(14,14,13,.72);color:#fff;font:11px/1 "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase;padding:13px 15px;border-radius:0;cursor:pointer!important}
+.ryv .ry-video-toggle:hover,.ryv .ry-video-toggle:focus-visible{background:#f5f1e9;color:#141414;outline:2px solid #fff;outline-offset:2px}
+.ryv .ry-video-photo-note{margin:0;padding:13px 22px 22px;display:flex;gap:24px;justify-content:space-between;background:var(--ry-paper);color:#65605c;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;border-bottom:1px solid var(--ry-line)}
+.ryv .ry-a3-real-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:38px 0 60px}
+.ryv .ry-a3-real-gallery figure{margin:0;min-width:0;overflow:hidden}
+.ryv .ry-a3-real-gallery img{width:100%;height:auto;display:block;object-fit:contain;background:transparent;border:0;box-shadow:none}
+.ryv .ry-a3-real-gallery figcaption{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--ry-line);padding-top:9px;margin-top:10px;font:10px/1.55 "IBM Plex Mono",monospace;text-transform:uppercase;color:#6d6761}
+.ryv .ry-a3-intro{margin-top:36px;color:#77716a}
+.ryv .ry-fold-explanation .ry-asset-figure{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
+.ryv .ry-fold-explanation .ry-asset-figure img{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
+.ryv .ry-fold-explanation .ry-asset-figure figcaption{border:0!important;margin-top:7px;color:#c9c5be}
+.ryv .ry-space-archive{display:block;column-count:3;column-gap:8px;margin-top:35px}
+.ryv .ry-space-archive figure{display:inline-block;vertical-align:top;width:100%;min-width:0;margin:0 0 8px;break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid}
+.ryv .ry-space-archive img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center;background:transparent}
+.ryv .ry-space-archive figcaption{padding:6px 0 0;font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase;color:#77716b}
+.ryv .ry-tote-stage{padding:0!important;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;min-height:0!important}
+.ryv .ry-tote-stage img{max-height:none!important;background:transparent!important}
+.ryv .ry-application{border:0!important;outline:0!important;box-shadow:none!important}
+.ryv .ry-wristband-section{margin-top:50px;padding:0;border-top:1px solid #827b74}
+.ryv .ry-wristband-head{display:grid;grid-template-columns:.9fr 1.25fr;gap:24px;padding:30px 0}
+.ryv .ry-wristband-head p{font-size:clamp(16px,1.5vw,22px);line-height:1.42;max-width:750px;margin:0}
+.ryv .ry-wristband-mockup{display:flex;position:relative;align-items:center;justify-content:center;min-height:340px;padding:50px 4vw;background:#eeeae3;overflow:hidden;isolation:isolate}
+.ryv .ry-wristband-mockup::before{content:"";position:absolute;left:10%;right:10%;top:40%;height:32%;border-radius:50%;box-shadow:0 46px 55px rgba(19,16,13,.17);z-index:-1}
+.ryv .ry-wristband-paper{width:min(100%,1150px);transform:perspective(1100px) rotateX(8deg) rotateZ(-3deg);background:#fafaf7;box-shadow:0 16px 18px rgba(0,0,0,.15),0 38px 65px rgba(0,0,0,.12);border-radius:7px;overflow:hidden}
+.ryv .ry-wristband-paper img{display:block;width:100%;height:auto}
+.ryv .ry-wristband-caption{color:#6d6761;background:#eeeae3;padding:11px 20px;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
+@media(max-width:900px){.ryv .ry-video-half,.ryv .ry-photo-half{height:60vw;min-height:340px}.ryv .ry-a3-real-gallery{gap:8px}.ryv .ry-space-archive{column-count:2;column-gap:8px}.ryv .ry-space-archive img{height:auto;max-height:none;object-fit:contain}}
+@media(max-width:650px){
+.ryv .ry-video-photo-split{grid-template-columns:1fr}
+.ryv .ry-video-half,.ryv .ry-photo-half{height:74vh;min-height:370px;max-height:660px}
+.ryv .ry-photo-half{height:64vh}
+.ryv .ry-video-photo-note{padding:12px 14px;flex-direction:column;gap:5px}
+.ryv .ry-a3-real-gallery{grid-template-columns:1fr;gap:24px}
+.ryv .ry-a3-real-gallery figcaption{font-size:9px}
+.ryv .ry-space-archive{column-count:1;column-gap:0}
+.ryv .ry-space-archive figure{margin-bottom:8px}
+.ryv .ry-space-archive img{height:auto;max-height:none;object-fit:contain}
+.ryv .ry-wristband-head{grid-template-columns:1fr;gap:16px}
+.ryv .ry-wristband-mockup{min-height:210px;padding:30px 14px}
+.ryv .ry-wristband-caption{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.ryv .ry-wristband-paper{transform:none!important}}
+/* V6: four original print-process photographs in one row; paper wristband + QR admission placeholder */
+.ryv .ry-a3-real-gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ryv .ry-admission-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.ryv .ry-admission-wristband{min-width:0}
+.ryv .ry-admission-wristband figure{margin:0;height:100%}
+.ryv .ry-admission-wristband .ry-wristband-mockup{min-height:340px;height:calc(100% - 40px)}
+.ryv .ry-ticket-placeholder{background:#f0ece6;color:#151412;border:1px dashed #89847c;min-height:340px;padding:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center}
+.ryv .ry-ticket-placeholder .ry-mono{font:11px/1.5 'IBM Plex Mono',monospace;letter-spacing:.03em}
+.ryv .ry-ticket-placeholder p{max-width:330px;margin:0;font-size:clamp(15px,1.4vw,20px);line-height:1.4}
+.ryv .ry-ticket-placeholder .ry-ticket-qr{width:100px;height:100px;border:1px solid #a49d94;display:grid;place-items:center;color:#888078}
+.ryv .ry-ticket-qr span{font:36px/1 'IBM Plex Mono',monospace;letter-spacing:-.08em}
+@media(max-width:650px){.ryv .ry-a3-real-gallery,.ryv .ry-admission-grid{grid-template-columns:1fr}.ryv .ry-ticket-placeholder{min-height:280px}}
+
+/* V6.1 — authentic VIDEO.mp4 presented 1:1, without cropping the artwork. */
+.ryv .ry-video-photo-split{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ryv .ry-video-half,.ryv .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}
+.ryv .ry-video-half video{object-fit:contain;background:#fff}
+.ryv .ry-photo-half>img{object-fit:cover}
+@media(max-width:650px){
+ .ryv .ry-video-photo-split{grid-template-columns:1fr}
+ .ryv .ry-video-half,.ryv .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}
+}
+/* Match the existing editorial dark sections without adding a third black tone. */
+.ryv .next,main.ryv + footer.footer{background:#151515}
