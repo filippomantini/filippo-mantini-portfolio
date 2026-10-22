@@ -70,7 +70,7 @@
 }
 /* Bottom-align right photograph while retaining the original square 50/50 split and cropping. */
 .ryv .ry-video-photo-split .ry-video-half,.ryv .ry-video-photo-split .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}
-.ryv .ry-video-photo-split .ry-photo-half>img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+.ryv .ry-video-photo-split .ry-photo-half>img{width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block}
 @media(max-width:650px){.ryv .ry-video-photo-split .ry-video-half,.ryv .ry-video-photo-split .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}}
 /* Match the existing editorial dark sections without adding a third black tone. */
 .ryv .next,main.ryv + footer.footer{background:#151515}
