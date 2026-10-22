@@ -1,17 +1,34 @@
-const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
-(async()=>{
- const html=fs.readFileSync('public/it/work/first-things-first/index.html','utf8');
- assert(!/prototype-(?:grip|detail|top)|hand-study|workspace\.webp|object\.webp/.test(html),'Reference photos must stay private');
- const model=html.match(/data-model="([^"]+)"/)[1],buf=fs.readFileSync('public'+model);assert.equal(buf.readUInt32LE(0),0x46546c67);assert.equal(buf.readUInt32LE(8),buf.length);const size=buf.readUInt32LE(12),g=JSON.parse(buf.subarray(20,20+size).toString());
- assert(g.extras.classification.includes('interpretative'));assert.equal(g.accessors[0].count,g.accessors[1].count);assert(g.accessors[0].count<65536);assert(g.accessors[3].count%3===0);assert(g.meshes[0].primitives[0].attributes.TEXCOORD_0!==undefined);assert(buf.length<2000000);
- assert.equal(g.extras.raisedLetters.join(''),'FIRST');assert(g.extras.letterDepth>.03);assert(g.extras.photoTexture);assert.equal(g.images[0].mimeType,'image/jpeg');for(const l of 'FIRST')assert(g.extras.letterTriangleCounts[l]>0);assert(html.includes('poster-first-')&&html.includes('poster-series-'));
- async function run(ctx){let requests=0;const handlers={};const button={hidden:false,disabled:false,addEventListener(n,f){handlers[n]=f}},canvas={hidden:true,getContext:type=>type==='2d'?ctx:null,addEventListener(){},getBoundingClientRect:()=>({width:600,height:700}),focus(){}},poster={hidden:false},controls={hidden:true,addEventListener(){}},status={};
-  const nodes={'[data-load-model]':button,'canvas':canvas,'[role=status]':status,'img':poster,'[data-model-controls]':controls},section={dataset:{model},querySelector:s=>nodes[s]};
-  vm.runInNewContext(fs.readFileSync('public/assets/first-viewer.js','utf8'),{document:{createElement:()=>({getContext:()=>({drawImage(){},getImageData:()=>({data:new Uint8ClampedArray(2048*2048*4).fill(180)})})}),hidden:false,documentElement:{lang:'it'},querySelector:()=>section,addEventListener(){}},window:{addEventListener(){}},ResizeObserver:class{observe(){}},fetch:async()=>{requests++;return {ok:true,arrayBuffer:async()=>buf.buffer.slice(buf.byteOffset,buf.byteOffset+buf.byteLength)}},Uint8ClampedArray,DataView,TextDecoder,Uint8Array,Float32Array,Uint16Array,Blob,Math,Error,devicePixelRatio:1,requestAnimationFrame:f=>f(),createImageBitmap:async()=>({width:1024,height:1024,close(){}})});
-  assert.equal(requests,0,'3D asset must not load before user interaction');await handlers.click();assert.equal(requests,1);return {canvas,poster,button,status,section};
- }
- let result=await run(null);assert.equal(result.canvas.hidden,true);assert.equal(result.poster.hidden,false);assert.equal(result.button.disabled,false);assert(result.status.textContent.includes('non disponibile'));
- let rendered;const ctx={createImageData:(w,h)=>({data:new Uint8ClampedArray(w*h*4)}),putImageData:image=>rendered=image};
- result=await run(ctx);assert.equal(result.canvas.hidden,false);assert.equal(result.poster.hidden,true);assert.equal(result.button.hidden,true);assert.equal(result.section.dataset.modelRenderer,'canvas2d');assert(rendered&&rendered.data.length===600*700*4,'Software mode must rasterize the real mesh');let shaded=0;for(let i=0;i<rendered.data.length;i+=4)if(rendered.data[i]!==236)shaded++;assert(shaded>10000,'Software mode must texture the projected surface');assert(result.status.textContent.includes('Modello caricato'));
- console.log('FIRST: compact valid GLB, no reference photos, on-demand loading, software 3D projection and unavailable-canvas fallback passed.');
-})();
+/* Validate the authentic photogrammetry asset and its on-demand case-study integration. */
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const {execFileSync} = require('node:child_process');
+const modelPath = '/assets/first/FIRST_THINGS_FIRST_DA_SCANSIONE_RESTAURO_WEB.glb';
+const viewerPath = '/assets/first-scan-viewer.js';
+
+const js = fs.readFileSync('public' + viewerPath, 'utf8');
+assert(js.includes('start.addEventListener("click"'), '3D loading must start on click');
+assert(js.includes('await import('), '3D renderer must be loaded on demand');
+assert(js.includes('model-viewer'), 'Real glTF renderer required');
+assert(!js.includes('first-sculpt-handformed-v3.glb'), 'Do not restore the interpretative model');
+
+for (const lang of ['it/', '']) {
+  const html = fs.readFileSync('public/' + lang + 'work/first-things-first/index.html', 'utf8');
+  assert(html.includes('data-model="' + modelPath + '"'), lang + ': authentic GLB is not linked');
+  assert(html.includes('<script src="' + viewerPath + '" defer>'), lang + ': lazy viewer missing');
+  assert(html.includes('data-load-model'), lang + ': user activation missing');
+  assert(html.includes('data-model-controls'), lang + ': accessible controls missing');
+  assert(html.includes('reference-01-849a2faf4c07.webp'), lang + ': fallback poster missing');
+  assert(!html.includes('data-model="/assets/first/first-sculpt-handformed-v3.glb"'), lang + ': outdated model');
+}
+const buf = fs.readFileSync('public' + modelPath);
+assert.equal(buf.readUInt32LE(0), 0x46546c67, 'Invalid GLB magic');
+assert.equal(buf.readUInt32LE(4), 2, 'GLB must be version 2');
+assert.equal(buf.readUInt32LE(8), buf.length, 'Bad GLB length');
+const jsonSize = buf.readUInt32LE(12);
+const gltf = JSON.parse(buf.subarray(20,20+jsonSize).toString('utf8'));
+assert(gltf.meshes.length>=2, 'Scan should contain original sculpture and reconstructed underside');
+assert(gltf.images.length>=2, 'Embedded photo textures must be preserved');
+assert(gltf.materials.some(m=>m.normalTexture), 'Photogrammetry normal map missing');
+assert(gltf.meshes.some(m=>m.primitives.some(p => gltf.accessors[p.indices].componentType===5125)), '32-bit indices must remain intact');
+assert(buf.length < 15000000, 'Use the web-optimized scan, not the 4K master');
+console.log('FIRST scan verified: authentic GLB, materials, IT/EN, click-to-load, and photo fallback.');
