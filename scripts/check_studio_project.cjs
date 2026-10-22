@@ -7,6 +7,7 @@ for(const prefix of ['/it','']){
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
  for(const m of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),'Missing anchor '+m[1]);
  assert.ok(html.includes('href="https://filippomantini.com'+prefix+'/work/filippo-mantini-studio/"'));
+ assert.match(html,/<div class="swatches" role="img" aria-label=/,'Named palette must expose an accessible role');
  assert.ok(html.includes('/studio/privacy/'));assert.ok(html.includes('hreflang="en"'));assert.ok(html.includes('hreflang="it"'));
  for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.equal(JSON.parse(m[1])['@type'],'CreativeWork');
  assert.doesNotMatch(html,/<iframe|<video|<canvas|onload=|onclick=/i);
