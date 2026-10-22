@@ -1,0 +1,99 @@
+/* Rebuild Yourself — bespoke exhibition case study; scoped to this project. */
+.ry-page{--ry-flame:#e45a32;--ry-dark:#151411;--ry-warm:#f3eee6;color:var(--ink);overflow:hidden}
+.ry-page a:focus-visible{outline:2px solid var(--ry-flame);outline-offset:5px}
+.ry-page .ry-container{margin-inline:22px}
+.ry-page .ry-micro{font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.045em}
+.ry-page .ry-intro{padding:78px 22px 48px}
+.ry-page .ry-supra{border-bottom:1px solid var(--line);padding-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.ry-page .ry-title{font-size:clamp(76px,13.4vw,230px);font-weight:600;letter-spacing:-.087em;line-height:.72;margin:38px 0 50px}
+.ry-page .ry-title span{display:block}
+.ry-page .ry-title span:nth-child(2){color:var(--ry-flame)}
+.ry-page .ry-intro-bottom{display:grid;grid-template-columns:1.3fr .9fr;gap:8vw;align-items:start;border-top:1px solid var(--line);padding-top:20px}
+.ry-page .ry-lead{max-width:880px;margin:0;font-size:clamp(21px,2.35vw,39px);line-height:1.16;letter-spacing:-.035em}
+.ry-page .ry-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ry-page .ry-facts div{font:11px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
+.ry-page .ry-facts b{display:block;color:var(--muted);font-weight:400;margin-bottom:10px}
+.ry-page .ry-cover{margin:0 22px;background:#191815}
+.ry-page .ry-cover img{display:block;width:100%;height:auto;max-height:88vh;object-fit:cover}
+.ry-page .ry-caption{background:var(--paper);display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:14px 0;color:var(--muted)}
+.ry-page .ry-manifesto{margin-top:90px;min-height:86vh;padding:32px 22px 54px;display:flex;flex-direction:column;justify-content:space-between;background:var(--ry-dark);color:var(--ry-warm)}
+.ry-page .ry-manifesto-top{display:flex;justify-content:space-between;gap:20px;color:#c8c0b5}
+.ry-page .ry-manifesto h2{margin:90px 0 20px;font-size:clamp(68px,10.4vw,173px);line-height:.8;letter-spacing:-.08em;font-weight:500}
+.ry-page .ry-manifesto h2 em{color:var(--ry-flame);font-style:normal}
+.ry-page .ry-manifesto-bottom{display:grid;grid-template-columns:1fr minmax(260px,450px);gap:45px;align-items:end}
+.ry-page .ry-manifesto-bottom p{font-size:clamp(17px,1.75vw,26px);line-height:1.25;margin:0;letter-spacing:-.025em}
+.ry-page .ry-marker{font-size:clamp(66px,9vw,150px);line-height:.7;color:var(--ry-flame);letter-spacing:-.1em}
+.ry-page .ry-block{padding:112px 22px;border-bottom:1px solid var(--line)}
+.ry-page .ry-blockhead{display:grid;grid-template-columns:minmax(110px,1fr) minmax(0,4fr);gap:32px;align-items:start}
+.ry-page .ry-blockhead h2{font-size:clamp(51px,7vw,111px);line-height:.85;letter-spacing:-.065em;font-weight:500;margin:0}
+.ry-page .ry-blocktext{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:54px;margin-left:20%}
+.ry-page .ry-blocktext p{font-size:clamp(17px,1.6vw,22px);line-height:1.45;margin:0;max-width:670px}
+.ry-page .ry-spacer-note{margin-top:40px;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted)}
+.ry-page .ry-venue{padding:0 22px 100px}
+.ry-page .ry-venue-inner{padding:70px 4vw 100px;background:var(--ry-flame);color:#161310}
+.ry-page .ry-venue-inner .ry-micro{display:flex;justify-content:space-between;gap:16px}
+.ry-page .ry-venue-title{font-size:clamp(57px,9.3vw,160px);line-height:.85;letter-spacing:-.075em;font-weight:600;margin:75px 0 90px}
+.ry-page .ry-venue-footer{display:flex;justify-content:space-between;align-items:end;gap:40px;border-top:1px solid rgba(22,19,16,.36);padding-top:20px}
+.ry-page .ry-venue-footer p{margin:0;font-size:clamp(18px,1.8vw,25px);line-height:1.3;max-width:630px}
+.ry-page .ry-venue-footer strong{font-size:clamp(40px,6vw,95px);font-weight:500;line-height:.85;letter-spacing:-.07em;white-space:nowrap}
+.ry-page .ry-acts{padding:0 22px 110px}
+.ry-page .ry-acts-title{display:flex;align-items:end;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:16px}
+.ry-page .ry-acts-title h2{font-size:clamp(49px,6.5vw,108px);font-weight:500;letter-spacing:-.065em;line-height:.84;margin:0}
+.ry-page .ry-acts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ry-page .ry-act{background:var(--paper2);border:1px solid var(--line);min-height:480px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s ease,color .3s ease}
+.ry-page .ry-act:nth-child(2){background:#e1dad0}
+.ry-page .ry-act:nth-child(3){background:var(--ry-dark);color:var(--ry-warm)}
+.ry-page .ry-act h3{font-size:clamp(46px,4.5vw,83px);font-weight:500;line-height:.89;letter-spacing:-.065em;max-width:9ch;margin:46px 0}
+.ry-page .ry-act p{font-size:clamp(16px,1.35vw,19px);line-height:1.36;max-width:330px;margin:0}
+.ry-page .ry-act-bottom{display:flex;align-items:end;justify-content:space-between;gap:16px}
+.ry-page .ry-act .ry-symbol{font-size:51px;line-height:.7;font-weight:400;color:var(--ry-flame)}
+.ry-page .ry-identity{padding:0 22px 110px}
+.ry-page .ry-identity-stage{background:#ece6de;border:1px solid var(--line);min-height:680px;display:grid;grid-template-columns:1fr 1fr}
+.ry-page .ry-identity-text{padding:25px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.ry-page .ry-identity-text p{max-width:480px;font-size:clamp(19px,1.8vw,26px);line-height:1.35;margin:20px 0 0}
+.ry-page .ry-identity-text .ry-micro{color:var(--muted)}
+.ry-page .ry-identity-graphic{background:var(--ry-dark);color:var(--ry-warm);padding:25px 20px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.ry-page .ry-identity-graphic strong{font-weight:600;font-size:clamp(54px,6.7vw,128px);line-height:.77;letter-spacing:-.08em;word-break:normal}
+.ry-page .ry-identity-graphic strong i{font-style:normal;color:var(--ry-flame)}
+.ry-page .ry-identity-graphic .ry-micro{color:#aaa69d}
+.ry-page .ry-close{padding:105px 22px 125px;border-top:1px solid var(--line)}
+.ry-page .ry-close-top{display:flex;justify-content:space-between;gap:20px;margin-bottom:72px}
+.ry-page .ry-close h2{font-size:clamp(59px,9.4vw,150px);line-height:.82;font-weight:500;letter-spacing:-.075em;margin:0;max-width:1300px}
+.ry-page .ry-close h2 span{color:var(--ry-flame)}
+.ry-page .ry-close-footer{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:65px;border-top:1px solid var(--line);padding-top:20px}
+.ry-page .ry-close-footer p{font-size:clamp(17px,1.6vw,22px);line-height:1.42;max-width:580px;margin:0}
+.ry-page .ry-close-links{display:flex;flex-direction:column;gap:13px;align-items:flex-start}
+.ry-page .ry-close-links a{font:11px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:5px;transition:color .2s ease}
+.ry-page .ry-close-links a:hover{color:var(--ry-flame)}
+@media(hover:hover){.ry-page .ry-act:hover{background:var(--ry-flame);color:var(--ry-dark)}}
+@media(max-width:950px){.ry-page .ry-intro-bottom{grid-template-columns:1fr;gap:35px}.ry-page .ry-facts{max-width:730px}.ry-page .ry-blocktext{margin-left:0}.ry-page .ry-venue-footer{flex-direction:column;align-items:flex-start}.ry-page .ry-acts-grid{gap:8px}.ry-page .ry-act{min-height:380px;padding:14px}.ry-page .ry-act h3{font-size:clamp(38px,4.5vw,60px)}.ry-page .ry-identity-stage{min-height:530px}}
+@media(max-width:700px){
+ .ry-page .ry-container{margin-inline:14px}.ry-page .ry-intro{padding:75px 14px 32px}.ry-page .ry-supra{align-items:start;font-size:9px}
+ .ry-page .ry-title{font-size:clamp(53px,15.2vw,105px);letter-spacing:-.083em;line-height:.75;margin:35px 0 42px}
+ .ry-page .ry-lead{font-size:clamp(21px,6vw,29px);line-height:1.2}
+ .ry-page .ry-facts{gap:10px;grid-template-columns:1fr 1fr}.ry-page .ry-facts div{font-size:9px}
+ .ry-page .ry-cover{margin:0 14px}.ry-page .ry-caption{font-size:9px;line-height:1.5;flex-direction:column;gap:3px}
+ .ry-page .ry-manifesto{min-height:600px;margin-top:56px;padding:22px 14px 38px}
+ .ry-page .ry-manifesto h2{font-size:clamp(53px,12.9vw,95px);margin:90px 0 65px}
+ .ry-page .ry-manifesto-bottom{grid-template-columns:1fr;gap:22px}
+ .ry-page .ry-marker{font-size:70px}.ry-page .ry-manifesto-bottom p{font-size:18px}
+ .ry-page .ry-block{padding:75px 14px}.ry-page .ry-blockhead{grid-template-columns:1fr;gap:19px}
+ .ry-page .ry-blockhead h2{font-size:clamp(48px,12vw,82px)}
+ .ry-page .ry-blocktext{grid-template-columns:1fr;gap:19px;margin-top:35px}
+ .ry-page .ry-blocktext p{font-size:17px}
+ .ry-page .ry-spacer-note{font-size:9px;line-height:1.4}
+ .ry-page .ry-venue{padding:0 14px 75px}.ry-page .ry-venue-inner{padding:30px 18px 42px}
+ .ry-page .ry-venue-title{font-size:clamp(54px,12.5vw,95px);margin:85px 0 85px}
+ .ry-page .ry-venue-footer p{font-size:17px}.ry-page .ry-venue-footer strong{font-size:49px}
+ .ry-page .ry-acts{padding:0 14px 75px}.ry-page .ry-acts-title{align-items:start;flex-direction:column}
+ .ry-page .ry-acts-title h2{font-size:57px}.ry-page .ry-acts-grid{grid-template-columns:1fr;gap:10px}
+ .ry-page .ry-act{min-height:305px;padding:17px}.ry-page .ry-act h3{font-size:65px;margin:35px 0}
+ .ry-page .ry-act p{font-size:17px}
+ .ry-page .ry-identity{padding:0 14px 75px}.ry-page .ry-identity-stage{grid-template-columns:1fr;min-height:0}
+ .ry-page .ry-identity-text{min-height:285px;padding:20px}.ry-page .ry-identity-graphic{min-height:390px;padding:20px}
+ .ry-page .ry-identity-graphic strong{font-size:clamp(65px,14vw,100px)}
+ .ry-page .ry-close{padding:75px 14px 90px}.ry-page .ry-close-top{margin-bottom:44px}
+ .ry-page .ry-close h2{font-size:clamp(55px,12.5vw,92px)}
+ .ry-page .ry-close-footer{grid-template-columns:1fr;gap:30px;margin-top:48px}
+}
+@media(prefers-reduced-motion:reduce){.ry-page *{scroll-behavior:auto!important;transition:none!important}}
