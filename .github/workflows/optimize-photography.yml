@@ -16,7 +16,7 @@ on:
       - "scripts/check_studio_project.cjs"
       - "public/assets/studio-project.js"
       - "public/assets/studio-project.css"
-      - "public/it/work/filippo-mantini-studio/index.html"
+      - "public/studio/index.html"
       - "public/work/filippo-mantini-studio/index.html"
       - "public/assets/azienda-piu-motion.js"
       - "scripts/check_type_specimen.cjs"

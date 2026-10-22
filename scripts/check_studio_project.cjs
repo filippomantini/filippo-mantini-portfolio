@@ -2,11 +2,12 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const rootPath=require('node:path').resolve(__dirname,'..');
 for(const prefix of ['/it','']){
- const html=fs.readFileSync(rootPath+'/public'+prefix+'/work/filippo-mantini-studio/index.html','utf8');
+ const pagePath=prefix==='/it'?'/studio/':'/work/filippo-mantini-studio/';
+ const html=fs.readFileSync(rootPath+'/public'+pagePath+'index.html','utf8');
  assert.equal((html.match(/<h1[ >]/g)||[]).length,1);
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
  for(const m of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),'Missing anchor '+m[1]);
- assert.ok(html.includes('href="https://filippomantini.com'+prefix+'/work/filippo-mantini-studio/"'));
+ assert.ok(html.includes('href="https://filippomantini.com'+pagePath+'"'));
  assert.match(html,/<div class="swatches" role="img" aria-label=/,'Named palette must expose an accessible role');
  assert.ok(html.includes('/studio/privacy/'));assert.ok(html.includes('hreflang="en"'));assert.ok(html.includes('hreflang="it"'));
  for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.equal(JSON.parse(m[1])['@type'],'CreativeWork');
@@ -27,4 +28,7 @@ for(const prefix of ['/it','']){
  assert.doesNotMatch(html,/<section class="demo-view"[^>]*\bhidden\b/);
  assert.ok(fs.statSync(rootPath+'/public'+js).size<2500,'Presentation JS budget');
 }
+assert.ok(!fs.existsSync(rootPath+'/public/it/work/filippo-mantini-studio/index.html'),'Moved Italian page must not be recreated');
+const redirects=fs.readFileSync(rootPath+'/public/_redirects','utf8');
+assert.ok(redirects.includes('/it/work/filippo-mantini-studio/ /studio/ 301'));
 console.log('Studio: IT/EN metadata, anchors, no-JS content, three-view navigation and theme passed.');
