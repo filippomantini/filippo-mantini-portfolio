@@ -1,0 +1,47 @@
+{
+  "core": {
+    "color": "#1728FF",
+    "role": "Direzione e coordinamento",
+    "skills": "Pianificazione, delega, briefing e priorità"
+  },
+  "scout": {
+    "color": "#5A8CB8",
+    "role": "Ricerca e fonti",
+    "skills": "Ricerca, raccolta fonti, ipotesi e incertezze"
+  },
+  "flare": {
+    "color": "#735ED6",
+    "role": "Script e produzione video",
+    "skills": "Sceneggiature, storyboard, riprese e montaggio"
+  },
+  "flux": {
+    "color": "#398C8A",
+    "role": "Distribuzione e crescita",
+    "skills": "SEO, metadata, calendario editoriale e analisi"
+  },
+  "prism": {
+    "color": "#64738C",
+    "role": "Revisione e qualità",
+    "skills": "Revisione, controllo fonti, test e criteri di consegna"
+  },
+  "pulse": {
+    "color": "#3488CF",
+    "role": "Sviluppo web",
+    "skills": "Codice, interfacce, automazioni e debug"
+  },
+  "aura": {
+    "color": "#AD75A1",
+    "role": "Direzione artistica",
+    "skills": "Identità visiva, design, concept e linguaggio grafico"
+  },
+  "ledger": {
+    "color": "#7F8D5E",
+    "role": "Finanza e report",
+    "skills": "Budget, rendicontazione, analisi del rischio e mercati"
+  },
+  "front-desk": {
+    "color": "#A38262",
+    "role": "Brief e clienti",
+    "skills": "Raccolta brief, richieste, organizzazione e bozze di risposta"
+  }
+}

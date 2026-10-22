@@ -1,0 +1,104 @@
+[
+  {
+    "id": "core",
+    "name": "Core",
+    "role": "Operations lead",
+    "offices": [
+      "qg",
+      "shopify",
+      "inside-matter",
+      "gta6",
+      "kids",
+      "design",
+      "finance",
+      "secretary"
+    ]
+  },
+  {
+    "id": "pulse",
+    "name": "Pulse",
+    "role": "Web / automation developer",
+    "offices": [
+      "shopify",
+      "design"
+    ]
+  },
+  {
+    "id": "aura",
+    "name": "Aura",
+    "role": "Art director and brand designer",
+    "offices": [
+      "shopify",
+      "kids",
+      "design"
+    ]
+  },
+  {
+    "id": "flare",
+    "name": "Flare",
+    "role": "Script/video producer",
+    "offices": [
+      "inside-matter",
+      "gta6",
+      "kids"
+    ]
+  },
+  {
+    "id": "flux",
+    "name": "Flux",
+    "role": "SEO, distribution and growth",
+    "offices": [
+      "shopify",
+      "inside-matter",
+      "gta6",
+      "kids",
+      "design",
+      "secretary"
+    ]
+  },
+  {
+    "id": "prism",
+    "name": "Prism",
+    "role": "Quality and source checker",
+    "offices": [
+      "qg",
+      "shopify",
+      "inside-matter",
+      "gta6",
+      "kids",
+      "design",
+      "finance",
+      "secretary"
+    ]
+  },
+  {
+    "id": "scout",
+    "name": "Scout",
+    "role": "Research and trends",
+    "offices": [
+      "inside-matter",
+      "gta6",
+      "kids",
+      "finance"
+    ]
+  },
+  {
+    "id": "ledger",
+    "name": "Ledger",
+    "role": "Business and market research",
+    "offices": [
+      "finance"
+    ]
+  },
+  {
+    "id": "front-desk",
+    "name": "Front Desk",
+    "role": "Lead intake and draft responses",
+    "offices": [
+      "qg",
+      "shopify",
+      "design",
+      "secretary"
+    ]
+  }
+]
