@@ -67,7 +67,7 @@
 .ryv .ry-graphic h2{font-size:clamp(65px,9.5vw,165px);letter-spacing:-.082em;line-height:.8;margin:90px 0 90px;font-weight:500;position:relative;z-index:2}
 .ryv .ry-graphic p{position:relative;z-index:2;margin-left:auto;max-width:650px;font-size:clamp(18px,2vw,30px);line-height:1.25}
 .ryv .ry-cards-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:65px;position:relative;z-index:1}
-.ryv .ry-osb{background:#d3d3d3;padding:14px;min-height:290px;display:flex}
+.ryv .ry-osb{background:#d3d3d3;border:1px solid #111;padding:14px;min-height:290px;display:flex}
 .ryv .ry-card-paper{background:#f7f7f5;color:#171717;width:100%;padding:17px 13px;display:flex;flex-direction:column}
 .ryv .ry-card-paper b{font-size:clamp(14px,1.7vw,29px);letter-spacing:-.055em;line-height:.96;font-weight:600}
 .ryv .ry-card-paper em{font-size:9px;font-style:normal;margin-top:3px}
@@ -94,7 +94,7 @@
 .ryv .ry-event-grid article:last-child{border:0;margin-right:0}
 .ryv .ry-event-grid h3{font-size:clamp(39px,4.8vw,86px);font-weight:500;letter-spacing:-.06em;line-height:.9;margin:38px 0}
 .ryv .ry-event-grid p{font-size:17px;line-height:1.45}
-.ryv .ry-close{background:#161615;color:#f0ede6;padding:100px 22px;position:relative;isolation:isolate}
+.ryv .ry-close{background:#151515;color:#f0ede6;padding:100px 22px;position:relative;isolation:isolate}
 .ryv .ry-close h2{font-size:clamp(65px,9.3vw,150px);font-weight:500;letter-spacing:-.077em;line-height:.84;position:relative;z-index:2;margin:90px 0 120px}
 .ryv .ry-close h2 span{color:var(--ry-red)}
 .ryv .ry-close p{font-size:clamp(20px,2.3vw,35px);line-height:1.32;max-width:850px;margin:0 0 110px;position:relative;z-index:2}
