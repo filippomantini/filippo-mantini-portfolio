@@ -13,6 +13,11 @@ on:
       - "scripts/optimize_video.py"
       - "scripts/check_video_playback.cjs"
       - "scripts/check_azienda_motion.cjs"
+      - "scripts/check_studio_project.cjs"
+      - "public/assets/studio-project.js"
+      - "public/assets/studio-project.css"
+      - "public/it/work/filippo-mantini-studio/index.html"
+      - "public/work/filippo-mantini-studio/index.html"
       - "public/assets/azienda-piu-motion.js"
       - "scripts/check_type_specimen.cjs"
       - "scripts/check_first_viewer.cjs"
@@ -68,6 +73,7 @@ jobs:
           node scripts/check_gallery_layout.cjs
           node scripts/check_video_playback.cjs
           node scripts/check_azienda_motion.cjs
+          node scripts/check_studio_project.cjs
           node scripts/check_type_specimen.cjs
           node scripts/check_first_viewer.cjs
 
