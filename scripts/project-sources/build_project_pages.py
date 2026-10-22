@@ -5,7 +5,7 @@ from PIL import Image
 import re,json,hashlib,shutil
 R=Path(__file__).resolve().parents[2];P=R/'public';A=P/'assets'
 def asset_hash(path):return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
-model=A/'first/FIRST_THINGS_FIRST_DA_SCANSIONE_RESTAURO_WEB.glb';model_name=model.name
+model=A/'first/FIRST_THINGS_FIRST_SCANSIONE_LISCIA_V2.glb';model_name=model.name
 for name in ['new-case-studies.css','first-viewer.js']:
  p=A/name;dest=A/'static'/(p.stem+'-'+asset_hash(p)+p.suffix);dest.write_bytes(p.read_bytes())
 css='/assets/static/new-case-studies-'+asset_hash(A/'new-case-studies.css')+'.css';js='/assets/first-scan-viewer.js'
