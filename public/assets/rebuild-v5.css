@@ -15,14 +15,10 @@
 .ryv .ry-fold-explanation .ry-asset-figure{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
 .ryv .ry-fold-explanation .ry-asset-figure img{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
 .ryv .ry-fold-explanation .ry-asset-figure figcaption{border:0!important;margin-top:7px;color:#c9c5be}
-.ryv .ry-space-archive{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:35px;align-items:start}
-.ryv .ry-space-archive figure{margin:0;min-width:0;grid-column:span 4;align-self:start}
-.ryv .ry-space-archive figure:nth-child(1),.ryv .ry-space-archive figure:nth-child(7){grid-column:span 6}
-.ryv .ry-space-archive figure:nth-child(2),.ryv .ry-space-archive figure:nth-child(8){grid-column:span 6}
-.ryv .ry-space-archive figure:nth-child(3){grid-column:span 8}
-.ryv .ry-space-archive figure:nth-child(4){grid-column:span 4}
+.ryv .ry-space-archive{display:block;column-count:3;column-gap:8px;margin-top:35px}
+.ryv .ry-space-archive figure{display:inline-block;vertical-align:top;width:100%;min-width:0;margin:0 0 8px;break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid}
 .ryv .ry-space-archive img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center;background:transparent}
-.ryv .ry-space-archive figcaption{padding-top:10px;font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase;color:#77716b}
+.ryv .ry-space-archive figcaption{padding:6px 0 0;font:10px/1.45 "IBM Plex Mono",monospace;text-transform:uppercase;color:#77716b}
 .ryv .ry-tote-stage{padding:0!important;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;min-height:0!important}
 .ryv .ry-tote-stage img{max-height:none!important;background:transparent!important}
 .ryv .ry-application{border:0!important;outline:0!important;box-shadow:none!important}
@@ -34,7 +30,7 @@
 .ryv .ry-wristband-paper{width:min(100%,1150px);transform:perspective(1100px) rotateX(8deg) rotateZ(-3deg);background:#fafaf7;box-shadow:0 16px 18px rgba(0,0,0,.15),0 38px 65px rgba(0,0,0,.12);border-radius:7px;overflow:hidden}
 .ryv .ry-wristband-paper img{display:block;width:100%;height:auto}
 .ryv .ry-wristband-caption{color:#6d6761;background:#eeeae3;padding:11px 20px;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase}
-@media(max-width:900px){.ryv .ry-video-half,.ryv .ry-photo-half{height:60vw;min-height:340px}.ryv .ry-a3-real-gallery{gap:8px}.ryv .ry-space-archive{gap:8px}.ryv .ry-space-archive img{height:auto;max-height:none;object-fit:contain}}
+@media(max-width:900px){.ryv .ry-video-half,.ryv .ry-photo-half{height:60vw;min-height:340px}.ryv .ry-a3-real-gallery{gap:8px}.ryv .ry-space-archive{column-count:2;column-gap:8px}.ryv .ry-space-archive img{height:auto;max-height:none;object-fit:contain}}
 @media(max-width:650px){
 .ryv .ry-video-photo-split{grid-template-columns:1fr}
 .ryv .ry-video-half,.ryv .ry-photo-half{height:74vh;min-height:370px;max-height:660px}
@@ -42,8 +38,8 @@
 .ryv .ry-video-photo-note{padding:12px 14px;flex-direction:column;gap:5px}
 .ryv .ry-a3-real-gallery{grid-template-columns:1fr;gap:24px}
 .ryv .ry-a3-real-gallery figcaption{font-size:9px}
-.ryv .ry-space-archive{grid-template-columns:1fr;gap:24px}
-.ryv .ry-space-archive figure,.ryv .ry-space-archive figure:nth-child(n){grid-column:1}
+.ryv .ry-space-archive{column-count:1;column-gap:0}
+.ryv .ry-space-archive figure{margin-bottom:8px}
 .ryv .ry-space-archive img{height:auto;max-height:none;object-fit:contain}
 .ryv .ry-wristband-head{grid-template-columns:1fr;gap:16px}
 .ryv .ry-wristband-mockup{min-height:210px;padding:30px 14px}
