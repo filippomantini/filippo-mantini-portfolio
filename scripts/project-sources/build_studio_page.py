@@ -128,4 +128,7 @@ for lang,t in T.items():
 <section class="case-section" aria-labelledby="status-title"><span class="label">{t['statelabel']}</span><div><h2 id="status-title">{t['statetitle']}</h2><div class="case-copy"><p>{t['stateintro']}</p></div><ul class="state-list">{states}</ul><details class="privacy"><summary>{t['privacytitle']}</summary><p>{t['privacyp']}<a href="/studio/privacy/">{t['privacylink']}</a>.</p><p><a href="mailto:filippomantini00@gmail.com">filippomantini00@gmail.com</a></p></details><p class="label case-detail" style="margin-top:30px">{t['credit']}</p></div></section></div>
 <section class="project-end" aria-labelledby="end-title"><div><span class="label">{t['endlabel']}</span><h2 id="end-title">{t['endtitle']}</h2></div><a class="text-link" href="mailto:filippomantini00@gmail.com">{t['contact']} <span aria-hidden="true">↗</span></a></section></main><footer class="site-footer"><span>© Filippo Mantini / Studio</span><div><a href="{prefix}/">{t['footer']}</a><a href="/studio/privacy/">{t['privacy']}</a><a href="#main">↑ Top</a></div></footer></body></html>'''
  dest=R/('public'+path+'index.html');dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(html)
+ # Keep the original Google app homepage in sync; the portfolio URL remains canonical.
+ if lang=='it':
+  alias=R/'public/studio/index.html';alias.parent.mkdir(parents=True,exist_ok=True);alias.write_text(html)
 print(json.dumps({'assets':assets,'languages':list(T)},indent=2))
