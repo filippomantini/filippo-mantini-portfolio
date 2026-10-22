@@ -72,3 +72,44 @@
  .ryv .ry-video-photo-split{grid-template-columns:1fr}
  .ryv .ry-video-half,.ryv .ry-photo-half{aspect-ratio:1 / 1;height:auto;min-height:0;max-height:none}
 }
+
+/* Rebuild Yourself — editorial finishing refinements: cards, photography, continuous black */
+.ryv .ry-osb{
+  border:1px solid #171717;
+  background:#d3d3d3;
+}
+/* Respect the complete photographic frame rather than cropping original documentation. */
+.ryv .ry-space-archive{
+  align-items:start;
+}
+.ryv .ry-space-archive figure{
+  align-self:start;
+}
+.ryv .ry-space-archive img{
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+}
+/* Party, closing statement, next project and footer share one seamless background. */
+.ryv .ry-party,
+.ryv .ry-close,
+.ryv .next,
+main.ryv + footer.footer{
+  background:#151515;
+}
+@media(max-width:900px){
+  .ryv .ry-space-archive img{
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+  }
+}
+@media(max-width:650px){
+  .ryv .ry-space-archive img{
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+  }
+}
