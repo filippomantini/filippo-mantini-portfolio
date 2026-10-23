@@ -1,0 +1,288 @@
+{
+  "campaign-group": [
+    {
+      "file": "campaign-group-640-921b5a37082b.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 79918
+    },
+    {
+      "file": "campaign-group-1200-84598a3b299b.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 213938
+    }
+  ],
+  "campaign-cars": [
+    {
+      "file": "campaign-cars-640-ea47abc232a2.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 96608
+    },
+    {
+      "file": "campaign-cars-1200-856c907ab019.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 277540
+    }
+  ],
+  "bedroom": [
+    {
+      "file": "bedroom-640-238d554082a1.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 65960
+    },
+    {
+      "file": "bedroom-1200-441088c5b42c.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 262422
+    }
+  ],
+  "chess": [
+    {
+      "file": "chess-640-9c3fecabe9ca.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 58702
+    },
+    {
+      "file": "chess-1200-46c3ac4a3945.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 158702
+    }
+  ],
+  "raglan-look": [
+    {
+      "file": "raglan-look-640-ebbe0f130aa7.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 108986
+    },
+    {
+      "file": "raglan-look-1200-60c2df5a9e8b.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 334494
+    }
+  ],
+  "wardrobe": [
+    {
+      "file": "wardrobe-640-bc2671427f50.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 81326
+    },
+    {
+      "file": "wardrobe-1200-302d526d1a96.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 218100
+    }
+  ],
+  "flowers-room": [
+    {
+      "file": "flowers-room-640-cf363892e9f1.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 93154
+    },
+    {
+      "file": "flowers-room-1200-920763716d7c.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 282482
+    }
+  ],
+  "flowers-detail": [
+    {
+      "file": "flowers-detail-640-2f1acca4ebc8.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 63006
+    },
+    {
+      "file": "flowers-detail-1200-b789237e05e6.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 155222
+    }
+  ],
+  "flowers-poster": [
+    {
+      "file": "flowers-poster-640-e1c5c1e559ea.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 53780
+    },
+    {
+      "file": "flowers-poster-1200-c67b5f14047c.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 116728
+    }
+  ],
+  "flowers-still": [
+    {
+      "file": "flowers-still-640-a2976e2357a5.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 135818
+    },
+    {
+      "file": "flowers-still-1200-6da175625c08.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 404080
+    }
+  ],
+  "campaign-duo": [
+    {
+      "file": "campaign-duo-640-c213088b20c1.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 111090
+    },
+    {
+      "file": "campaign-duo-1200-d92e33e60a2c.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 289886
+    }
+  ],
+  "campaign-stairs": [
+    {
+      "file": "campaign-stairs-640-bef8b9fe3775.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 81956
+    },
+    {
+      "file": "campaign-stairs-1200-567e3fb5f17a.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 249118
+    }
+  ],
+  "cars-detail": [
+    {
+      "file": "cars-detail-640-bb5f6b728491.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 37416
+    },
+    {
+      "file": "cars-detail-1200-15d0ad171719.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 201840
+    }
+  ],
+  "set-documentation": [
+    {
+      "file": "set-documentation-640-0eb142c7662c.webp",
+      "width": 640,
+      "height": 1142,
+      "bytes": 78376
+    },
+    {
+      "file": "set-documentation-1078-c4d8bb4f8d9b.webp",
+      "width": 1078,
+      "height": 1924,
+      "bytes": 166576
+    }
+  ],
+  "graphic-composition": [
+    {
+      "file": "graphic-composition-640-fba4e9b44122.webp",
+      "width": 640,
+      "height": 798,
+      "bytes": 106304
+    },
+    {
+      "file": "graphic-composition-1200-38ff034d0c96.webp",
+      "width": 1200,
+      "height": 1496,
+      "bytes": 423756
+    }
+  ],
+  "lovers-wordmark": [
+    {
+      "file": "lovers-wordmark-640-f513395323af.webp",
+      "width": 640,
+      "height": 800,
+      "bytes": 13846
+    },
+    {
+      "file": "lovers-wordmark-1200-60a40624cf6c.webp",
+      "width": 1200,
+      "height": 1500,
+      "bytes": 37960
+    }
+  ],
+  "product-rail": [
+    {
+      "file": "product-rail-640-480e799e9bd3.webp",
+      "width": 640,
+      "height": 427,
+      "bytes": 27224
+    },
+    {
+      "file": "product-rail-1200-7b18aae4fa52.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 60662
+    }
+  ],
+  "denim-study": [
+    {
+      "file": "denim-study-640-2b123ea10ba8.webp",
+      "width": 640,
+      "height": 801,
+      "bytes": 96178
+    },
+    {
+      "file": "denim-study-1121-2382685d36c9.webp",
+      "width": 1121,
+      "height": 1403,
+      "bytes": 219988
+    }
+  ],
+  "campaign-film-poster": [
+    {
+      "file": "campaign-film-poster-462-689afe90698f.webp",
+      "width": 462,
+      "height": 822,
+      "bytes": 23096
+    }
+  ],
+  "bts-film-poster": [
+    {
+      "file": "bts-film-poster-640-3956127ad121.webp",
+      "width": 640,
+      "height": 1138,
+      "bytes": 70340
+    },
+    {
+      "file": "bts-film-poster-1080-01be985c46ae.webp",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 128126
+    }
+  ],
+  "campaign-film": {
+    "file": "campaign-film-609c560c8d95.mp4",
+    "bytes": 2298217,
+    "width": 462,
+    "height": 822
+  },
+  "behind-the-scenes": {
+    "file": "behind-the-scenes-4be4dc82179d.mp4",
+    "bytes": 1869037,
+    "width": 720,
+    "height": 1280
+  }
+}
