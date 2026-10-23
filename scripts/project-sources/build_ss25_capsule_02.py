@@ -51,6 +51,9 @@ for lang in ['it','en']:
  if 'Studio AI</a>' not in doc:
   prefix='/it' if lang=='it' else '';studio='/studio/' if lang=='it' else '/work/filippo-mantini-studio/'
   doc=doc.replace(f'<a href="{prefix}/about/">About</a>',f'<a href="{studio}">Studio AI</a><a href="{prefix}/about/">About</a>')
+ doc=doc.replace('La seconda capsule della stagione Spring / Summer 2025, raccontata attraverso immagini, styling e contenuti editoriali.','Completi, denim e T-shirt raglan in un set domestico. La campagna SS25 / Capsule 02 mette in relazione fotografia, styling e grafica, dal poster Free Flowers ai contenuti del lancio.')
+ doc=doc.replace('The second Spring / Summer 2025 capsule, presented through imagery, styling and editorial content.','Matching sets, denim and raglan T-shirts in a domestic setting. The SS25 / Capsule 02 campaign connects photography, styling and graphics, from the Free Flowers poster to the launch content.')
+ doc=doc.replace('<span>SOCIAL MEDIA / SS25 / CAPSULE 02</span>','<span>07 / SOCIAL MEDIA / SS25 / CAPSULE 02</span>')
  doc=doc.replace('02 / IL MIO CONTRIBUTO','08 / IL MIO CONTRIBUTO').replace('02 / MY CONTRIBUTION','08 / MY CONTRIBUTION')
  p.write_text(doc)
 print('SS25 Capsule 02: IT + EN built')
