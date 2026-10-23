@@ -33,13 +33,14 @@ for pre in ['', 'it/']:
  s=(P/f'{pre}work/axion-controllers/index.html').read_text()
  assert '06 / MOVING IMAGE' not in s and 'E-commerce / 3D' not in s
  assert '07 / PLAYER &amp;' not in s # headings use the authored literal separator
- assert '09 / EXPERIMENTAL LETTERING' in s and 'axion-lettering' in s
+ assert '09 / EXPERIMENTAL LETTERING' in s and 'data-axion-type-tester' in s
  assert all(f'social-{i}-' in s for i in range(1,7))
 from PIL import Image
 from fontTools.ttLib import TTFont
 for p in (P/'assets/axion-communications').glob('*.webp'):
  with Image.open(p) as im:im.load()
-font=TTFont(P/'assets/axion-communications/axion-button-display.woff2')
+fm=json.loads((R/'scripts/project-sources/axion-lettering-font.json').read_text())
+font=TTFont(P/fm['woff2'].lstrip('/'))
 assert set('AXION').issubset(chr(c) for c in font.getBestCmap())
 ET.parse(P/'sitemap.xml')
 for p in (P/'assets/axion-case').glob('*.svg'):ET.parse(p)
