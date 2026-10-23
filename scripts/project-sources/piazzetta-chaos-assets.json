@@ -226,5 +226,71 @@
     "poster": "/assets/piazzetta-chaos/preparty-film-poster.webp",
     "width": 540,
     "height": 960
+  },
+  "chaos-crowd-portrait": [
+    {
+      "src": "/assets/piazzetta-chaos/chaos-crowd-portrait-640.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "src": "/assets/piazzetta-chaos/chaos-crowd-portrait-900.webp",
+      "width": 900,
+      "height": 1600
+    }
+  ],
+  "chaos-dj-booth": [
+    {
+      "src": "/assets/piazzetta-chaos/chaos-dj-booth-640.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "src": "/assets/piazzetta-chaos/chaos-dj-booth-1152.webp",
+      "width": 1152,
+      "height": 2048
+    }
+  ],
+  "chaos-room": [
+    {
+      "src": "/assets/piazzetta-chaos/chaos-room-640.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "src": "/assets/piazzetta-chaos/chaos-room-1152.webp",
+      "width": 1152,
+      "height": 2048
+    }
+  ],
+  "chaos-crowd-wide": [
+    {
+      "src": "/assets/piazzetta-chaos/chaos-crowd-wide-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/piazzetta-chaos/chaos-crowd-wide-1400.webp",
+      "width": 1400,
+      "height": 788
+    }
+  ],
+  "chaos-wristbands-original": [
+    {
+      "src": "/assets/piazzetta-chaos/chaos-wristbands-original-640.webp",
+      "width": 640,
+      "height": 1138
+    },
+    {
+      "src": "/assets/piazzetta-chaos/chaos-wristbands-original-1152.webp",
+      "width": 1152,
+      "height": 2048
+    }
+  ],
+  "chaos-night-film": {
+    "src": "/assets/piazzetta-chaos/chaos-original-night.mp4",
+    "poster": "/assets/piazzetta-chaos/chaos-original-night-poster.webp",
+    "width": 538,
+    "height": 960
   }
 }
