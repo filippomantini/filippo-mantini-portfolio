@@ -26,6 +26,6 @@ const base=path.resolve(__dirname,'..');
   assert.ok(destroyed>=7,'Previous office listeners must be released');
   assert.doesNotMatch(source,/fetch\(|requestAnimationFrame|setInterval|localStorage/,'Presentation must not contact app services or run a render loop');
  }
- for(const [url,target] of [['/it/','/studio/'],['/','/work/filippo-mantini-studio/']]){const html=fs.readFileSync(base+'/public'+url+'index.html','utf8');const header=html.match(/<header[\s\S]*?<\/header>/)[0];assert.ok(header.includes('href="'+target+'">Studio</a>'),'Studio must be available in homepage navigation');}
+ for(const [url,target] of [['/it/','/studio/'],['/','/work/filippo-mantini-studio/']]){const html=fs.readFileSync(base+'/public'+url+'index.html','utf8');const header=html.match(/<header[\s\S]*?<\/header>/)[0];assert.ok(header.includes('href="'+target+'">Studio AI</a>'),'Studio must be available in homepage navigation');}
  console.log('Studio workers: lazy initialization, 7 offices, 9 selectable agents, shared memberships, listener cleanup and homepage navigation passed.');
 })().catch(e=>{console.error(e);process.exitCode=1});
