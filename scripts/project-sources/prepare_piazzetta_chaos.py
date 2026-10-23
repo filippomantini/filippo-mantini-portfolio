@@ -8,9 +8,9 @@ def image(key,path):
  for w in [640,1400]:
   w=min(w,im.width)
   if variants and variants[-1]['width']==w:continue
-  h=round(im.height*w/im.width);name=f'{key}-{w}.webp';im.resize((w,h),Image.Resampling.LANCZOS).save(out/name,quality=86,method=6);variants.append(dict(src='/assets/piazzetta-chaos/'+name,width=w,height=h))
+  h=round(im.height*w/im.width);name=f'{key if key != "wristband" else "wristband-folded-v2"}-{w}.webp';im.resize((w,h),Image.Resampling.LANCZOS).save(out/name,quality=86,method=6);variants.append(dict(src='/assets/piazzetta-chaos/'+name,width=w,height=h))
  manifest[key]=variants
-for key,f in [('blp-poster',P/'poster 70x100.jpg'),('brochure',P/'BROCHURE 1.jpg'),('drink-menu',P/'04.jpg'),('dj-story',P/'111.jpg'),('gift-story',P/'112.jpg'),('drink-collasso',P/'drink1.jpg'),('drink-cookie',P/'cookie.jpg'),('drink-flash',P/'flash.jpg'),('drink-ivy',P/'ivy.jpg'),('chaos-preparty',C/'blp story1.jpg'),('invitation',C/'C6EFF07A-D422-4287-BF13-44E9D2750C29.JPG'),('lanyard',ROOT/'lanyard-source-0.jpeg'),('wristband',ROOT.parent/'generated_images/exec-ea682d68-b386-44cc-841b-c9179456398e.png')]:image(key,f)
+for key,f in [('blp-poster',P/'poster 70x100.jpg'),('brochure',P/'BROCHURE 1.jpg'),('drink-menu',P/'04.jpg'),('dj-story',P/'111.jpg'),('gift-story',P/'112.jpg'),('drink-collasso',P/'drink1.jpg'),('drink-cookie',P/'cookie.jpg'),('drink-flash',P/'flash.jpg'),('drink-ivy',P/'ivy.jpg'),('chaos-preparty',C/'blp story1.jpg'),('invitation',C/'C6EFF07A-D422-4287-BF13-44E9D2750C29.JPG'),('lanyard',ROOT/'lanyard-source-0.jpeg'),('wristband',ROOT.parent/'generated_images/exec-8ef181c7-1b56-4435-9b0b-752b21569d19.png')]:image(key,f)
 for key,f,pg in [('chaos-poster',C/'stampa poster.pdf',0),('chaos-drinks',C/'flyer.pdf',1),('wristband-artwork',C/'500pieces.pdf',0)]:
  d=fitz.open(f);page=d[pg];scale=1800/page.rect.width;temp=ROOT/(key+'.png');page.get_pixmap(matrix=fitz.Matrix(scale,scale)).save(temp);image(key,temp)
 d=fitz.open(P/'CLPS X PIAZZETTA.pdf')

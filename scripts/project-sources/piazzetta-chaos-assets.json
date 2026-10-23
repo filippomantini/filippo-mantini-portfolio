@@ -145,14 +145,14 @@
   ],
   "wristband": [
     {
-      "src": "/assets/piazzetta-chaos/wristband-640.webp",
+      "src": "/assets/piazzetta-chaos/wristband-folded-v2-640.webp",
       "width": 640,
-      "height": 427
+      "height": 488
     },
     {
-      "src": "/assets/piazzetta-chaos/wristband-1400.webp",
+      "src": "/assets/piazzetta-chaos/wristband-folded-v2-1400.webp",
       "width": 1400,
-      "height": 933
+      "height": 1067
     }
   ],
   "chaos-poster": [
