@@ -22,7 +22,7 @@ for p in P.rglob('index.html'):
 for p in [P/'index.html',P/'it/index.html']:
  s=p.read_text();archive=re.search(r'<section class="graphic-archive".*?</section>',s,re.S).group();assert archive.count('class="graphic-item"')==10 and 'class="ghost"' not in archive
 for pre in ['', 'it/']:
- s=(P/f'{pre}work/axion-controllers/index.html').read_text();assert s.count('<video')==1 and s.count('preload="none"')==1;assert '02 / LOGO SYSTEM' in s and 'ui-review' in s;assert 'BreadcrumbList' in s
+ s=(P/f'{pre}work/axion-controllers/index.html').read_text();assert s.count('<video')==1 and s.count('preload="none"')==1;assert '02 / LOGO SYSTEM' in s and 'website-home-' in s;assert 'BreadcrumbList' in s
  for slug in DRAFTS:assert 'noindex,follow' in (P/f'{pre}work/{slug}/index.html').read_text()
 for p in P.rglob('index.html'):
  s=p.read_text()
