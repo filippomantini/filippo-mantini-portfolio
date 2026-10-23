@@ -1,0 +1,58 @@
+{
+  "hero": [
+    {
+      "file": "hero-800-751676d9d858.webp",
+      "width": 800,
+      "height": 533,
+      "bytes": 33894
+    },
+    {
+      "file": "hero-1440-2f5c8a95c4e2.webp",
+      "width": 1440,
+      "height": 960,
+      "bytes": 78382
+    }
+  ],
+  "ticket": [
+    {
+      "file": "ticket-400-6f156559268b.webp",
+      "width": 400,
+      "height": 711,
+      "bytes": 64152
+    },
+    {
+      "file": "ticket-720-ca51d2e32ecc.webp",
+      "width": 720,
+      "height": 1280,
+      "bytes": 155994
+    }
+  ],
+  "scanner": [
+    {
+      "file": "scanner-900-a81fce033244.webp",
+      "width": 900,
+      "height": 450,
+      "bytes": 9260
+    },
+    {
+      "file": "scanner-1600-f6e6ec6ba212.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 19682
+    }
+  ],
+  "validation": [
+    {
+      "file": "validation-900-5388cc99a1ad.webp",
+      "width": 900,
+      "height": 447,
+      "bytes": 11352
+    },
+    {
+      "file": "validation-1600-997d5894b8e8.webp",
+      "width": 1600,
+      "height": 795,
+      "bytes": 24840
+    }
+  ]
+}
