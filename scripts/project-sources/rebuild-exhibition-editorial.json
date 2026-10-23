@@ -1,0 +1,194 @@
+{
+  "sourceArchive": "nuove exhibition(1).zip",
+  "method": "ImageGen editorial photographic retouch",
+  "prompt": "Use case: lighting-weather. This input is the edit target: a real documentary photograph of the COLLAPSE exhibition preparation at Palazzo Bufalini. Apply restrained professional editorial photographic color grading ONLY: reduce yellow/green cast, retain authentic warm stone, clean neutral whites and grays, gently recover bright highlights and lift deep shadows, controlled contrast and natural detail. Preserve the exact framing, 4:5 portrait aspect ratio, camera perspective, every object, scaffolding tube, architectural feature, artwork, person and ALL printed text exactly unchanged. No removal, addition, reconstruction, artificial blur, dramatic relighting, HDR, fake film grain, captions, borders or watermarks. It must remain the same real photograph, simply professionally color corrected. Output one standalone image, not a collage.",
+  "images": [
+    {
+      "number": 11,
+      "variants": [
+        {
+          "file": "exhibition-11-640-5d6642fefa0b.webp",
+          "width": 640,
+          "height": 801,
+          "bytes": 107416
+        },
+        {
+          "file": "exhibition-11-1120-05ad44d4d19f.webp",
+          "width": 1120,
+          "height": 1402,
+          "bytes": 226896
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "variants": [
+        {
+          "file": "exhibition-12-640-84c0c7ed9faf.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 68034
+        },
+        {
+          "file": "exhibition-12-1120-949ef703d68b.webp",
+          "width": 1120,
+          "height": 1400,
+          "bytes": 145130
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "variants": [
+        {
+          "file": "exhibition-13-640-265996f5883f.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 81738
+        },
+        {
+          "file": "exhibition-13-1120-9c38eea11611.webp",
+          "width": 1120,
+          "height": 1400,
+          "bytes": 196600
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "variants": [
+        {
+          "file": "exhibition-14-640-d37fc4e88739.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 104956
+        },
+        {
+          "file": "exhibition-14-1120-d0a689b6e6a8.webp",
+          "width": 1120,
+          "height": 1400,
+          "bytes": 246426
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "variants": [
+        {
+          "file": "exhibition-15-640-01b8ebf4e2a4.webp",
+          "width": 640,
+          "height": 801,
+          "bytes": 94010
+        },
+        {
+          "file": "exhibition-15-1120-b74579fd9c99.webp",
+          "width": 1120,
+          "height": 1402,
+          "bytes": 223576
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "variants": [
+        {
+          "file": "exhibition-16-640-2c3978a16568.webp",
+          "width": 640,
+          "height": 801,
+          "bytes": 104470
+        },
+        {
+          "file": "exhibition-16-1120-55ba40db1b2e.webp",
+          "width": 1120,
+          "height": 1402,
+          "bytes": 253588
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "variants": [
+        {
+          "file": "exhibition-17-640-139b577b9730.webp",
+          "width": 640,
+          "height": 801,
+          "bytes": 106066
+        },
+        {
+          "file": "exhibition-17-1120-7bd17ff331d0.webp",
+          "width": 1120,
+          "height": 1402,
+          "bytes": 287512
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "variants": [
+        {
+          "file": "exhibition-18-640-ea98805f1ec6.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 80184
+        },
+        {
+          "file": "exhibition-18-1120-7ee78aa19ffe.webp",
+          "width": 1120,
+          "height": 1400,
+          "bytes": 177628
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "variants": [
+        {
+          "file": "exhibition-19-640-2dd52a7f2d75.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 67152
+        },
+        {
+          "file": "exhibition-19-1120-aff1165a781b.webp",
+          "width": 1120,
+          "height": 1400,
+          "bytes": 157776
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "variants": [
+        {
+          "file": "exhibition-20-640-fa7ad24b2a33.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 74438
+        },
+        {
+          "file": "exhibition-20-1120-63007f6e1059.webp",
+          "width": 1120,
+          "height": 1400,
+          "bytes": 149532
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "variants": [
+        {
+          "file": "exhibition-21-640-cf2f9a04bef8.webp",
+          "width": 640,
+          "height": 801,
+          "bytes": 54224
+        },
+        {
+          "file": "exhibition-21-1120-22075a93b73b.webp",
+          "width": 1120,
+          "height": 1402,
+          "bytes": 135614
+        }
+      ]
+    }
+  ]
+}
