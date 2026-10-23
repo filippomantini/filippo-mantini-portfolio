@@ -55,6 +55,11 @@ def set_attr(tag, name, value):
     return re.sub(r'\s*/?>$', lambda m: ' ' + replacement + m[0], tag)
 
 
+def is_raster_asset(url):
+    return bool(url and url.startswith('/assets/')
+                and local_path(url).suffix.lower() in ('.webp', '.jpg', '.jpeg', '.png'))
+
+
 @lru_cache(maxsize=None)
 def variants(url):
     source = local_path(url)
@@ -104,7 +109,7 @@ def srcset(info):
 
 def responsive_img(tag, sizes, priority=None):
     url = attr(tag, 'src')
-    if not url or not url.startswith('/assets/') or local_path(url).suffix.lower() not in ('.webp', '.jpg', '.jpeg', '.png'):
+    if not is_raster_asset(url):
         return tag
     info = variants(urlsplit(url).path)
     tag = set_attr(tag, 'width', info['width'])
@@ -112,7 +117,7 @@ def responsive_img(tag, sizes, priority=None):
     tag = set_attr(tag, 'src', info['source'])
     tag = set_attr(tag, 'decoding', 'async')
     tag = set_attr(tag, 'srcset', srcset(info))
-    tag = set_attr(tag, 'sizes', sizes)
+    tag = set_attr(tag, 'sizes', attr(tag, 'sizes') or sizes)
     if priority:
         tag = set_attr(tag, 'loading', 'eager')
         tag = set_attr(tag, 'fetchpriority', 'high')
@@ -301,7 +306,7 @@ def main():
     for page in PUBLIC.rglob('*.html'):
         for tag in re.findall(r'<img\b[^>]*>', page.read_text()):
             url = attr(tag, 'src')
-            if url and url.startswith('/assets/'):
+            if is_raster_asset(url):
                 image_urls.add(urlsplit(url).path)
     with ThreadPoolExecutor(max_workers=4) as pool:
         list(pool.map(variants, sorted(image_urls)))

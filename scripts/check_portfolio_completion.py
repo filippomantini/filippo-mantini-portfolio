@@ -27,4 +27,13 @@ for pre in ['', 'it/']:
 ET.parse(P/'sitemap.xml')
 for p in (P/'assets/axion-case').glob('*.svg'):ET.parse(p)
 for p in (P/'assets/axion-case').glob('*.mp4'):subprocess.run(['ffmpeg','-v','error','-i',str(p),'-f','null','-'],check=True)
+# SVG marks must bypass the raster pipeline, and authored column sizes must survive it.
+import sys
+sys.path.insert(0,str(R/'scripts'));import optimize_delivery as delivery
+assert not delivery.is_raster_asset('/assets/axion-case/symbol.svg')
+assert delivery.is_raster_asset('/assets/axion-case/front-640.webp?v=2')
+svg='<img src="/assets/axion-case/symbol.svg" width="531" height="531" loading="lazy" decoding="async" alt="Axion">'
+assert delivery.responsive_img(svg,'100vw')==svg
+delivery.variants=lambda url:dict(width=640,height=360,candidates=[(640,url)],source=url)
+assert 'sizes="48vw"' in delivery.responsive_img('<img src="/assets/axion-case/front-640.webp" sizes="48vw">','100vw')
 print(f'{active} active pages, {pairs} pages with paired language metadata: structure, navigation, source artwork, draft exclusion, SVG/XML, JSON-LD and four video decodes passed.')
