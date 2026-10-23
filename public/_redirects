@@ -2,3 +2,11 @@
 /it/work/filippo-mantini-studio /studio/ 301
 /it/work/filippo-mantini-studio/ /studio/ 301
 /it/work/filippo-mantini-studio/index.html /studio/ 301
+
+# SS24 is included in the unified FW24/25 + SS24 archive.
+/work/collapse/collections/ss24 /work/collapse/collections/fw24-25/ 301
+/work/collapse/collections/ss24/ /work/collapse/collections/fw24-25/ 301
+/work/collapse/collections/ss24/index.html /work/collapse/collections/fw24-25/ 301
+/it/work/collapse/collections/ss24 /it/work/collapse/collections/fw24-25/ 301
+/it/work/collapse/collections/ss24/ /it/work/collapse/collections/fw24-25/ 301
+/it/work/collapse/collections/ss24/index.html /it/work/collapse/collections/fw24-25/ 301

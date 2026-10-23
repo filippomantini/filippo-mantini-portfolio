@@ -1,0 +1,412 @@
+{
+  "capsule01": [
+    {
+      "id": "01",
+      "source": "SS CAMPSULE 01/MURO=,.jpg",
+      "file": "inputs/capsule01/01.jpg",
+      "bytes": 1791185,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "02",
+      "source": "SS CAMPSULE 01/MURO=!.jpg",
+      "file": "inputs/capsule01/02.jpg",
+      "bytes": 1787742,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "03",
+      "source": "SS CAMPSULE 01/MURO=..jpg",
+      "file": "inputs/capsule01/03.jpg",
+      "bytes": 1674677,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "04",
+      "source": "SS CAMPSULE 01/MURO=.jpg",
+      "file": "inputs/capsule01/04.jpg",
+      "bytes": 1964554,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "05",
+      "source": "SS CAMPSULE 01/copertina disco1.jpg",
+      "file": "inputs/capsule01/05.jpg",
+      "bytes": 4304339,
+      "width": 1920,
+      "height": 1920
+    },
+    {
+      "id": "06",
+      "source": "SS CAMPSULE 01/DSC_0823.jpg",
+      "file": "inputs/capsule01/06.jpg",
+      "bytes": 1770474,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "07",
+      "source": "SS CAMPSULE 01/DSC_1508..jpg",
+      "file": "inputs/capsule01/07.jpg",
+      "bytes": 2219577,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "08",
+      "source": "SS CAMPSULE 01/DSC_0864.jpg",
+      "file": "inputs/capsule01/08.jpg",
+      "bytes": 1655624,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "09",
+      "source": "SS CAMPSULE 01/DSC_0841.jpg",
+      "file": "inputs/capsule01/09.jpg",
+      "bytes": 1463275,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "10",
+      "source": "SS CAMPSULE 01/macchina01.jpg",
+      "file": "inputs/capsule01/10.jpg",
+      "bytes": 1111091,
+      "width": 1350,
+      "height": 1080
+    },
+    {
+      "id": "11",
+      "source": "SS CAMPSULE 01/poster summer001.jpg",
+      "file": "inputs/capsule01/11.jpg",
+      "bytes": 1576790,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "12",
+      "source": "SS CAMPSULE 01/an italian road trip2.mp4",
+      "file": "inputs/capsule01/12.mp4",
+      "bytes": 29840743
+    },
+    {
+      "id": "13",
+      "source": "SS CAMPSULE 01/VIDEO SALDI.mp4",
+      "file": "inputs/capsule01/13.mp4",
+      "bytes": 3363773
+    }
+  ],
+  "fw24ss24": [
+    {
+      "id": "01",
+      "source": "FW24:25 SS24/FW24:25/_MG_9295.jpg",
+      "file": "inputs/fw24ss24/01.jpg",
+      "bytes": 12239200,
+      "width": 4160,
+      "height": 6240
+    },
+    {
+      "id": "02",
+      "source": "FW24:25 SS24/FW24:25/3:4 FRONT.jpg",
+      "file": "inputs/fw24ss24/02.jpg",
+      "bytes": 15074432,
+      "width": 4160,
+      "height": 6240
+    },
+    {
+      "id": "03",
+      "source": "FW24:25 SS24/FW24:25/FRONT.jpg",
+      "file": "inputs/fw24ss24/03.jpg",
+      "bytes": 9056369,
+      "width": 4160,
+      "height": 6240
+    },
+    {
+      "id": "04",
+      "source": "FW24:25 SS24/FW24:25/_MG_9145.jpg",
+      "file": "inputs/fw24ss24/04.jpg",
+      "bytes": 6641076,
+      "width": 4160,
+      "height": 6240
+    },
+    {
+      "id": "05",
+      "source": "FW24:25 SS24/FW24:25/denim industry.jpg",
+      "file": "inputs/fw24ss24/05.jpg",
+      "bytes": 2559012,
+      "width": 1929,
+      "height": 1920
+    },
+    {
+      "id": "06",
+      "source": "FW24:25 SS24/FW24:25/gonna.jpg",
+      "file": "inputs/fw24ss24/06.jpg",
+      "bytes": 2418925,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "07",
+      "source": "FW24:25 SS24/FW24:25/immagini post fluidity.jpg",
+      "file": "inputs/fw24ss24/07.jpg",
+      "bytes": 1373010,
+      "width": 2000,
+      "height": 2000
+    },
+    {
+      "id": "08",
+      "source": "FW24:25 SS24/FW24:25/primo_cami.jpg",
+      "file": "inputs/fw24ss24/08.jpg",
+      "bytes": 1011504,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "09",
+      "source": "FW24:25 SS24/FW24:25/copertina post fluidity.jpg",
+      "file": "inputs/fw24ss24/09.jpg",
+      "bytes": 1114642,
+      "width": 1537,
+      "height": 1537
+    },
+    {
+      "id": "10",
+      "source": "FW24:25 SS24/FW24:25/IG-23.jpg",
+      "file": "inputs/fw24ss24/10.jpg",
+      "bytes": 2621328,
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "11",
+      "source": "FW24:25 SS24/FW24:25/IG-35 23.55.35.jpg",
+      "file": "inputs/fw24ss24/11.jpg",
+      "bytes": 1379502,
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "12",
+      "source": "FW24:25 SS24/SS24/FOOTBALL TEAM.jpg",
+      "file": "inputs/fw24ss24/12.jpg",
+      "bytes": 2149449,
+      "width": 1929,
+      "height": 1920
+    },
+    {
+      "id": "13",
+      "source": "FW24:25 SS24/SS24/off the grid.jpg",
+      "file": "inputs/fw24ss24/13.jpg",
+      "bytes": 1932334,
+      "width": 1929,
+      "height": 1920
+    },
+    {
+      "id": "14",
+      "source": "FW24:25 SS24/SS24/IG ES 1 detail2.jpg",
+      "file": "inputs/fw24ss24/14.jpg",
+      "bytes": 1826369,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "15",
+      "source": "FW24:25 SS24/SS24/IG ES 7.jpg",
+      "file": "inputs/fw24ss24/15.jpg",
+      "bytes": 1487644,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "16",
+      "source": "FW24:25 SS24/SS24/IG ES 32.jpg",
+      "file": "inputs/fw24ss24/16.jpg",
+      "bytes": 1930927,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "17",
+      "source": "FW24:25 SS24/SS24/IG ES 36.jpg",
+      "file": "inputs/fw24ss24/17.jpg",
+      "bytes": 1666656,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "18",
+      "source": "FW24:25 SS24/SS24/IG ES 51.jpg",
+      "file": "inputs/fw24ss24/18.jpg",
+      "bytes": 1620278,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "19",
+      "source": "FW24:25 SS24/SS24/IG ES 64.jpg",
+      "file": "inputs/fw24ss24/19.jpg",
+      "bytes": 1859442,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "20",
+      "source": "FW24:25 SS24/SS24/IG ES 69.jpg",
+      "file": "inputs/fw24ss24/20.jpg",
+      "bytes": 1837337,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "21",
+      "source": "FW24:25 SS24/SS24/IG ES 76.jpg",
+      "file": "inputs/fw24ss24/21.jpg",
+      "bytes": 1661396,
+      "width": 1333,
+      "height": 1666
+    },
+    {
+      "id": "22",
+      "source": "FW24:25 SS24/SS24/IG-39.jpg",
+      "file": "inputs/fw24ss24/22.jpg",
+      "bytes": 1117267,
+      "width": 1333,
+      "height": 2000
+    }
+  ],
+  "fe26": [
+    {
+      "id": "01",
+      "source": "FW23:24 Fe26/Immagine 7-6-23 alle 3.05 PM.JPG",
+      "file": "inputs/fe26/01.jpg",
+      "bytes": 484076,
+      "width": 732,
+      "height": 1298
+    },
+    {
+      "id": "02",
+      "source": "FW23:24 Fe26/pantalone serigrafia 2.JPG",
+      "file": "inputs/fe26/02.jpg",
+      "bytes": 1448451,
+      "width": 1247,
+      "height": 2091
+    },
+    {
+      "id": "03",
+      "source": "FW23:24 Fe26/pantalone serigrafia 3.JPG",
+      "file": "inputs/fe26/03.jpg",
+      "bytes": 1079280,
+      "width": 1247,
+      "height": 2091
+    },
+    {
+      "id": "04",
+      "source": "FW23:24 Fe26/Composizione 2.mov",
+      "file": "inputs/fe26/04.mov",
+      "bytes": 28561512
+    },
+    {
+      "id": "05",
+      "source": "FW23:24 Fe26/storia2.JPG",
+      "file": "inputs/fe26/05.jpg",
+      "bytes": 2487652,
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "06",
+      "source": "FW23:24 Fe26/bag_INSTA4.JPG",
+      "file": "inputs/fe26/06.jpg",
+      "bytes": 6834272,
+      "width": 3000,
+      "height": 4000
+    },
+    {
+      "id": "07",
+      "source": "FW23:24 Fe26/pantalone completo 4.JPG",
+      "file": "inputs/fe26/07.jpg",
+      "bytes": 1704179,
+      "width": 1247,
+      "height": 2091
+    },
+    {
+      "id": "08",
+      "source": "FW23:24 Fe26/Composizione 1_3.mov",
+      "file": "inputs/fe26/08.mov",
+      "bytes": 28485513
+    },
+    {
+      "id": "09",
+      "source": "FW23:24 Fe26/POst2 2.JPG",
+      "file": "inputs/fe26/09.jpg",
+      "bytes": 2137376,
+      "width": 2160,
+      "height": 2700
+    },
+    {
+      "id": "10",
+      "source": "FW23:24 Fe26/Composizione 1_2.mov",
+      "file": "inputs/fe26/10.mov",
+      "bytes": 28165420
+    },
+    {
+      "id": "11",
+      "source": "FW23:24 Fe26/Immagine 7-6-23 alle 3.04 PM.JPG",
+      "file": "inputs/fe26/11.jpg",
+      "bytes": 532914,
+      "width": 730,
+      "height": 1302
+    },
+    {
+      "id": "12",
+      "source": "FW23:24 Fe26/pantalone zampa 5.JPG",
+      "file": "inputs/fe26/12.jpg",
+      "bytes": 1341666,
+      "width": 1247,
+      "height": 2091
+    },
+    {
+      "id": "13",
+      "source": "FW23:24 Fe26/Composizione 1_4.mov",
+      "file": "inputs/fe26/13.mov",
+      "bytes": 28165353
+    },
+    {
+      "id": "14",
+      "source": "FW23:24 Fe26/COMPLETO3.JPG",
+      "file": "inputs/fe26/14.jpg",
+      "bytes": 14885826,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "id": "15",
+      "source": "FW23:24 Fe26/Immagine 7-6-23 alle 3.02 PM.JPG",
+      "file": "inputs/fe26/15.jpg",
+      "bytes": 781395,
+      "width": 1036,
+      "height": 1300
+    },
+    {
+      "id": "16",
+      "source": "FW23:24 Fe26/Z2 2.JPG",
+      "file": "inputs/fe26/16.jpg",
+      "bytes": 854913,
+      "width": 1200,
+      "height": 1500
+    },
+    {
+      "id": "17",
+      "source": "FW23:24 Fe26/progetto1 copia.JPG",
+      "file": "inputs/fe26/17.jpg",
+      "bytes": 6060004,
+      "width": 3024,
+      "height": 3780
+    }
+  ]
+}
