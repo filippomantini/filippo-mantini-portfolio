@@ -1,0 +1,165 @@
+{
+  "campaign": [
+    {
+      "src": "/assets/axion-case/campaign-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/campaign-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "rear-detail": [
+    {
+      "src": "/assets/axion-case/rear-detail-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/rear-detail-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "grip-detail": [
+    {
+      "src": "/assets/axion-case/grip-detail-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/grip-detail-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "back": [
+    {
+      "src": "/assets/axion-case/back-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/back-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "top": [
+    {
+      "src": "/assets/axion-case/top-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/top-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "trigger-detail": [
+    {
+      "src": "/assets/axion-case/trigger-detail-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/trigger-detail-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "front": [
+    {
+      "src": "/assets/axion-case/front-640.webp",
+      "width": 640,
+      "height": 360
+    },
+    {
+      "src": "/assets/axion-case/front-1440.webp",
+      "width": 1440,
+      "height": 810
+    }
+  ],
+  "website-home": [
+    {
+      "src": "/assets/axion-case/website-home-640.webp",
+      "width": 640,
+      "height": 439
+    },
+    {
+      "src": "/assets/axion-case/website-home-1353.webp",
+      "width": 1353,
+      "height": 929
+    }
+  ],
+  "wordmark": {
+    "src": "/assets/axion-case/wordmark.svg",
+    "box": [
+      1328.53,
+      78.61256875757537,
+      3425.03,
+      616.47
+    ],
+    "width": 2096,
+    "height": 538
+  },
+  "symbol": {
+    "src": "/assets/axion-case/symbol.svg",
+    "box": [
+      672.7849502324494,
+      82.24177904180699,
+      1203.9893889032774,
+      613.3254689220798
+    ],
+    "width": 531,
+    "height": 531
+  },
+  "motion-back": {
+    "src": "/assets/axion-case/motion-back.mp4",
+    "poster": "/assets/axion-case/motion-back-poster.webp",
+    "width": 960,
+    "height": 540
+  },
+  "motion-station": {
+    "src": "/assets/axion-case/motion-station.mp4",
+    "poster": "/assets/axion-case/motion-station-poster.webp",
+    "width": 960,
+    "height": 540
+  },
+  "motion-material": {
+    "src": "/assets/axion-case/motion-material.mp4",
+    "poster": "/assets/axion-case/motion-material-poster.webp",
+    "width": 960,
+    "height": 542
+  },
+  "motion-tmr": {
+    "src": "/assets/axion-case/motion-tmr.mp4",
+    "poster": "/assets/axion-case/motion-tmr-poster.webp",
+    "width": 960,
+    "height": 540
+  },
+  "ui-rear": [
+    {
+      "src": "/assets/axion-case/ui-rear-630.webp",
+      "width": 630,
+      "height": 680
+    }
+  ],
+  "ui-tmr": [
+    {
+      "src": "/assets/axion-case/ui-tmr-630.webp",
+      "width": 630,
+      "height": 680
+    }
+  ],
+  "ui-review": [
+    {
+      "src": "/assets/axion-case/ui-review-630.webp",
+      "width": 630,
+      "height": 680
+    }
+  ]
+}
