@@ -732,5 +732,33 @@
       "height": 1500,
       "bytes": 302248
     }
+  ],
+  "fw24ss24-fluidity-man": [
+    {
+      "file": "fw24ss24-fluidity-man-640-12c355a94dd4.webp",
+      "width": 640,
+      "height": 960,
+      "bytes": 19830
+    },
+    {
+      "file": "fw24ss24-fluidity-man-1200-c8f8db7fcb99.webp",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 59272
+    }
+  ],
+  "fw24ss24-fluidity-woman": [
+    {
+      "file": "fw24ss24-fluidity-woman-640-cf0a7dc0e257.webp",
+      "width": 640,
+      "height": 960,
+      "bytes": 20246
+    },
+    {
+      "file": "fw24ss24-fluidity-woman-1200-996cd26e7fde.webp",
+      "width": 1200,
+      "height": 1800,
+      "bytes": 56164
+    }
   ]
 }

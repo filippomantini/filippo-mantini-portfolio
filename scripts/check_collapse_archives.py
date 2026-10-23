@@ -16,7 +16,7 @@ class Page(HTMLParser):
   if tag=='iframe':self.iframe+=1
 for lang in ['en','it']:
  prefix='/it' if lang=='it' else '';base=ROOT/('public/it' if lang=='it' else 'public')/'work/collapse'
- for slug,photos,videos in [('ss25-capsule-01',12,2),('fw24-25',24,0),('fw23-24',13,4)]:
+ for slug,photos,videos in [('ss25-capsule-01',12,2),('fw24-25',25,0),('fw23-24',13,4)]:
   s=(base/'collections'/slug/'index.html').read_text();d=Page();d.feed(s)
   assert d.h1==1 and d.iframe==0 and len(d.img)==photos and len(d.video)==videos,(slug,len(d.img),len(d.video))
   assert len(d.ids)==len(set(d.ids)),'Duplicate section IDs'
