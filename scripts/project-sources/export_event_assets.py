@@ -11,7 +11,6 @@ OUT.mkdir(parents=True, exist_ok=True)
 SOURCES = {
  'hero': (ROOT.parent / 'generated_images/exec-66254ce7-228f-4de1-9934-4b13242897ea.png', (800,1440)),
  'ticket': (ROOT / 'inputs/input-08.png', (400,720)),
- 'scanner': (ROOT / 'inputs/input-09.png', (900,1600)),
  'validation': (ROOT / 'inputs/input-02.png', (900,1600)),
 }
 manifest = {}
@@ -29,5 +28,5 @@ for name, (source, widths) in SOURCES.items():
   variants.append({'file':final.name,'width':width,'height':height,'bytes':final.stat().st_size})
  manifest[name] = variants
 
-(ROOT/'asset-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+(Path(__file__).parent/'collapse-event-assets.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('Approved original ticket exported')

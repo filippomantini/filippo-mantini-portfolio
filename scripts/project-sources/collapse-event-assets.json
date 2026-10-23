@@ -27,20 +27,6 @@
       "bytes": 155994
     }
   ],
-  "scanner": [
-    {
-      "file": "scanner-900-a81fce033244.webp",
-      "width": 900,
-      "height": 450,
-      "bytes": 9260
-    },
-    {
-      "file": "scanner-1600-f6e6ec6ba212.webp",
-      "width": 1600,
-      "height": 800,
-      "bytes": 19682
-    }
-  ],
   "validation": [
     {
       "file": "validation-900-5388cc99a1ad.webp",
