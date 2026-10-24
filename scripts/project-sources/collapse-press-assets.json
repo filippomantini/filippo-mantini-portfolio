@@ -1,0 +1,48 @@
+{
+  "nasty": [
+    {
+      "src": "/assets/collapse-press/nasty-480-4abed4ea21ab.webp",
+      "width": 480,
+      "height": 764
+    },
+    {
+      "src": "/assets/collapse-press/nasty-960-34fd72d81c50.webp",
+      "width": 960,
+      "height": 1527
+    },
+    {
+      "src": "/assets/collapse-press/nasty-1100-5435061acc03.webp",
+      "width": 1100,
+      "height": 1750
+    }
+  ],
+  "client": [
+    {
+      "src": "/assets/collapse-press/client-480-d4700e604bea.webp",
+      "width": 480,
+      "height": 339
+    },
+    {
+      "src": "/assets/collapse-press/client-970-43ad6e5bddf0.webp",
+      "width": 970,
+      "height": 686
+    }
+  ],
+  "pack": [
+    {
+      "src": "/assets/collapse-press/pack-480-25afabae237d.webp",
+      "width": 480,
+      "height": 481
+    },
+    {
+      "src": "/assets/collapse-press/pack-960-95927c7f6892.webp",
+      "width": 960,
+      "height": 962
+    },
+    {
+      "src": "/assets/collapse-press/pack-1400-9157d645aab1.webp",
+      "width": 1400,
+      "height": 1403
+    }
+  ]
+}
