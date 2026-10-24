@@ -30,6 +30,7 @@ for it in [False,True]:
  s=s.replace('<div class="cp-archive-grid">','<div class="cp-archive-grid" id="collapse-archive-grid">',1).replace('<button type="button" class="cp-more"','<p class="cp-archive-empty" data-archive-empty hidden>'+T('Nessuna voce corrisponde alla ricerca.','No entries match this search.')+'</p><button type="button" class="cp-more" aria-controls="collapse-archive-grid"',1)
  # Match chapter order rather than misleading legacy numbers.
  for old,new in [('17 / CO-FOUNDER','01 / CO-FOUNDER'),('04 / FASHION','02 / FASHION'),('33 / SOCIAL','03 / SOCIAL'),('35 / DIGITAL PRODUCT','04 / DIGITAL PRODUCT'),('71 / FASHION EDITORIAL','05 / FASHION EDITORIAL'),('41 / SELECTED EXPERIENCES','06 / SELECTED EXPERIENCES')]:s=s.replace(old,new)
+ for old,new in [('17','01'),('04','02'),('33','03'),('35','04'),('71','05'),('41','06')]:s=s.replace('<span class="cp-nav-number">'+old+'</span>','<span class="cp-nav-number">'+new+'</span>')
  s=s.replace('THE COMPLETE<br>ARCHIVE.','SELECTED<br>EXPERIENCES.')
  s=s.replace('Every project, collaboration and event in one searchable archive. Each arrow links to the original source or project.','Collaborations, publications and events: the work of COLLAPSE beyond its collections. Search by name or explore each area.')
  s=s.replace('Tutti i progetti, le collaborazioni e gli eventi in una griglia consultabile. Ogni freccia apre il post o il progetto originale.','Collaborazioni, pubblicazioni ed eventi: il lavoro di COLLAPSE oltre le collezioni. Cerca per nome o esplora ogni ambito.')
