@@ -811,6 +811,16 @@ body.fx .cursor{opacity:1}
 .hero-contact:focus-visible{outline:2px solid var(--orange);outline-offset:6px}
 @media(max-width:900px){.hero-contact{top:auto;left:max(14px,env(safe-area-inset-left));bottom:calc(14px + env(safe-area-inset-bottom))}.hero-contact .contact-mark{width:50px;height:50px}}
 @media(prefers-reduced-motion:reduce){.hero-contact .contact-mark{transition:none}}
+</style><style data-mobile-home-repair>
+@media(max-width:800px){
+ .topbar{z-index:1000}
+ .hero .note-a{top:112px;left:14px;max-width:calc(100% - 28px)}
+ #photo .photo-row{height:88px;min-height:88px}
+ #photo .photo-row .label{display:block;max-width:calc(100% - 28px);white-space:nowrap;overflow:hidden;font-size:clamp(40px,13vw,76px);line-height:1;transform:none;padding-left:0;padding-right:0}
+ #photo .photo-row:nth-child(2) .label{font-size:clamp(25px,8.3vw,48px);letter-spacing:-.065em}
+ #photo .photo-row:hover .label{transform:none}
+ #photo .photo-row .count{bottom:12px}
+}
 </style></head>
 <body><a class="portfolio-skip" href="#top">Skip to content</a>
 <h1 class="sr-only">Filippo Mantini — Graphic Designer & Art Director</h1>
