@@ -27,7 +27,8 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install media tools
-        run: python -m pip install --only-binary=:all: Pillow PyMuPDF==1.26.6 imageio-ffmpeg==0.6.0
+        run: |
+          python -m pip install --only-binary=:all: Pillow PyMuPDF==1.26.6 imageio-ffmpeg==0.6.0
       - name: Build responsive images, compressed videos and both languages
         run: python scripts/build_ivory.py
       - name: Publish the complete case study
