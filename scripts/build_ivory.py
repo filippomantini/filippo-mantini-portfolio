@@ -54,6 +54,7 @@ sources = [
     ('info_03.jpg', 'access-post', (640, 1280)),
     ('IMG_9057.jpeg', 'banner-installation', (640, 1280, 1920)),
     ('IMG_9105.jpeg', 'banner-installed', (640, 1280, 1920)),
+    ('interno sala.JPG', 'room-setup', (640, 1280, 1440)),
 ]
 for filename, name, widths in sources:
     with Image.open(MEDIA / filename) as im:
@@ -64,7 +65,8 @@ with fitz.open(MEDIA / 'banner.pdf') as doc:
     pix = page.get_pixmap(matrix=fitz.Matrix(2400 / page.rect.width, 2400 / page.rect.width), alpha=False)
     image(Image.open(io.BytesIO(pix.tobytes('png'))), 'banner', (1200, 2400))
 
-for source, name in [('VIDEO REEL FINITO.mp4', 'reel'), ('ivory recap.mp4', 'recap')]:
+for source, name in [('VIDEO REEL FINITO.mp4', 'reel'), ('ivory recap.mp4', 'recap'),
+                     ('interno sala 01.mov', 'room-01'), ('interno sala 02.MOV', 'room-02')]:
     target = OUT / f'{name}.mp4'
     subprocess.run([FFMPEG, '-y', '-v', 'error', '-i', str(MEDIA/source), '-map', '0:v:0', '-map', '0:a:0?',
                     '-vf', "scale='min(1080,iw)':-2,setsar=1", '-c:v', 'libx264', '-preset', 'medium',
@@ -80,6 +82,7 @@ for source, name in [('VIDEO REEL FINITO.mp4', 'reel'), ('ivory recap.mp4', 'rec
 CSS = '''
 .ivory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px;align-items:start}
 .ivory-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.ivory-grid.stories{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px}
+.ivory-grid.room{grid-template-columns:2fr 1fr 1fr;align-items:start}.ivory-room-title{margin:64px 0 20px;font-size:clamp(28px,4vw,56px);line-height:1;letter-spacing:-.04em;font-weight:500}
 .ivory-figure{margin:0;min-width:0}.ivory-figure img{display:block;width:100%;height:auto;background:#11110f}
 .ivory-figure a{display:block}.ivory-figure a:focus-visible{outline:3px solid var(--orange);outline-offset:5px}
 .ivory-figure figcaption{padding-top:12px;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
@@ -91,7 +94,7 @@ CSS = '''
 .ivory-recap video{aspect-ratio:5/4}.ivory-back{display:inline-block;margin-top:30px;font:12px "IBM Plex Mono",monospace}
 .hero h1{padding-bottom:12px}.meta{grid-template-columns:1fr 1fr}.ivory-details{display:flex;flex-wrap:wrap;gap:12px 32px;margin:20px 0 0;font:10px/1.5 "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--muted)}
 @media(max-width:1000px){.ivory-grid.stories{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:700px){.ivory-grid,.ivory-grid.three{grid-template-columns:1fr}.ivory-grid.stories{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.meta{grid-template-columns:1fr}.hero-grid{gap:24px}.section h2{overflow-wrap:anywhere}.ivory-campaign{grid-template-columns:1fr;padding:16px;gap:32px}.ivory-campaign .ivory-figure:last-child{max-width:360px}.ivory-grid.stories figcaption{font-size:9px}}
+@media(max-width:700px){.ivory-grid,.ivory-grid.three{grid-template-columns:1fr}.ivory-grid.room{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.ivory-grid.room>.ivory-figure:first-child{grid-column:1/-1}.ivory-grid.stories{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.meta{grid-template-columns:1fr}.hero-grid{gap:24px}.section h2{overflow-wrap:anywhere}.ivory-campaign{grid-template-columns:1fr;padding:16px;gap:32px}.ivory-campaign .ivory-figure:last-child{max-width:360px}.ivory-grid.stories figcaption{font-size:9px}}
 '''
 
 
@@ -131,6 +134,8 @@ for lang in ['en', 'it']:
     html = html.replace('</title>', '</title><meta name="description" content="'+escape(description, quote=True)+'">', 1)
     if 'src="/assets/video-playback.js"' not in html:
         html = html.replace('</head>', '<script defer src="/assets/video-playback.js"></script></head>')
+    if 'rel="icon"' not in html:
+        html = html.replace('</head>', '<link rel="icon" href="/favicon.svg?v=7" type="image/svg+xml" sizes="any"><link rel="shortcut icon" href="/favicon.svg?v=7"></head>')
     role = t('Creative direction · Graphic design · Photography · Event organisation and production', 'Direzione creativa · Graphic design · Fotografia · Organizzazione e produzione')
     main = f'''<main id="main">
 <section class="hero"><div class="kicker"><span>COLLAPSE / EVENT</span><span>VOL IV / 2025</span></div><h1>IVORY</h1>
@@ -152,7 +157,10 @@ for lang in ['en', 'it']:
 <section class="section"><div class="section-head"><span class="n">03 / IN THE SPACE</span><h2>{t('From screen to venue', 'Dallo schermo allo spazio')}</h2></div>
 <div class="copy"><p>{t('The exterior banner extends the campaign into the physical space. The COLLAPSE mark, IVORY portrait and directional arrow identify the entrance to the private party.', 'Il banner esterno porta la campagna nello spazio fisico. Il marchio COLLAPSE, il ritratto di IVORY e la freccia direzionale identificano l’accesso al private party.')}</p></div>
 <div class="ivory-banner">{picture('banner',t('Exterior banner / Print artwork','Banner esterno / Esecutivo di stampa'),t('Wide COLLAPSE Private Party banner with IVORY portrait and entrance arrow','Banner orizzontale COLLAPSE Private Party con ritratto di IVORY e freccia d’ingresso'), 'calc(100vw - 44px)')}</div>
-<div class="ivory-grid">{picture('banner-installation',t('Installation / Formula Disco','Montaggio / Formula Disco'),t('Installing the COLLAPSE banner above the venue entrance','Montaggio del banner COLLAPSE sopra l’ingresso del locale'))}{picture('banner-installed',t('The installed banner','Il banner installato'),t('COLLAPSE and IVORY banner installed above the entrance at night','Banner COLLAPSE e IVORY installato sopra l’ingresso di notte'))}</div></section>
+<div class="ivory-grid">{picture('banner-installation',t('Installation / Formula Disco','Montaggio / Formula Disco'),t('Installing the COLLAPSE banner above the venue entrance','Montaggio del banner COLLAPSE sopra l’ingresso del locale'))}{picture('banner-installed',t('The installed banner','Il banner installato'),t('COLLAPSE and IVORY banner installed above the entrance at night','Banner COLLAPSE e IVORY installato sopra l’ingresso di notte'))}</div>
+<h3 class="ivory-room-title">{t('Setting up the room', 'Allestimento della sala')}</h3>
+<div class="copy"><p>{t('Inside the room before the event: the lighting setup and the space prepared for the night.', 'L’interno della sala prima dell’evento: l’allestimento luminoso e lo spazio preparato per la serata.')}</p></div>
+<div class="ivory-grid room">{picture('room-setup',t('Room setup / Formula Disco','Allestimento sala / Formula Disco'),t('Light beams across the room before the IVORY event','Fasci di luce nella sala allestita prima dell’evento IVORY'))}{video('room-01',t('Lighting setup / 01','Allestimento luci / 01'),t('Play the first room setup video','Riproduci il primo video dell’allestimento sala'),True)}{video('room-02',t('Lighting setup / 02','Allestimento luci / 02'),t('Play the second room setup video','Riproduci il secondo video dell’allestimento sala'),True)}</div></section>
 <section class="section"><div class="section-head"><span class="n">04 / THE NIGHT</span><h2>{t('Inside the event', 'Dentro l’evento')}</h2></div>
 <div class="copy"><p>{t('The video recap brings the project back to the dance floor: the audience, the music and the atmosphere of the night.', 'Il video recap riporta il progetto in pista: il pubblico, la musica e l’atmosfera della serata.')}</p></div>
 <div class="ivory-recap">{video('recap',t('IVORY / Event recap','IVORY / Recap della serata'),t('Play the IVORY event recap','Riproduci il recap della serata IVORY'))}</div></section>
