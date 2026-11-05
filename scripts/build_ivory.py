@@ -5,6 +5,7 @@ import json
 import re
 import subprocess
 import io
+import shutil
 
 import fitz
 from PIL import Image, ImageOps
@@ -14,6 +15,10 @@ MEDIA = ROOT / 'public/assets/ivory'
 OUT = MEDIA / 'web'
 OUT.mkdir(exist_ok=True)
 BASE = '/assets/ivory/web/'
+FFMPEG = shutil.which('ffmpeg')
+if not FFMPEG:
+    import imageio_ffmpeg
+    FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 images = {}
 report = []
 
@@ -61,16 +66,15 @@ with fitz.open(MEDIA / 'banner.pdf') as doc:
 
 for source, name in [('VIDEO REEL FINITO.mp4', 'reel'), ('ivory recap.mp4', 'recap')]:
     target = OUT / f'{name}.mp4'
-    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', str(MEDIA/source), '-map', '0:v:0', '-map', '0:a:0?',
+    subprocess.run([FFMPEG, '-y', '-v', 'error', '-i', str(MEDIA/source), '-map', '0:v:0', '-map', '0:a:0?',
                     '-vf', "scale='min(1080,iw)':-2,setsar=1", '-c:v', 'libx264', '-preset', 'medium',
                     '-crf', '22', '-pix_fmt', 'yuv420p', '-threads', '2', '-c:a', 'aac', '-b:a', '128k',
                     '-movflags', '+faststart', '-map_metadata', '-1', str(target)], check=True)
-    frame = subprocess.check_output(['ffmpeg', '-v', 'error', '-ss', '1', '-i', str(target), '-frames:v', '1', '-f', 'image2pipe', '-c:v', 'png', '-threads', '1', '-'])
-    image(Image.open(io.BytesIO(frame)), name+'-cover', (540, 1080))
-    streams = json.loads(subprocess.check_output(['ffprobe','-v','quiet','-show_streams','-of','json',str(target)]))['streams']
-    video = next(s for s in streams if s['codec_type']=='video')
+    frame = subprocess.check_output([FFMPEG, '-v', 'error', '-ss', '1', '-i', str(target), '-frames:v', '1', '-f', 'image2pipe', '-c:v', 'png', '-threads', '1', '-'])
+    cover = Image.open(io.BytesIO(frame))
+    image(cover, name+'-cover', (540, 1080))
     report.append({'file': target.name, 'original_bytes': (MEDIA/source).stat().st_size, 'web_bytes': target.stat().st_size,
-                   'width': video['width'], 'height': video['height']})
+                   'width': cover.width, 'height': cover.height})
 
 
 CSS = '''

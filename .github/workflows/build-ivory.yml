@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: build-ivory
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -27,12 +27,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install media tools
-        run: |
-          python -m pip install Pillow PyMuPDF
-          if ! command -v ffmpeg >/dev/null; then
-            sudo apt-get update
-            sudo apt-get install -y ffmpeg
-          fi
+        run: python -m pip install --only-binary=:all: Pillow PyMuPDF==1.26.6 imageio-ffmpeg==0.6.0
       - name: Build responsive images, compressed videos and both languages
         run: python scripts/build_ivory.py
       - name: Publish the complete case study
