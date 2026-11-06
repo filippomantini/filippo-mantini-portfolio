@@ -1,0 +1,81 @@
+{
+  "room-setup.mp4": {
+    "width": 720,
+    "height": 1280,
+    "duration": "12.746009",
+    "bytes": 998320
+  },
+  "nfc-entry-poster.webp": {
+    "width": 720,
+    "height": 1280,
+    "bytes": 25440
+  },
+  "instagram-post.webp": {
+    "width": 1600,
+    "height": 2000,
+    "bytes": 343792
+  },
+  "instagram-story.webp": {
+    "width": 1125,
+    "height": 2000,
+    "bytes": 229720
+  },
+  "sign-02.webp": {
+    "width": 1800,
+    "height": 563,
+    "bytes": 23692
+  },
+  "announcement-poster.webp": {
+    "width": 720,
+    "height": 1280,
+    "bytes": 40896
+  },
+  "announcement.mp4": {
+    "width": 720,
+    "height": 1280,
+    "duration": "13.952000",
+    "bytes": 941162
+  },
+  "after-party.mp4": {
+    "width": 1280,
+    "height": 720,
+    "duration": "7.479002",
+    "bytes": 2225283
+  },
+  "sign-03.webp": {
+    "width": 1800,
+    "height": 563,
+    "bytes": 14106
+  },
+  "metro-pass.webp": {
+    "width": 1400,
+    "height": 903,
+    "bytes": 78324
+  },
+  "sign-01.webp": {
+    "width": 1800,
+    "height": 563,
+    "bytes": 20444
+  },
+  "after-party-poster.webp": {
+    "width": 1280,
+    "height": 720,
+    "bytes": 16448
+  },
+  "room-setup-poster.webp": {
+    "width": 720,
+    "height": 1280,
+    "bytes": 4728
+  },
+  "presale.webp": {
+    "width": 701,
+    "height": 1400,
+    "bytes": 136660
+  },
+  "nfc-entry.mp4": {
+    "width": 720,
+    "height": 1280,
+    "duration": "7.436009",
+    "bytes": 1907001
+  }
+}

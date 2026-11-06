@@ -1,6 +1,7 @@
-"""Build the media-free PZ. COLLAPSE case study in Italian and English."""
+"""Build the PZ. COLLAPSE case study with original event media."""
 from pathlib import Path
 from html import escape
+import json
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -14,6 +15,18 @@ def build(lang):
     fonts = ''.join(f'@font-face{{font-family:"{family}";font-style:normal;font-weight:{weight};font-display:swap;src:url("/assets/fonts/{file}") format("woff2")}}' for family, weight, file in [('IBM Plex Mono',400,'ibm-plex-mono-400-10dee56a771c.woff2'),('Inter Tight',400,'inter-tight-400-e79c2a2c294d.woff2'),('Inter Tight',500,'inter-tight-500-4f629505454e.woff2'),('Inter Tight',600,'inter-tight-600-5b78c99e7cda.woff2')])
     def heading(n, label, title):
         return f'<div class="pz-section-head"><p class="pz-mono">{n} / {label}</p><h2>{title}</h2></div>'
+    media = json.loads((ROOT / 'scripts/project-sources/pz-collapse-assets.json').read_text())
+    def image(name, caption):
+        filename = name + '.webp'
+        m = media[filename]
+        return f'<figure class="pz-figure"><a href="/assets/pz-collapse/{filename}" target="_blank" rel="noopener"><img src="/assets/pz-collapse/{filename}" width="{m["width"]}" height="{m["height"]}" alt="{escape(caption, quote=True)}" loading="lazy" decoding="async"></a><figcaption class="pz-mono">{caption}</figcaption></figure>'
+    def video(name, caption):
+        m = media[name + '.mp4']
+        return f'<figure class="pz-figure"><video controls playsinline preload="none" width="{m["width"]}" height="{m["height"]}" poster="/assets/pz-collapse/{name}-poster.webp" aria-label="{escape(caption, quote=True)}"><source src="/assets/pz-collapse/{name}.mp4" type="video/mp4"><a href="/assets/pz-collapse/{name}.mp4">{caption}</a></video><figcaption class="pz-mono">{caption}</figcaption></figure>'
+    campaign = '<div class="pz-campaign">' + image('instagram-post',t('01 / Post Instagram — grafica originale','01 / Instagram post — original artwork')) + video('announcement',t('02 / Video annuncio della serata','02 / Event announcement film')) + image('instagram-story',t('03 / Story e copertina reel','03 / Story and reel cover')) + '</div>'
+    tickets = '<div class="pz-tickets">' + image('presale',t('01 / Prevendita cartacea — grafica originale','01 / Paper presale — original artwork')) + '<div>' + image('metro-pass',t('02 / Tessera abbonamento NFC — grafica originale','02 / NFC metro pass — original artwork')) + '</div></div><div class="pz-scan"><div><p class="pz-mono">NFC / PZ. COLLAPSE</p><h3>' + t('La tessera<br>in funzione.','The card<br>in use.') + '</h3><p>' + t('Il video originale mostra la lettura NFC della tessera: il riferimento all’abbonamento della metropolitana entra nel sistema di accesso alla serata.','The original video shows the card being read via NFC: the reference to a metro pass becomes part of the event entry system.') + '</p></div>' + video('nfc-entry',t('03 / Funzionamento della tessera NFC','03 / NFC card demonstration')) + '</div>'
+    signs = '<div class="pz-signs">' + ''.join(image('sign-0'+str(i),t('Insegna originale / ','Original sign / ')+str(i).zfill(2)) for i in range(1,4)) + '</div>'
+    room_films = '<div class="pz-room-films">' + video('room-setup',t('Prima della serata / Allestimento della sala','Before the event / Room setup')) + video('after-party',t('Durante la serata / Video originale','During the event / Original film')) + '</div>'
     roles = [
       ('01',t('Organizzazione','Organisation'),t('Gestione dell’evento, PR e coordinamento dei DJ.','Event management, PR and DJ coordination.')),
       ('02',t('Identità e social','Identity & social'),t('Disegno dell’identità visiva e dei contenuti per post e stories.','Visual identity design and content for posts and stories.')),
@@ -46,19 +59,20 @@ def build(lang):
 <nav class="pz-nav pz-mono" aria-label="{t('Capitoli del progetto','Project chapters')}">{nav}</nav>
 <section class="pz-section" id="identity">{heading('01',t('IDENTITÀ VISIVA','VISUAL IDENTITY'),t('Il linguaggio<br>della linea rossa.','The language<br>of the red line.'))}
 <div class="pz-section-copy"><p>{t('Rosso e bianco, grandi scritte e griglie di composizione visibili: l’identità riprende il linguaggio della metropolitana e lo porta dentro il Collapse Private Party.','Red and white, oversized lettering and visible composition grids: the identity draws on the language of the metro and brings it into Collapse Private Party.')}</p><p>{t('La comunicazione si muove fra formati digitali e supporti fisici. Post e stories annunciano la serata; prevendite, tessere e insegne accompagnano il pubblico fino alla sala.','The communication moves between digital formats and physical objects. Posts and stories announce the night; presales, cards and signs accompany guests into the room.')}</p></div>
-<!-- Original Instagram posts, stories and announcement film will be placed here after structure approval. -->
+{campaign}
 <div class="pz-identity" aria-label="{t('Composizione tipografica del progetto','Project typographic composition')}"><div><span class="pz-mono">PZ. COLLAPSE / 2025</span><p class="pz-word">PRIVATE<br>PARTY.</p><span class="pz-mono">FORMULA DISCOTEQUE</span></div><div class="pz-red-cell"><span class="pz-mono">{t('DATA','DATE')}</span><p class="pz-date">26<br>04</p><span class="pz-mono">2025</span></div><div><span class="pz-mono">{t('CODICE COLORE','COLOUR CODE')}</span><p class="pz-colors" aria-hidden="true"><i></i><i></i></p><span class="pz-mono">{t('ROSSO<br>BIANCO','RED<br>WHITE')}</span></div></div></section>
 <section class="pz-section" id="direction">{heading('02',t('DIREZIONE & PRODUZIONE','DIRECTION & PRODUCTION'),t('Un progetto.<br>Ogni passaggio.','One project.<br>Every step.'))}
 <div class="pz-section-copy"><p>{t('Ho gestito sia la parte organizzativa sia quella visiva: dal coordinamento delle persone alla realizzazione degli elementi che costruivano l’esperienza della serata.','I managed both the organisational and visual sides: from coordinating the people involved to producing the elements that shaped the experience of the night.')}</p><p>{t('L’identità non si fermava alla promozione. Proseguiva nei materiali stampati, nei gadget, nel sistema di accesso e nell’allestimento fisico del locale.','The identity extended beyond promotion into printed materials, merchandise, the entry system and the physical setup of the venue.')}</p></div><div class="pz-roles">{role_html}</div></section>
 <div class="pz-divider" aria-hidden="true"><span>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></div>
 <section class="pz-section" id="access">{heading('03',t('PREVENDITA & ACCESSO','PRESALE & ENTRY'),t('Il biglietto diventa<br>un abbonamento.','The ticket becomes<br>a metro pass.'))}
 <div class="pz-section-copy"><p>{t('Due oggetti distinti, due momenti dell’esperienza: la prevendita cartacea prima della serata e la tessera consegnata all’ingresso.','Two distinct objects, two moments in the experience: the paper presale before the night and the card handed out at the entrance.')}</p><p>{t('La tessera, simile a un abbonamento della metropolitana, veniva scannerizzata per accedere alla sala. Il gesto dell’ingresso faceva parte del concept.','The card, resembling a metro pass, was scanned to access the room. The act of entering was part of the concept.')}</p></div><div class="pz-journey">{step_html}</div>
-<!-- Add the original presale mockup only after approval: rigid coated cardstock, preserving the reference photograph's proportions. Then add the pass mockup and original scanning demonstration. -->
+{tickets}
+<!-- Presale mockup deferred at the user's request. Preserve the original proportions when added. -->
 </section>
 <section class="pz-section pz-room" id="room">{heading('04',t('ALLESTIMENTO & ORIENTAMENTO','SETUP & WAYFINDING'),t('La fermata<br>prende spazio.','The stop<br>takes shape.'))}
 <div class="pz-section-copy"><p>{t('Ho costruito e montato gli elementi dell’identità all’interno della sala. Il riferimento alla fermata della metro diventava un ambiente da attraversare, oltre che un’immagine da vedere.','I built and installed the identity elements inside the room. The metro stop reference became an environment to move through, as well as an image to see.')}</p><p>{t('Ho disegnato tre insegne da stampare e appendere nel locale come guida per le persone. Comunicazione e orientamento condividevano lo stesso linguaggio.','I designed three signs to be printed and hung inside the venue to guide guests. Communication and wayfinding shared the same visual language.')}</p></div>
 <div class="pz-room-grid"><div><strong>03</strong><span class="pz-mono">{t('INSEGNE / DISEGNO & STAMPA','SIGNS / DESIGN & PRINT')}</span></div><div><span class="pz-mono">PZ. COLLAPSE / FORMULA</span><h3>{t('Identità.<br>Spazio.<br>Persone.','Identity.<br>Space.<br>People.')}</h3><p>{t('Dai contenuti social agli elementi appesi nella sala: un unico progetto per raccontare la serata e accompagnare chi la viveva.','From social content to the elements hung inside the room: one project to communicate the night and guide the people experiencing it.')}</p></div></div>
-<!-- Add the three original signs, venue setup photos and film, then the event aftermovie after structure approval. -->
+{signs}{room_films}
 </section>
 <div class="pz-end pz-mono"><span>PZ. COLLAPSE / 26.04.2025</span><a href="{pre}/work/collapse/#archive">{t('TORNA A COLLAPSE','BACK TO COLLAPSE')} ↗</a></div>
 <section class="pz-credits" aria-labelledby="pz-credits"><h2 id="pz-credits" class="pz-mono">{t('CREDITI / PROGETTO','PROJECT CREDITS')}</h2><p><b>Filippo Mantini</b><br>{t('Organizzazione · PR e coordinamento DJ · Identità visiva · Comunicazione social · Disegno e ordine di gadget e ticket · Costruzione e montaggio dell’allestimento','Organisation · PR and DJ coordination · Visual identity · Social communication · Merchandise and ticket design and ordering · Venue setup construction and installation')}<br><br><b>COLLAPSE PRIVATE PARTY</b><br>Dukwa · Bannyblanco / Formula Discoteque, Città di Castello / 26.04.2025</p></section>
