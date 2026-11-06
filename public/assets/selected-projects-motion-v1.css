@@ -1,0 +1,12 @@
+/* Motion is scoped to the six selected projects. */
+@media(prefers-reduced-motion:no-preference){
+#work .project[data-project-motion] .project-title{transform:translate3d(var(--pm-title,0px),0,0);transition:color .2s}
+#work .project[data-project-motion] .project-visual img{transform:translate3d(0,var(--pm-image,0px),0) scale(1.045);transform-origin:center}
+#work .project[data-project-motion] .project-head,#work .project[data-project-motion] .project-bottom{transition:opacity .7s ease,translate .85s cubic-bezier(.2,.7,.2,1)}
+#work .project[data-project-motion].pm-wait .project-head{opacity:.15;translate:0 24px}
+#work .project[data-project-motion].pm-wait .project-bottom{opacity:.15;translate:0 18px}
+#work .project[data-project-motion] .project-visual{transition:clip-path 1s cubic-bezier(.2,.7,.2,1)}
+#work .project[data-project-motion].pm-wait .project-visual{clip-path:inset(4% 2% 4% 2%)}
+#work .project[data-project-motion].pm-in .project-visual{clip-path:inset(0)}
+}
+@media(hover:hover) and (pointer:fine){#work .project[data-project-motion]:hover .project-title{color:var(--orange)}}
